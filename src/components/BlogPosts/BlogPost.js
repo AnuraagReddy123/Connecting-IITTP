@@ -3,7 +3,7 @@ import classes from './BlogPost.module.css';
 
 export default function BlogPost() {
   return (
-    <div>
+    <div className={classes.posts}>
       <BlogCard />
       <BlogCard />
       <BlogCard />

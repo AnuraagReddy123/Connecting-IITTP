@@ -11,8 +11,6 @@ function BlogCard() {
         />
         <div class={classes.postInfo}>
           <span class={classes.postTitle}>Lorem ipsum dolor sit, amet</span>
-          <hr />
-          {/* <span className={classes.postData}></span> */}
         </div>
         <p className={classes.postDesc}>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
