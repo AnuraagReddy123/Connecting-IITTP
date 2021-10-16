@@ -5,6 +5,8 @@ import Authentication from './components/authentication';
 import { Route, Switch } from 'react-router';
 import BlogPage from './pages/BlogPage';
 import { BrowserRouter } from 'react-router-dom';
+import Buy from './components/Products/Buy';
+import Sell from './components/Products/Sell';
 
 function App() {
   return (
@@ -16,6 +18,12 @@ function App() {
         </Route>
         <Route path='/blogs'>
           <BlogPage />
+        </Route>
+        <Route path="/buy">
+          <Buy/>
+        </Route>
+        <Route path="/sell">
+          <Sell/>
         </Route>
       </Switch>
     </BrowserRouter>
