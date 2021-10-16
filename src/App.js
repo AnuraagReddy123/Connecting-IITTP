@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import Login from './components/signIn';
-import SignIn from './components/authentication';
-import Authentication from './components/authentication';
+import React from "react";
+import Authentication from "./components/authentication";
+import Travelling from "./webPages/travelling";
 
 function App() {
   return (
     // <Login/>
-    <Authentication/>
+    // <Authentication/>
+    <Travelling />
   );
 }
 

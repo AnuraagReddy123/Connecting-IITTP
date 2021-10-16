@@ -1,0 +1,14 @@
+.navbar {
+    height: 12vh;
+    background-color: wheat;
+}
+
+.categoryName {
+    text-align: center;
+    font-size: 35px;
+    font-style: italic;
+}
+
+.cardsList {
+    margin: 2vh;
+}
