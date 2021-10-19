@@ -1,13 +1,15 @@
 import React, { useState } from "react";
-import SignIn from "./signIn";
-import SignUp from "./signUp";
+import SignIn from "../components/signIn";
+import SignUp from "../components/signUp";
+import "./authentication.css"
 
 function Authentication() {
   const initialStateOfUserData = {
     firstName: "",
     lastName: "",
-    mobileNumber: "",
+    emailId: "",
     password: "",
+    username: "",
   };
 
   const initialStateOfotherData = {
@@ -19,9 +21,10 @@ function Authentication() {
   const initialStateOfValidity = {
     firstName: "",
     lastName: "",
-    mobileNumber: "",
+    emailId: "",
     password: "",
-  }
+    username: "",
+  };
 
   const [userData, setUserData] = useState(initialStateOfUserData);
   const [otherData, setOtherData] = useState(initialStateOfotherData);
@@ -38,7 +41,7 @@ function Authentication() {
       setOtherData({
         tabs: ["", "active"],
         signInOrUP: ["none", "none"],
-        btn: ["none", ""]
+        btn: ["none", ""],
       });
     }
     setUserData(initialStateOfUserData);
@@ -49,9 +52,9 @@ function Authentication() {
     const { value, name } = e.target;
     const newValidity = JSON.parse(JSON.stringify(validity));
 
-    if (name === "mobileNumber") {
-      if (value === "") newValidity["mobileNumber"] = " is-invalid";
-      else newValidity["mobileNumber"] = " is-valid";
+    if (name === "emailId") {
+      if (value === "") newValidity["emailId"] = " is-invalid";
+      else newValidity["emailId"] = " is-valid";
     }
     if (name === "firstName") {
       if (value === "") newValidity["firstName"] = " is-invalid";
@@ -65,6 +68,10 @@ function Authentication() {
       if (value === "") newValidity["password"] = " is-invalid";
       else newValidity["password"] = " is-valid";
     }
+    if (name === "username") {
+      if (value === "") newValidity["username"] = " is-invalid";
+      else newValidity["username"] = " is-valid";
+    }
 
     const newUserData = JSON.parse(JSON.stringify(userData));
     newUserData[name] = value;
@@ -76,19 +83,19 @@ function Authentication() {
   const handleSubmit = (e) => {
     if (
       (otherData.tabs[0] === "active" &&
-        (userData.mobileNumber === "" ||
+        (userData.emailId === "" ||
           userData.firstName === "" ||
           userData.lastName === "" ||
-          userData.password === "")) ||
+          userData.password === "" ||
+          userData.username === "")) ||
       (otherData.tabs[1] === "active" &&
-        (userData.mobileNumber === "" || userData.password === ""))
+        (userData.username === "" || userData.password === ""))
     )
       e.preventDefault();
     const newValidity = JSON.parse(JSON.stringify(validity));
 
-    if (userData.mobileNumber === "")
-      newValidity["mobileNumber"] = " is-invalid";
-    else newValidity["mobileNumber"] = " is-valid";
+    if (userData.emailId === "") newValidity["emailId"] = " is-invalid";
+    else newValidity["emailId"] = " is-valid";
 
     if (userData.firstName === "") newValidity["firstName"] = " is-invalid";
     else newValidity["firstName"] = " is-valid";
@@ -99,32 +106,42 @@ function Authentication() {
     if (userData.password === "") newValidity["password"] = " is-invalid";
     else newValidity["password"] = " is-valid";
 
+    if (userData.username === "") newValidity["username"] = " is-invalid";
+    else newValidity["username"] = " is-valid";
+
     setValidity(newValidity);
   };
 
   let loginType;
-  if(otherData.tabs[0] === "active"){
-    loginType = <SignUp handleChange={handleChange} handleSubmit={handleSubmit} userData={userData} validity={validity} />
-  }
-  else{
-    loginType = <SignIn handleChange={handleChange} handleSubmit={handleSubmit} userData={userData} validity={validity} />
+  if (otherData.tabs[0] === "active") {
+    loginType = (
+      <SignUp
+        handleChange={handleChange}
+        handleSubmit={handleSubmit}
+        userData={userData}
+        validity={validity}
+      />
+    );
+  } else {
+    loginType = (
+      <SignIn
+        handleChange={handleChange}
+        handleSubmit={handleSubmit}
+        userData={userData}
+        validity={validity}
+      />
+    );
   }
 
   return (
-    <div
-      className="card shadow p-3 mb-5 bg-white rounded"
-      style={{  width: "25%", marginTop: "5%", marginLeft: "38%", backgroundColor: "lightgray"}}
-    >
+    <div className="card shadow p-3 mb-5 bg-white rounded authenticationCard">
       <div className="card-header">
-        <ul
-          className="nav nav-tabs card-header-tabs"
-          style={{ alignItems: "center", justifyContent: "center", display: "flex"}}
-        >
-
+        <ul className="nav nav-tabs card-header-tabs tabHeader">
           <li className="nav-item">
             <a
-              className={"nav-link " + otherData.tabs[0]} href="#"
-              onClick={() => {handleTab(0);}}
+              className={"nav-link " + otherData.tabs[0]}
+              href="#"
+              onClick={() => { handleTab(0); }}
             >
               Sign Up
             </a>
@@ -134,18 +151,15 @@ function Authentication() {
             <a
               className={"nav-link " + otherData.tabs[1]}
               href="#"
-              onClick={() => {handleTab(1);}}
+              onClick={() => { handleTab(1); }}
             >
               Sign In
             </a>
           </li>
-          
         </ul>
       </div>
 
-      <form onSubmit={handleSubmit}>
-        {loginType}
-      </form>
+      <form onSubmit={handleSubmit}>{loginType}</form>
     </div>
   );
 }

@@ -1,0 +1,12 @@
+.signUpField {
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 3%;
+}
+
+.signUpBtn {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-top: 3%d;
+}
