@@ -1,0 +1,13 @@
+/* #mainNavbar{
+    background-color: rgb(131, 224, 224);
+}*/
+/* 
+.dropdown-menu{
+    background-color: black;
+    color: white;
+}  */
+
+.navbar.scrolled{
+    background: rgb(189, 250, 97);
+    transition: background 500ms;
+}
