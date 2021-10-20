@@ -3,6 +3,15 @@
     background-color: wheat;
 }
 
+.travellingCardLink {
+    color: black;
+    text-decoration: none;
+}
+
+.travellingCardLink:hover {
+    color:black;
+ }
+
 .categoryName {
     text-align: center;
     font-size: 35px;
