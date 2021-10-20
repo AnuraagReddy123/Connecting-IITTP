@@ -1,34 +1,33 @@
 import React, { useState } from "react";
+import "./signIn.css";
 
 function SignIn(props) {
   return (
     <div>
-      <div style={{ marginLeft: "5%", marginRight: "5%", marginTop: "3%" }}>
-        <label for="mobileNumber" className="form-label">
-          Mobile Number
+      <div className="signInField">
+        <label for="username" className="form-label">
+          Username
         </label>
         <input
-          type="number"
-          className={"form-control" + props.validity["mobileNumber"]}
-          id="validationCustom01"
-          name="mobileNumber"
+          type="text"
+          className={"form-control" + props.validity["username"]}
+          id="signInUsername"
+          name="username"
           onChange={props.handleChange}
-          value={props.userData.mobileNumber}
+          value={props.userData.username}
           required
         ></input>
-        <div className="invalid-feedback">
-          Please enter valid Mobile Number!
-        </div>
+        <div className="invalid-feedback">Please enter valid username!</div>
       </div>
 
-      <div style={{ marginLeft: "5%", marginRight: "5%", marginTop: "3%" }}>
+      <div className="signInField">
         <label for="password" className="form-label">
           Password
         </label>
         <input
           type="Password"
           className={"form-control" + props.validity["password"]}
-          id="exampleFormControlInput4"
+          id="signInPassword"
           name="password"
           onChange={props.handleChange}
           value={props.userData.password}
@@ -37,14 +36,7 @@ function SignIn(props) {
         <div className="invalid-feedback">Please enter Password!</div>
       </div>
 
-      <div
-        style={{
-          alignItems: "center",
-          justifyContent: "center",
-          display: "flex",
-          marginTop: "3%",
-        }}
-      >
+      <div className="signInBtn">
         <button
           onClick={props.handleSubmit}
           role="button"

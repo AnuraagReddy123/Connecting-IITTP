@@ -1,0 +1,13 @@
+.authenticationCard {
+    width: 25vw;
+    margin-top: 5vw;
+    margin-left: 38vw;
+    background-color: lightgray;
+    justify-content: center;
+}
+
+.tabHeader {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}

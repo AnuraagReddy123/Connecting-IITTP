@@ -1,15 +1,26 @@
 import React, { useState } from "react";
+import "./signUp.css";
 
 function SignUp(props) {
   return (
     <div>
-      <div
-        style={{
-          marginLeft: "5%",
-          marginRight: "5%",
-          marginTop: "3%",
-        }}
-      >
+      <div className="signUpField">
+        <label for="username" className="form-label">
+          Username
+        </label>
+        <input
+          type="text"
+          className={"form-control" + props.validity["username"]}
+          id="SignUpInput0"
+          name="username"
+          onChange={props.handleChange}
+          value={props.userData.username}
+          required
+        ></input>
+        <div className="invalid-feedback">Please enter valid username!</div>
+      </div>
+
+      <div className="signUpField">
         <label for="firstName" className="form-label">
           First name
         </label>
@@ -25,13 +36,7 @@ function SignUp(props) {
         <div className="invalid-feedback">Please enter yout First name!</div>
       </div>
 
-      <div
-        style={{
-          marginLeft: "5%",
-          marginRight: "5%",
-          marginTop: "3%",
-        }}
-      >
+      <div className="signUpField">
         <label for="lastName" className="form-label">
           Last name
         </label>
@@ -47,17 +52,17 @@ function SignUp(props) {
         <div className="invalid-feedback">Please enter your Last name!</div>
       </div>
 
-      <div style={{ marginLeft: "5%", marginRight: "5%", marginTop: "3%" }}>
-        <label for="mobileNumber" className="form-label">
-          Mobile Number
+      <div className="signUpField">
+        <label for="emailId" className="form-label">
+          Email Id
         </label>
         <input
-          type="number"
-          className={"form-control" + props.validity["mobileNumber"]}
+          type="email"
+          className={"form-control" + props.validity["emailId"]}
           id="validationCustom01"
-          name="mobileNumber"
+          name="emailId"
           onChange={props.handleChange}
-          value={props.userData.mobileNumber}
+          value={props.userData.emailId}
           required
         ></input>
         <div className="invalid-feedback">
@@ -65,13 +70,13 @@ function SignUp(props) {
         </div>
       </div>
 
-      <div style={{ marginLeft: "5%", marginRight: "5%", marginTop: "3%" }}>
+      <div className="signUpField">
         <label for="password" className="form-label">
           Password
         </label>
         <input
           type="Password"
-          className={"form-control" + props.validity["password"]}
+          className={"form-control mb-3" + props.validity["password"]}
           id="exampleFormControlInput4"
           name="password"
           onChange={props.handleChange}
@@ -81,14 +86,7 @@ function SignUp(props) {
         <div className="invalid-feedback">Please enter Password!</div>
       </div>
 
-      <div
-        style={{
-          alignItems: "center",
-          justifyContent: "center",
-          display: "flex",
-          marginTop: "3%",
-        }}
-      >
+      <div className="signUpBtn">
         <button
           onClick={props.handleSubmit}
           role="button"
@@ -97,7 +95,7 @@ function SignUp(props) {
         >
           Create Account
         </button>
-      </div>{" "}
+      </div>
     </div>
   );
 }
