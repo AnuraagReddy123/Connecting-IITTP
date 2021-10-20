@@ -92,6 +92,7 @@ function SignUp(props) {
           role="button"
           type="submit"
           className="btn btn-secondary"
+          name="signUpBtn"
         >
           Create Account
         </button>
