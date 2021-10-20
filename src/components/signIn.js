@@ -41,7 +41,7 @@ function SignIn(props) {
         <div className="invalid-feedback">Please enter Password!</div>
       </div>
 
-      <div className="signInBtn">
+      <div className="signInButton">
         <button
           onClick={props.handleSubmit}
           role="button"
@@ -53,6 +53,9 @@ function SignIn(props) {
         </button>
         <button
           onClick={() => signInWithGoogle(history)}
+          role="button"
+          type="submit"
+          className="btn btn-secondary signInG"
         >
         Log In with Google
         </button>
