@@ -2,3 +2,34 @@
     margin-top: 50px;
     display: flex;
 }
+
+.singlePostWrapper {
+    padding: 20px;
+    padding-right: 0;
+}
+
+.singlePostImage {
+    width: 60%;
+    height: 400px;
+    border-radius: 5px;
+}   
+
+.singlePostText {
+    margin-right: 25%;
+}
+
+.singlePostTitle {
+    font-family: 'Lora', serif;
+    font-size: 50px;
+}
+
+.singlePostInfo {
+    line-height: 1;
+    margin-top: 20px;
+    font-size: 25px;
+}
+
+.singlePostText {
+    line-height: 2;
+    font-size: 18px;
+}

@@ -22,13 +22,16 @@ function App() {
           <Authentication />
         </Route>
         <Route path='/blogs'>
-          <SingleBlog />
+          <BlogPage />
         </Route>
         <Route path='/buy'>
           <Buy />
         </Route>
         <Route path='/sell'>
           <Sell />
+        </Route>
+        <Route path='/singleBlog'>
+          <SingleBlog />
         </Route>
       </Switch>
     </BrowserRouter>

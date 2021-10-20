@@ -11,8 +11,43 @@ export default function SingleBlog() {
         />
         <h1 className={classes.singlePostTitle}>Lorem ipsum dolor sit amet.</h1>
         <div className={classes.singlePostInfo}>
-            <span className={classes.singlePostAuthor}>Author:  </span>
+          <p className={classes.singlePostAuthor}>
+            Author: <b>Anuraag</b>
+          </p>
+          <p className={classes.singlePostDate}>2hr ago</p>
         </div>
+        <p className={classes.singlePostText}>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae,
+          laborum ut? Vitae laudantium commodi ab quam ratione veniam soluta
+          ullam, culpa asperiores earum omnis, distinctio, saepe accusamus
+          aliquam quae exercitationem. Lorem, ipsum dolor sit amet consectetur
+          adipisicing elit. Vitae, laborum ut? Vitae laudantium commodi ab quam
+          ratione veniam soluta ullam, culpa asperiores earum omnis, distinctio,
+          saepe accusamus aliquam quae exercitationem. Lorem, ipsum dolor sit
+          amet consectetur adipisicing elit. Vitae, laborum ut? Vitae laudantium
+          commodi ab quam ratione veniam soluta ullam, culpa asperiores earum
+          omnis, distinctio, saepe accusamus aliquam quae exercitationem. Lorem,
+          ipsum dolor sit amet consectetur adipisicing elit. Vitae, laborum ut?
+          Vitae laudantium commodi ab quam ratione veniam soluta ullam, culpa
+          asperiores earum omnis, distinctio, saepe accusamus aliquam quae
+          exercitationem. Lorem, ipsum dolor sit amet consectetur adipisicing
+          elit. Vitae, laborum ut? Vitae laudantium commodi ab quam ratione
+          veniam soluta ullam, culpa asperiores earum omnis, distinctio, saepe
+          accusamus aliquam quae exercitationem. Lorem, ipsum dolor sit amet
+          consectetur adipisicing elit. Vitae, laborum ut? Vitae laudantium
+          commodi ab quam ratione veniam soluta ullam, culpa asperiores earum
+          omnis, distinctio, saepe accusamus aliquam quae exercitationem. Lorem,
+          ipsum dolor sit amet consectetur adipisicing elit. Vitae, laborum ut?
+          Vitae laudantium commodi ab quam ratione veniam soluta ullam, culpa
+          asperiores earum omnis, distinctio, saepe accusamus aliquam quae
+          exercitationem. Lorem, ipsum dolor sit amet consectetur adipisicing
+          elit. Vitae, laborum ut? Vitae laudantium commodi ab quam ratione
+          veniam soluta ullam, culpa asperiores earum omnis, distinctio, saepe
+          accusamus aliquam quae exercitationem. Lorem, ipsum dolor sit amet
+          consectetur adipisicing elit. Vitae, laborum ut? Vitae laudantium
+          commodi ab quam ratione veniam soluta ullam, culpa asperiores earum
+          omnis, distinctio, saepe accusamus aliquam quae exercitationem.
+        </p>
       </div>
     </div>
   );
