@@ -7,6 +7,7 @@ import BlogPage from './pages/Blog/BlogPage';
 import { BrowserRouter } from 'react-router-dom';
 import Buy from './components/Products/Buy';
 import Sell from './components/Products/Sell';
+import SingleBlog from './pages/Blog/SingleBlog';
 
 function App() {
   return (
@@ -21,7 +22,7 @@ function App() {
           <Authentication />
         </Route>
         <Route path='/blogs'>
-          <BlogPage />
+          <SingleBlog />
         </Route>
         <Route path='/buy'>
           <Buy />
