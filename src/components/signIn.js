@@ -42,6 +42,7 @@ function SignIn(props) {
           role="button"
           type="submit"
           className="btn btn-secondary"
+          name="signInBtn"
         >
           Login
         </button>
