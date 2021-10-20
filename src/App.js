@@ -1,13 +1,46 @@
-import React from "react";
-import Authentication from "./webPages/authentication";
-import Travelling from "./webPages/travelling";
-import Vehicle from "./webPages/vehicles";
+import React, { Component } from 'react';
+import Login from './components/signIn';
+import SignIn from './components/authentication';
+import Authentication from './components/authentication.js';
+import Navbar from './components/Navbar';
+import Homepage from './components/Homepage';
+
+/*
+function App() {
+  return (
+    <div>
+      <Navbar />
+      <div>
+        <Homepage />
+      </div>
+
+    </div>
+ */
+import { Route, Switch } from 'react-router';
+import BlogPage from './pages/BlogPage';
+import { BrowserRouter } from 'react-router-dom';
+import Buy from './components/Products/Buy';
+import Sell from './components/Products/Sell';
 
 function App() {
   return (
-    // <Travelling />
-    // <Vehicle/>
-    <Authentication/>
+    // <Login/>
+    <BrowserRouter>
+      <Switch>
+        <Route path='/' exact>
+          <Authentication />
+        </Route>
+        <Route path='/blogs'>
+          <BlogPage />
+        </Route>
+        <Route path="/buy">
+          <Buy/>
+        </Route>
+        <Route path="/sell">
+          <Sell/>
+        </Route>
+      </Switch>
+    </BrowserRouter>
   );
 }
 
