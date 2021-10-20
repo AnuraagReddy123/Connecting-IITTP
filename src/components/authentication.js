@@ -2,8 +2,14 @@ import React, { useState } from "react";
 import SignIn from "./signIn";
 import SignUp from "./signUp";
 import "./authentication.css"
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "@firebase/auth";
+import { auth } from "./firebase";
+import { useHistory } from "react-router";
 
 function Authentication() {
+
+  const history = useHistory();
+
   const initialStateOfUserData = {
     firstName: "",
     lastName: "",
@@ -29,6 +35,28 @@ function Authentication() {
   const [userData, setUserData] = useState(initialStateOfUserData);
   const [otherData, setOtherData] = useState(initialStateOfotherData);
   const [validity, setValidity] = useState(initialStateOfValidity);
+
+  const signUpWithEmail = () => {
+    createUserWithEmailAndPassword(auth,userData.emailId,userData.password)
+    .then((userCredential) => {
+      // Signed in
+      const user = userCredential.user;
+      //TODO: Store the user information in the database
+     history.push("/"); // send the user to the home page
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+  };
+
+  const logInWithEmail = () => {
+    signInWithEmailAndPassword(auth,userData.emailId,userData.password)
+    .then((_user) => {
+
+      history.push("/"); // send the user to the home page after logging in
+    })
+    .catch((error) => console.log(error));
+  };
 
   const handleTab = (tab) => {
     if (tab === 0) {
@@ -110,6 +138,17 @@ function Authentication() {
     else newValidity["username"] = " is-valid";
 
     setValidity(newValidity);
+    const {name} = e.target;
+    if(name === "signUpBtn") {
+        console.log("reaching here");
+        // TODO: Check if the user already exists using the username and email
+        signUpWithEmail();
+    }
+    else{
+      // TODO: Check if the user exists else signIn is not possible
+        logInWithEmail();
+    }
+
   };
 
   let loginType;
@@ -158,7 +197,6 @@ function Authentication() {
           </li>
         </ul>
       </div>
-
       <form onSubmit={handleSubmit}>{loginType}</form>
     </div>
   );
