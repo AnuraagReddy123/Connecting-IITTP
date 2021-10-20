@@ -1,7 +1,12 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router";
 import "./signUp.css";
+import { signInWithGoogle } from "./utils/auth";
 
 function SignUp(props) {
+
+  const history = useHistory();
+
   return (
     <div>
       <div className="signUpField">
@@ -92,8 +97,14 @@ function SignUp(props) {
           role="button"
           type="submit"
           className="btn btn-secondary"
+          name="signUpBtn"
         >
           Create Account
+        </button>
+        <button
+          onClick={() => signInWithGoogle(history)}
+        >
+          Sign Up With Google
         </button>
       </div>
     </div>
