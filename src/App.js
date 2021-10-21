@@ -7,6 +7,8 @@ import BlogPage from './pages/Blog/BlogPage';
 import { BrowserRouter } from 'react-router-dom';
 import Buy from './components/Products/Buy';
 import Sell from './components/Products/Sell';
+import SingleBlog from './pages/Blog/SingleBlog';
+import WriteBlog from './pages/Blog/WriteBlog';
 
 function App() {
   return (
@@ -28,6 +30,12 @@ function App() {
         </Route>
         <Route path='/sell'>
           <Sell />
+        </Route>
+        <Route path='/singleBlog'>
+          <SingleBlog />
+        </Route>
+        <Route path='/writeBlog'>
+          <WriteBlog />
         </Route>
       </Switch>
     </BrowserRouter>
