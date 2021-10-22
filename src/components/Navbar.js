@@ -2,7 +2,7 @@ import './navbar.css';
 const Navbar = () => {
     return (
         <nav id="mainNavbar" class="navbar navbar-dark bg-dark navbar-expand-md px-3 py-2 fixed-top">
-            <a className="navbar-brand" href="/"><i class="bi bi-apple"></i></a>
+            <a className="navbar-brand" href="/"><i>$ave Environment</i></a>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
             </button>
