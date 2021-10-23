@@ -22,19 +22,19 @@ function App() {
         <Route path='/' exact>
           <Authentication />
         </Route>
-        <Route path='/blogs'>
+        <Route path='/blogs' exact>
           <BlogPage />
         </Route>
-        <Route path='/buy'>
+        <Route path='/buy' exact>
           <Buy />
         </Route>
-        <Route path='/sell'>
+        <Route path='/sell' exact>
           <Sell />
         </Route>
-        <Route path='/singleBlog'>
+        <Route path='/singleBlog' exact>
           <SingleBlog />
         </Route>
-        <Route path='/writeBlog'>
+        <Route path='/writeBlog' exact>
           <WriteBlog />
         </Route>
       </Switch>

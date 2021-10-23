@@ -42,7 +42,7 @@ function Authentication() {
       // Signed in
       const user = userCredential.user;
       //TODO: Store the user information in the database
-     history.push("/"); // send the user to the home page
+     history.push("/home"); // send the user to the home page
     })
     .catch((error) => {
       console.log(error)
@@ -53,7 +53,7 @@ function Authentication() {
     signInWithEmailAndPassword(auth,userData.emailId,userData.password)
     .then((_user) => {
 
-      history.push("/"); // send the user to the home page after logging in
+      history.push("/home"); // send the user to the home page after logging in
     })
     .catch((error) => console.log(error));
   };
@@ -140,7 +140,6 @@ function Authentication() {
     setValidity(newValidity);
     const {name} = e.target;
     if(name === "signUpBtn") {
-        console.log("reaching here");
         // TODO: Check if the user already exists using the username and email
         signUpWithEmail();
     }
