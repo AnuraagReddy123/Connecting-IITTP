@@ -1,0 +1,29 @@
+.changepwd {
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 3%;
+    height: 31px;
+}
+
+.okbtn {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-top: 3%d;
+}
+.paddingLabelClass{
+    margin-left: 10px;
+    margin-top: 5px;;
+}
+.Fieldswidthclass{
+    width:95% !important;
+}
+.PaddingtopClass{
+    margin-top: 16px !important;
+}
+.Label-text{
+    margin-bottom: 4px;
+}
+.space-pwd {
+    padding: 10px;
+}
