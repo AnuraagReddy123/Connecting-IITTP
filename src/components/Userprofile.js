@@ -1,5 +1,5 @@
 import React from 'react'
-import ProfilePic from './profilepic1.png';
+import ProfilePic from '../profilepic1.png';
 import { useHistory } from "react-router";
 import './UserProfile.css';
 
