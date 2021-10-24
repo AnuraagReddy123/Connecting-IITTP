@@ -61,7 +61,6 @@ function Authentication() {
   const logInWithEmail = () => {
     signInWithEmailAndPassword(auth,userData.emailId,userData.password)
     .then((_user) => {
-      
       history.push("/home"); // send the user to the home page after logging in
     })
     .catch((error) => console.log(error));
