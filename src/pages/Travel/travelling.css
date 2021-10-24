@@ -3,12 +3,12 @@
     background-color: wheat;
 }
 
-.travellingCardLink {
+.vehicleCardLink {
     color: black;
     text-decoration: none;
 }
 
-.travellingCardLink:hover {
+.vehicleCardLink:hover {
     color:black;
  }
 

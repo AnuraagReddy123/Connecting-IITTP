@@ -1,0 +1,27 @@
+.foodNavbar {
+    height: 12vh;
+    background-color: wheat;
+}
+
+.foodWasteCardLink {
+    color: black;
+    text-decoration: none;
+}
+
+.foodWasteCardLink:hover {
+    color:black;
+ }
+
+.categoryName {
+    text-align: center;
+    font-size: 35px;
+    font-style: italic;
+}
+
+.cardsList {
+    margin: 2vh;
+}
+
+.card1 {
+    cursor: pointer;
+}
