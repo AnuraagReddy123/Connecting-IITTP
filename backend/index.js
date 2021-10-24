@@ -6,30 +6,28 @@ const PORT = 4000;
 app.use(cors());
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
-const blogRouter = express.Router();
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://127.0.0.1:27017/blogs",{
-    useNewURLParser: true
-});
-
 const connection = mongoose.connection;
 connection.once("open",() => {
     console.log("Connection with MongoDB was successful");
 });
+app.listen(PORT,() => {
+    console.log("Server is running on Port: " + PORT);
+});
 
-let Blog = require("./Models/blog-model");
-
-blogRouter.route("/").get((req,res) => {
+const blogConnection = mongoose.createConnection("mongodb://127.0.0.1:27017/blogs");
+const blogRouter = express.Router();
+const Blog = blogConnection.model('Blog',require("./Schemas/blog-schema"));
+blogRouter.route("/").get((request,response) => {
     Blog.find((error,blogs) => {
         if(error){
             console.log(error);
         }
         else{
-            res.json(blogs);
+            response.json(blogs);
         }
     });
 });
-
 // fetching a blog through a unique id
 blogRouter.route("/:id").get((request,response) => {
     let id = request.params.id;
@@ -37,7 +35,6 @@ blogRouter.route("/:id").get((request,response) => {
         response.json(blog);
     });
 });
-
 // add the blog to the database
 blogRouter.route("/saveBlog").post((request,response) => {
     console.log(request.body);
@@ -50,8 +47,29 @@ blogRouter.route("/saveBlog").post((request,response) => {
         response.status(400).send('adding new blog failed');
     });
 });
-
 app.use("/blogs",blogRouter);
-app.listen(PORT,() => {
-    console.log("Server is running on Port: " + PORT);
+const userRouter = express.Router();
+const userConnection = mongoose.createConnection("mongodb://127.0.0.1:27017/users")
+const User = userConnection.model('User',require("./Schemas/user-schema"));
+userRouter.route("/").get((request,response) => {
+    User.find((error,users) => {
+        if(error) {
+            console.log(error);
+        }
+        else{
+            response.json(users);
+        }
+    });
 });
+// add the user to the database
+userRouter.route("/saveUser").post((request,response) => {
+    const user = new User(request.body);
+    user.save()
+    .then((_user) => {
+        response.status(200).json({'user': 'user added successfully'});
+    })
+    .catch((error) => {
+        response.status(400).send('adding new user failed');
+    })
+});
+app.use("/users",userRouter);

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Authentication from './components/authentication';
 import Navbar from './components/Navbar';
 import Homepage from './components/Homepage';
@@ -11,6 +11,7 @@ import SingleBlog from './pages/Blog/SingleBlog';
 import WriteBlog from './pages/Blog/WriteBlog';
 
 function App() {
+
   return (
     // <Login/>
     <BrowserRouter>

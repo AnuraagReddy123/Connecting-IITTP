@@ -17,7 +17,7 @@ export default function BlogPost() {
       .catch((err) => console.log(err));
     };
     fetchBlogs();// fetch the blogs from the database
-  }, [])
+  },)
 
   return (
     <div className={classes.posts}>

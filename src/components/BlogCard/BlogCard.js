@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import classes from './BlogCard.module.css';
 
 function BlogCard({id,text,title}) {
