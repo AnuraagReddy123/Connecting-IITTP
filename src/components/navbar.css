@@ -1,6 +1,7 @@
-/* #mainNavbar{
-    background-color: rgb(131, 224, 224);
-}*/
+#mainNavbar{
+    /* background-color: rgb(131, 224, 224); */
+    height: 7vh;
+}
 /* 
 .dropdown-menu{
     background-color: black;

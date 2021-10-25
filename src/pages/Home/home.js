@@ -16,7 +16,7 @@ function Home(props) {
             <div>
               <nav className="navbar navbar-light homeCategoryNavbar">
                 <div className="container-fluid">
-                  <span className="categoryName">Home</span>
+                  <h4 className="categoryName">Home</h4>
                 </div>
               </nav>
 
