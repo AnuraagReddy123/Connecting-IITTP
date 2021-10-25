@@ -16,7 +16,7 @@ function Shopping(props) {
             <div>
               <nav className="navbar navbar-light shoppingNavbar">
                 <div className="container-fluid">
-                  <span className="categoryName">Shopping</span>
+                  <h4 className="categoryName">Shopping</h4>
                 </div>
               </nav>
 

@@ -1,7 +1,8 @@
 .compostingNavbar {
     background-color: lavenderblush;
     margin-bottom: 2vh;
-    height: 10vh;
+    margin-top: 7vh;
+    height: 8vh;
 }
 
 .subCategoryName {
@@ -11,12 +12,12 @@
 }
 
 .compostingTips{
-    height: 86vh;
+    height: 81vh;
     overflow-y: auto;
 }
 
 .compostingImpacts {
-    height: 86vh;
+    height: 81vh;
     overflow-y: auto;
 }
 

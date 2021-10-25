@@ -16,7 +16,7 @@ function Food(props) {
             <div>
               <nav className="navbar navbar-light foodNavbar">
                 <div className="container-fluid">
-                  <span className="categoryName">Food</span>
+                  <h4 className="categoryName">Food</h4>
                 </div>
               </nav>
 
@@ -26,7 +26,7 @@ function Food(props) {
                     <Link to="/food/reduceFoodWasteAtHome" className="foodWasteCardLink">
                       <CategoryCard
                         cardName="Reduce Food Waste At Home"
-                        cardText="lkgoiuew ierbiwue ejkrbIU sknFBOA KLSFI jko."
+                        cardText="Food is too good to waste, and yet one third of food produced for human consumption is wasted or lost globally."
                         cardImageLink={foodWasteImage}
                       />
                     </Link>
