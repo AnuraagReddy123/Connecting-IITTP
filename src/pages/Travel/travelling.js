@@ -17,18 +17,17 @@ function Travelling(props) {
             <div>
               <nav className="navbar navbar-light travellingNavbar">
                 <div className="container-fluid">
-                  <span className="categoryName">Travelling</span>
+                  <h4 className="categoryName">Travelling</h4>
                 </div>
               </nav>
-
+                
               <div className="container-fluid cardsList">
                 <div className="row">
                   <div className="col-md-3 card1">
                     <Link to="/travelling/vehicles" className="vehicleCardLink">
                       <CategoryCard
                         cardName="No personal vehicle"
-                        cardText="Some quick example text to build on the card title and make up the
-          bulk of the card's content."
+                        cardText="Know how much money you can save by avoiding personal vehicles and see some reliable ways to reduce your fuel consumption."
                         cardImageLink = {vehicleImage}
                       />
                     </Link>
