@@ -1,0 +1,26 @@
+.foodWasteNavbar {
+    background-color: lavenderblush;
+    margin-bottom: 2vh;
+    height: 10vh;
+}
+
+.subCategoryName {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: x-large;
+    
+}
+
+.foodWasteTips{
+    height: 86vh;
+    overflow-y: auto;
+}
+
+.foodWasteImpacts {
+    height: 86vh;
+    overflow-y: auto;
+}
+
+.foodWasteContent {
+    font-size: large;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}

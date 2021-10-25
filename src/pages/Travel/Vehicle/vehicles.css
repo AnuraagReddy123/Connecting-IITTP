@@ -1,0 +1,38 @@
+.vehicleNavbar {
+    background-color: lavenderblush;
+    margin-bottom: 2vh;
+    height: 10vh;
+}
+
+.subCategoryName {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: x-large;
+    
+}
+
+.calculations {
+    height: 54vh;
+    margin-bottom: 2vh;
+    margin-left: 1vw;
+    overflow-y: auto;
+}
+
+.calculateBtn {
+    margin-top: 1vw;
+    margin-bottom: 3vw;
+    align-self: center;
+}
+
+.tips {
+    height: 30vh;
+    margin-bottom: 2vh;
+    margin-left: 1vw;
+    overflow-y: auto;
+}
+
+.vehicleImpacts {
+    height: 86vh;
+    width: 47vw;
+    margin-left: 1vw;
+    overflow-y: auto;
+}
