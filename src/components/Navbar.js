@@ -15,6 +15,9 @@ const Navbar = () => {
                         <a className="nav-link active" href="/blogs">Blog</a>
                     </li>
                     <li class="nav-item">
+                        <a className="nav-link active" href="/writeBlog">Add Blog</a>
+                    </li>
+                    <li class="nav-item">
                         <a className="nav-link active" href="/userprofile">Profile</a>
                     </li>
                     <li className="nav-item dropdown active">
@@ -22,10 +25,11 @@ const Navbar = () => {
                             Categories
                         </a>
                         <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a className="dropdown-item" href="/">Travelling</a></li>
+                            <li><a className="dropdown-item" href="/travelling">Travelling</a></li>
                             <li><a className="dropdown-item" href="/electricity">Electricity</a></li>
                             <li><a className="dropdown-item" href="/food">Food</a></li>
                             <li><a className="dropdown-item" href="/shopping">Shopping</a></li>
+                            <li><a className="dropdown-item" href="/homeCategory">Home</a></li>
                             {/* <li><a className="dropdown-item" href="/">Food</a></li> */}
                         </ul>
                     </li>

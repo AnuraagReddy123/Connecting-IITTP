@@ -28,8 +28,8 @@ function App() {
         <Route path='/' exact>
           <Homepage />
         </Route>
-        <Route path='/home0'>
-          <Homepage0 />
+        <Route path='/homeCategory'>
+          <Home />
         </Route>
         <Route path='/authentication'>
           <Authentication />
