@@ -1,7 +1,7 @@
 import React from 'react';
 import Authentication from './components/authentication';
 import Navbar from './components/Navbar';
-import Homepage from './pages/Homepage/Homepage'
+import Homepage from './pages/Homepage/Homepage';
 import { Route, Switch } from 'react-router';
 import BlogPage from './pages/Blog/BlogPage';
 import { BrowserRouter } from 'react-router-dom';
@@ -14,17 +14,14 @@ import Electricity from './pages/Energy/Electricity/Electricity';
 import Shopping from './pages/Shopping/shopping';
 import Travelling from './pages/Travel/travelling';
 
-
 import Pwdchange from './components/pwdchange';
 import Userprofile from './components/Userprofile';
-
 
 import Home from './pages/Home/home';
 
 import Food from './pages/Food/food';
 
 function App() {
-
   return (
     <BrowserRouter>
       <Navbar />
@@ -60,21 +57,20 @@ function App() {
           <WriteBlog />
         </Route>
         <Route path='/shopping'>
-        <Shopping/>
+          <Shopping />
         </Route>
         <Route path='/travelling'>
-        <Travelling/>
+          <Travelling />
         </Route>
         <Route path='/food'>
-        <Food/>
+          <Food />
         </Route>
         <Route path='/pwdchange'>
-        <Pwdchange/>
+          <Pwdchange />
         </Route>
-        <Route path='/Userprofile'>
-        <Userprofile/>
+        <Route path='/userprofile'>
+          <Userprofile />
         </Route>
-
       </Switch>
     </BrowserRouter>
   );
