@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useHistory } from "react-router";
 import "./signUp.css";
 import { signInWithGoogle } from "./utils/auth";

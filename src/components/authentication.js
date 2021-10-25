@@ -5,6 +5,7 @@ import "./authentication.css"
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "@firebase/auth";
 import { auth } from "./firebase";
 import { useHistory } from "react-router";
+import axios from "axios";
 
 function Authentication() {
 
@@ -37,23 +38,30 @@ function Authentication() {
   const [validity, setValidity] = useState(initialStateOfValidity);
 
   const signUpWithEmail = () => {
-    createUserWithEmailAndPassword(auth,userData.emailId,userData.password)
-    .then((userCredential) => {
-      // Signed in
-      const user = userCredential.user;
-      //TODO: Store the user information in the database
-     history.push("/"); // send the user to the home page
+    // Signed up
+    const user = {
+      username: userData.username,
+      firstName: userData.firstName,
+      lastName: userData.lastName,
+      email: userData.emailId,
+    }
+    // store the user information in the database
+    axios.post("http://localhost:4000/users/saveUser",user)
+    .then((res) => console.log(res.data))
+    .then(() => {
+      createUserWithEmailAndPassword(auth,userData.emailId,userData.password)
+      .catch((error) => {
+        console.log(error)
+      })
     })
-    .catch((error) => {
-      console.log(error)
-    })
+    .catch((error) => console.log(error))
+    history.push("/home");// send user to the home page
   };
 
   const logInWithEmail = () => {
     signInWithEmailAndPassword(auth,userData.emailId,userData.password)
     .then((_user) => {
-
-      history.push("/"); // send the user to the home page after logging in
+      history.push("/home"); // send the user to the home page after logging in
     })
     .catch((error) => console.log(error));
   };
@@ -140,7 +148,6 @@ function Authentication() {
     setValidity(newValidity);
     const {name} = e.target;
     if(name === "signUpBtn") {
-        console.log("reaching here");
         // TODO: Check if the user already exists using the username and email
         signUpWithEmail();
     }
