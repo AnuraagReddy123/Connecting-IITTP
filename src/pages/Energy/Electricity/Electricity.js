@@ -9,7 +9,7 @@ const Electricity = () => {
             <div className="container">
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio ipsa nesciunt natus ullam tempore quibusdam ab cum quos, voluptatum itaque beatae nobis dicta est quam dolor officiis, molestias, illum ex?</p>
             </div>
-            <div class="card my-5">
+            <div class="card my-5 elecCard">
                 <div class="card-body">
                     <form action="">
                         <label htmlFor="" className="form-label">New Electricity Bill :</label>

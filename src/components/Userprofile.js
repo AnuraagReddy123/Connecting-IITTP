@@ -10,7 +10,7 @@ function Userprofile() {
     <div>
       <div className='userProfileStylesClass'>
         <h2>User Profile</h2>
-        <div class='card'>
+        <div class='card userprofile'>
           <img src={ProfilePic} className='profilewidthclass' alt='userimg' />
           <div className='row'>
             <div className='col-md-6 col-xs-12 form-group textAlignClass'>
