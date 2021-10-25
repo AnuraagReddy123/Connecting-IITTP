@@ -43,7 +43,7 @@ function Pwdchange(props) {
                         </div>
                         <div className="invalid-feedback">Please enter Password!</div>
                         <div className="okbtn">
-                            <button onClick={navigateTo}>
+                            <button onClick={()=>history.push('/Userprofile')}>
                                 OK
                             </button>
                         </div>
