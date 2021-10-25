@@ -29,7 +29,7 @@ function Home(props) {
                     >
                       <CategoryCard
                         cardName="Composting"
-                        cardText="lkgoiuew ierbiwue ejkrbIU sknFBOA KLSFI jko."
+                        cardText="Composting takes food scraps, plants, and other organic matter and returns it to the earth to create a nutrient rich soil. And, it’s awesome for the planet."
                         cardImageLink={compostingImage}
                       />
                     </Link>
