@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Authentication from './components/authentication';
 import Navbar from './components/Navbar';
 import Homepage from './pages/Homepage/Homepage'
@@ -11,11 +11,14 @@ import SingleBlog from './pages/Blog/SingleBlog';
 import WriteBlog from './pages/Blog/WriteBlog';
 import Homepage0 from './pages/Homepage/Homepage0';
 import Electricity from './pages/Energy/Electricity/Electricity';
-// import Travelling from './pages/Travel/travelling';
+import Shopping from './pages/Shopping/shopping';
+import Travelling from './pages/Travel/travelling';
+
+import Food from './pages/Food/food';
 
 function App() {
+
   return (
-    // <Login/>
     <BrowserRouter>
       <Navbar />
       <Switch>
@@ -48,6 +51,15 @@ function App() {
         </Route>
         <Route path='/writeBlog'>
           <WriteBlog />
+        </Route>
+        <Route path='/shopping'>
+        <Shopping/>
+        </Route>
+        <Route path='/travelling'>
+        <Travelling/>
+        </Route>
+        <Route path='/food'>
+        <Food/>
         </Route>
       </Switch>
     </BrowserRouter>

@@ -44,7 +44,6 @@ function SignIn(props) {
       <div className="signInButton">
         <button
           onClick={props.handleSubmit}
-          role="button"
           type="submit"
           className="btn btn-secondary"
           name="signInBtn"
@@ -53,7 +52,6 @@ function SignIn(props) {
         </button>
         <button
           onClick={() => signInWithGoogle(history)}
-          role="button"
           type="submit"
           className="btn btn-secondary signInG"
         >

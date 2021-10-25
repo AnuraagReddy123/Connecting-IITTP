@@ -1,6 +1,7 @@
 import classes from './BlogCard.module.css';
 
-function BlogCard() {
+function BlogCard({id,text,title}) {
+
   return (
     <div>
       <div className={classes.post}>
@@ -10,21 +11,10 @@ function BlogCard() {
           alt=''
         />
         <div class={classes.postInfo}>
-          <span class={classes.postTitle}>Lorem ipsum dolor sit, amet</span>
+          <span class={classes.postTitle}>{title}</span>
         </div>
         <p className={classes.postDesc}>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
-          mollitia quibusdam numquam doloribus ullam vero libero est soluta
-          voluptas, animi reiciendis quisquam itaque expedita ratione dolor
-          ducimus quo, aspernatur suscipit.
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
-          mollitia quibusdam numquam doloribus ullam vero libero est soluta
-          voluptas, animi reiciendis quisquam itaque expedita ratione dolor
-          ducimus quo, aspernatur suscipit.
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
-          mollitia quibusdam numquam doloribus ullam vero libero est soluta
-          voluptas, animi reiciendis quisquam itaque expedita ratione dolor
-          ducimus quo, aspernatur suscipit.
+          {text}
         </p>
       </div>
     </div>
