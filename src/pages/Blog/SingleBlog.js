@@ -1,6 +1,7 @@
 import classes from './SingleBlog.module.css';
 
 export default function SingleBlog() {
+
   return (
     <div className={classes.single}>
       <div className={classes.singlePostWrapper}>
@@ -9,7 +10,7 @@ export default function SingleBlog() {
           alt=''
           class={classes.singlePostImage}
         />
-        <h1 className={classes.singlePostTitle}>Lorem ipsum dolor sit amet.</h1>
+        <h1 className={classes.singlePostTitle}>Lorem ipsum dolor sit amet</h1>
         <div className={classes.singlePostInfo}>
           <p className={classes.singlePostAuthor}>
             Author: <b>Anuraag</b>

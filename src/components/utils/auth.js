@@ -6,9 +6,9 @@ const provider = new GoogleAuthProvider();
 export const signInWithGoogle = (history) => {
     signInWithPopup(auth,provider)
     .then((result) => {
-        const user = result.user;
+        // const user = result.user;
         // TODO: check if user exists already, if yes, log in else sign up by storing the user information
-        history.push("/");
+        history.push("/home");
     })
     .catch((error) => console.log(error));
 }
