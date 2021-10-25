@@ -9,37 +9,43 @@ import Buy from './components/Products/Buy';
 import Sell from './components/Products/Sell';
 import SingleBlog from './pages/Blog/SingleBlog';
 import WriteBlog from './pages/Blog/WriteBlog';
+import Shopping from './pages/Shopping/shopping';
+import Travelling from './pages/Travel/travelling';
+
+import Food from './pages/Food/food';
 
 function App() {
 
   return (
-    // <Login/>
-    <BrowserRouter>
-      <Navbar />
-      <Switch>
-        <Route path='/home' exact>
-          <Homepage />
-        </Route>
-        <Route path='/' exact>
-          <Authentication />
-        </Route>
-        <Route path='/blogs' exact>
-          <BlogPage />
-        </Route>
-        <Route path='/buy' exact>
-          <Buy />
-        </Route>
-        <Route path='/sell' exact>
-          <Sell />
-        </Route>
-        <Route path='/singleBlog' exact>
-          <SingleBlog />
-        </Route>
-        <Route path='/writeBlog' exact>
-          <WriteBlog />
-        </Route>
-      </Switch>
-    </BrowserRouter>
+    // <BrowserRouter>
+    //   <Navbar />
+    //   <Switch>
+    //     <Route path='/home' exact>
+    //       <Homepage />
+    //     </Route>
+    //     <Route path='/' exact>
+    //       <Authentication />
+    //     </Route>
+    //     <Route path='/blogs'>
+    //       <BlogPage />
+    //     </Route>
+    //     <Route path='/buy'>
+    //       <Buy />
+    //     </Route>
+    //     <Route path='/sell'>
+    //       <Sell />
+    //     </Route>
+    //     <Route path='/singleBlog'>
+    //       <SingleBlog />
+    //     </Route>
+    //     <Route path='/writeBlog'>
+    //       <WriteBlog />
+    //     </Route>
+    //   </Switch>
+    // </BrowserRouter>
+    // <Shopping/>
+    // <Travelling/>
+    <Food/>
   );
 }
 
