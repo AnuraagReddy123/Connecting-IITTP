@@ -1,0 +1,28 @@
+.shShoppingNavbar {
+    background-color: lavenderblush;
+    margin-bottom: 2vh;
+    height: 10vh;
+}
+
+.subCategoryName {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: x-large;
+    
+}
+
+.shShoppingTips{
+    height: 86vh;
+    overflow-y: auto;
+}
+
+.shShoppingImpacts {
+    height: 86vh;
+    overflow-y: auto;
+    /* width: 47vw; */
+    /* margin-left: 1vw; */
+}
+
+.shShoppingContent {
+    font-size: large;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
