@@ -6,7 +6,7 @@ import './Userprofile.css';
 function Userprofile() {
 
     const history = useHistory();
-    const navigateTo = () => history.push('/changepwd');
+    // const navigateTo = () => history.push('/changepwd');
  return (
      <div>
           <div className="userProfileStylesClass"> 

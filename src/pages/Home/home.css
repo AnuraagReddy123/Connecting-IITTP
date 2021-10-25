@@ -1,0 +1,27 @@
+.homeCategoryNavbar {
+    height: 12vh;
+    background-color: wheat;
+}
+
+.compostingLink {
+    color: black;
+    text-decoration: none;
+}
+
+.compostingLink:hover {
+    color:black;
+ }
+
+.categoryName {
+    text-align: center;
+    font-size: 35px;
+    font-style: italic;
+}
+
+.cardsList {
+    margin: 2vh;
+}
+
+.card1 {
+    cursor: pointer;
+}
