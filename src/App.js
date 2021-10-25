@@ -11,7 +11,14 @@ import SingleBlog from './pages/Blog/SingleBlog';
 import WriteBlog from './pages/Blog/WriteBlog';
 import Shopping from './pages/Shopping/shopping';
 import Travelling from './pages/Travel/travelling';
+
+
+import Pwdchange from './components/pwdchange';
+import Userprofile from './components/Userprofile';
+
+
 import Home from './pages/Home/home';
+
 import Food from './pages/Food/food';
 
 function App() {
@@ -50,6 +57,13 @@ function App() {
         <Route path='/food'>
         <Food/>
         </Route>
+        <Route path='/pwdchange'>
+        <Pwdchange/>
+        </Route>
+        <Route path='/Userprofile'>
+        <Userprofile/>
+        </Route>
+
       </Switch>
     </BrowserRouter>
   );
