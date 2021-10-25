@@ -19,7 +19,7 @@ There is a blog page where you can share your thoughts, ideas with the world reg
 
 There is a buying and selling page where you can buy or sell items at minimal costs which ultimately saves your money and also the environment.
 
-There is a home page which gives some tips about how to save the environment  like composting.
+There is a home page which gives some tips about how to save the environment .
 
 There are ideas pages which include Food, traveling, Electricity, shopping.
 
