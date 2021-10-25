@@ -11,6 +11,7 @@ import SingleBlog from './pages/Blog/SingleBlog';
 import WriteBlog from './pages/Blog/WriteBlog';
 import Homepage0 from './pages/Homepage/Homepage0';
 import Electricity from './pages/Energy/Electricity/Electricity';
+// import Travelling from './pages/Travel/travelling';
 
 function App() {
   return (
@@ -18,17 +19,20 @@ function App() {
     <BrowserRouter>
       <Navbar />
       <Switch>
-        <Route path='/home' exact>
+        <Route path='/' exact>
           <Homepage />
         </Route>
-        <Route path='/home0' exact>
+        <Route path='/home0'>
           <Homepage0 />
         </Route>
-        <Route path='/electricity' exact>
-          <Electricity />
-        </Route>
-        <Route path='/' exact>
+        <Route path='/authentication'>
           <Authentication />
+        </Route>
+        {/* <Route path = '/travelling'>
+          <Travelling />
+        </Route> */}
+        <Route path='/electricity'>
+          <Electricity />
         </Route>
         <Route path='/blogs'>
           <BlogPage />

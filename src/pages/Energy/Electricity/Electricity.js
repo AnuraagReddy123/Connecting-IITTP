@@ -1,6 +1,9 @@
 import "./electricity.css";
 
 const Electricity = () => {
+    const handleSave = () =>{
+        
+    }
     return (
         <div id="electricity">
             <div className="container">
@@ -11,7 +14,7 @@ const Electricity = () => {
                     <form action="">
                         <label htmlFor="" className="form-label">New Electricity Bill :</label>
                         <input type="text" className="form-control" placeholder = "Enter new electricity bill" />
-                        <button type="submit" class="btn btn-primary mt-2">Save</button>
+                        <button type="submit" class="btn btn-primary mt-2 py-1" onClick = {handleSave}>Save</button>
                     </form>
                 </div>
             </div>

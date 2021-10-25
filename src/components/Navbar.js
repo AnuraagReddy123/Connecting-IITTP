@@ -9,15 +9,27 @@ const Navbar = () => {
             <div className="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul className="navbar-nav">
                     <li className="nav-item">
-                        <a className="nav-link active" aria-current="page" href="#">Home</a>
+                        <a className="nav-link active" aria-current="page" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a className="nav-link" href="#">Blog</a>
+                        <a className="nav-link active" href="/blogs">Blog</a>
                     </li>
                     <li class="nav-item">
-                        <a className="nav-link" href="#">Link</a>
+                        <a className="nav-link active" href="/">Profile</a>
                     </li>
-                    <li className="nav-item dropdown">
+                    <li className="nav-item dropdown active">
+                        <a className="nav-link active dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Categories
+                        </a>
+                        <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a className="dropdown-item" href="/">Travelling</a></li>
+                            <li><a className="dropdown-item" href="/electricity">Electricity</a></li>
+                            <li><a className="dropdown-item" href="/food">Food</a></li>
+                            <li><a className="dropdown-item" href="/shopping">Shopping</a></li>
+                            {/* <li><a className="dropdown-item" href="/">Food</a></li> */}
+                        </ul>
+                    </li>
+                    {/* <li className="nav-item dropdown">
                         <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Dropdown link
                         </a>
@@ -26,17 +38,7 @@ const Navbar = () => {
                             <li><a className="dropdown-item" href="#">Another action</a></li>
                             <li><a className="dropdown-item" href="#">Something else here</a></li>
                         </ul>
-                    </li>
-                    <li className="nav-item dropdown">
-                        <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Dropdown link
-                        </a>
-                        <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a className="dropdown-item" href="#">Action</a></li>
-                            <li><a className="dropdown-item" href="#">Another action</a></li>
-                            <li><a className="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </li>
+                    </li> */}
                 </ul>
             </div>
         </nav>
