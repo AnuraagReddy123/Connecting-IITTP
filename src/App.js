@@ -11,7 +11,7 @@ import SingleBlog from './pages/Blog/SingleBlog';
 import WriteBlog from './pages/Blog/WriteBlog';
 import Shopping from './pages/Shopping/shopping';
 import Travelling from './pages/Travel/travelling';
-
+import Home from './pages/Home/home';
 import Food from './pages/Food/food';
 
 function App() {

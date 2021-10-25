@@ -15,7 +15,7 @@ function SecondHandShopping() {
           <div className="col-md-7">
             <div className="card shadow rounded shShoppingTips">
               <div className="card-body">
-                <h4 style={{color: "green"}}>Tips</h4>
+                <h4 style={{color: "green", fontFamily: "monospace"}}>Tips</h4>
                 <hr></hr>
                 <ul>
                     <li><p className="shShoppingContent">By purchasing second hand, you aren’t supporting this waste of time, energy and resources. In fact, you’re keeping items out of the landfill.</p></li>
@@ -33,7 +33,7 @@ function SecondHandShopping() {
           <div className="col-md-5">
             <div className="card shadow rounded shShoppingImpacts">
               <div className="card-body">
-                <h4 style={{color: "red"}}>Impacts</h4>
+                <h4 style={{color: "red", fontFamily: "monospace"}}>Impacts</h4>
                 <hr></hr>
                 <ul>
                     <li><p className="shShoppingContent">Every item purchased second hand means one less new one produced. Every item, even something small like a t-shirt takes a lot of time, energy and resources.</p></li>

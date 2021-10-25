@@ -1,12 +1,12 @@
 import React from 'react'
-import ProfilePic from './profilepic1.png';
+import ProfilePic from '../profilepic1.png';
 import { useHistory } from "react-router";
-import './UserProfile.css';
+import './Userprofile.css';
 
 function Userprofile() {
 
     const history = useHistory();
-    const navigateTo = () => history.push('/changepwd');
+    // const navigateTo = () => history.push('/changepwd');
  return (
      <div>
           <div className="userProfileStylesClass"> 
@@ -45,7 +45,7 @@ function Userprofile() {
                            <b>500</b>
                        </div> 
                        <div className="changepwdBtn">
-                          <button onClick={navigateTo} >
+                          <button onClick={() => history.push('/pwdchange')} >
                               Change Password
                           </button>
                         </div>
