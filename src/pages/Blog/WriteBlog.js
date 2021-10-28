@@ -10,7 +10,7 @@ export default function WriteBlog() {
     text: '',
     picture: '',
     username: 'Anuraag',
-    createDate: new Date(),
+    createdDate: new Date(),
   }
 
   const [blog, setblog] = useState(initialValues);
