@@ -50,17 +50,17 @@ export default function WriteBlog() {
             name='title'
             onChange={handleChange}
           />
+          <button className='writeSubmit' type='Submit'>Publish</button>
         </div>
         <div className='writeFormGroup'>
           <textarea
             placeholder='Add your ideas!'
-            className='writeInput writeText'
+            className='writeText'
             name='text'
             value={blog.text}
             onChange={handleChange}
           />
         </div>
-        <button className='writeSubmit' type='Submit'>Publish</button>
       </form>
     </div>
   );
