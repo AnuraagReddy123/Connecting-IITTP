@@ -24,8 +24,11 @@ export default function BlogPost() {
     <div className={classes.posts}>
       {blogs.map((blog) => {
         return (
-          <Link to={'/singleBlog'} style={{textDecoration: 'none', color: 'inherit'}}>
-            <BlogCard id={blog._id} title={blog.title} text={blog.text} />
+          <Link
+            to={'/singleBlog'}
+            style={{ textDecoration: 'none', color: 'inherit' }}
+          >
+            <BlogCard blog={blog} />
           </Link>
         );
       })}
