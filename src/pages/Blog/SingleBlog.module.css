@@ -1,7 +1,6 @@
 .single {
   padding: 20px 120px;
   margin-top: 50px;
-  display: flex;
   align-items: row;
 }
 
@@ -13,7 +12,6 @@
 }
 
 .singlePostText {
-    flex: 1;
 }
 
 .singlePostTitle {

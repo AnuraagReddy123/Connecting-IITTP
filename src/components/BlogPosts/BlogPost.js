@@ -18,14 +18,14 @@ export default function BlogPost() {
         .catch((err) => console.log(err));
     };
     fetchBlogs(); // fetch the blogs from the database
-  });
+  },[]);
 
   return (
     <div className={classes.posts}>
       {blogs.map((blog) => {
         return (
           <Link
-            to={'/singleBlog'}
+            to={`/singleBlog/${blog._id}`}
             style={{ textDecoration: 'none', color: 'inherit' }}
           >
             <BlogCard blog={blog} />
