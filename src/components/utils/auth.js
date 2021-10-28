@@ -8,7 +8,7 @@ export const signInWithGoogle = (history) => {
     .then((result) => {
         // const user = result.user;
         // TODO: check if user exists already, if yes, log in else sign up by storing the user information
-        history.push("/home");
+        history.push("/");
     })
     .catch((error) => console.log(error));
 }
