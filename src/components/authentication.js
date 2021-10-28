@@ -56,13 +56,13 @@ function Authentication() {
       })
     })
     .catch((error) => console.log(error))
-    history.push("/home");// send user to the home page
+    history.push("/");// send user to the home page
   };
 
   const logInWithEmail = () => {
     signInWithEmailAndPassword(auth,userData.emailId,userData.password)
     .then((_user) => {
-      history.push("/home"); // send the user to the home page after logging in
+      history.push("/"); // send the user to the home page after logging in
     })
     .catch((error) => console.log(error));
   };
