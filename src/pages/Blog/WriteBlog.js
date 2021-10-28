@@ -5,20 +5,25 @@ import './WriteBlog.css';
 
 export default function WriteBlog() {
 
-  const [blog, setblog] = useState({title:"",text: ""});
+  const initialValues = {
+    title: '',
+    text: '',
+    picture: '',
+    username: 'Anuraag',
+    createDate: new Date(),
+  }
+
+  const [blog, setblog] = useState(initialValues);
   const history = useHistory();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newBlog = {
-      title: blog.title,
-      text: blog.text,
-    }
+    
     // send the blog information to the backend for storage
-    axios.post('http://localhost:4000/blogs/saveBlog',newBlog)
+    axios.post('http://localhost:4000/blogs/saveBlog', blog)
     .then((res) => console.log(res.data))
     .then(() => {
-      setblog({title: "",text: ""});
+      setblog(initialValues);
       history.push("/blogs");// send the user back to the list of blogs
     })
     .catch(error => console.log(error));
