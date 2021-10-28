@@ -49,9 +49,7 @@ function App() {
         <Route path='/sell'>
           <Sell />
         </Route>
-        <Route path='/singleBlog'>
-          <SingleBlog />
-        </Route>
+        <Route path='/singleBlog/:id' component={SingleBlog} />
         <Route path='/writeBlog'>
           <WriteBlog />
         </Route>

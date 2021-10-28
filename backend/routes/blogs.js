@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const Blog = require('../models/blog.model');
+
 router.route("/").get((request,response) => {
     Blog.find((error,blogs) => {
         if(error){
@@ -10,13 +11,16 @@ router.route("/").get((request,response) => {
         }
     });
 });
+
 // fetching a blog through a unique id
 router.route("/:id").get((request,response) => {
     let id = request.params.id;
     Blog.findById(id,(error,blog) => {
+        console.log(blog)
         response.json(blog);
     });
 });
+
 // add the blog to the database
 router.route("/saveBlog").post((request,response) => {
     console.log(request.body);

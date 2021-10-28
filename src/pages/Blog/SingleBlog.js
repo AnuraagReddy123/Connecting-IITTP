@@ -1,6 +1,24 @@
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 import classes from './SingleBlog.module.css';
 
-export default function SingleBlog() {
+export default function SingleBlog({ match }) {
+  const [blog, setBlog] = useState({});
+
+  useEffect(() => {
+    const fetchBlog = () => {
+      axios
+        .get(`http://localhost:4000/blogs/${match.params.id}`)
+        .then((res) => {
+          setBlog(res.data);
+          console.log(blog);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    };
+    fetchBlog();
+  },[]);
 
   return (
     <div className={classes.single}>
@@ -10,44 +28,15 @@ export default function SingleBlog() {
           alt=''
           class={classes.singlePostImage}
         />
-        <h1 className={classes.singlePostTitle}>Lorem ipsum dolor sit amet</h1>
+        <h1 className={classes.singlePostTitle}>{blog.title}</h1>
         <div className={classes.singlePostInfo}>
           <p className={classes.singlePostAuthor}>
-            Author: <b>Anuraag</b>
+            Author: <b>{blog.username}</b>
           </p>
-          <p className={classes.singlePostDate}>2hr ago</p>
+          <p className={classes.singlePostDate}>Creted at: {blog.createdDate}</p>
         </div>
         <p className={classes.singlePostText}>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae,
-          laborum ut? Vitae laudantium commodi ab quam ratione veniam soluta
-          ullam, culpa asperiores earum omnis, distinctio, saepe accusamus
-          aliquam quae exercitationem. Lorem, ipsum dolor sit amet consectetur
-          adipisicing elit. Vitae, laborum ut? Vitae laudantium commodi ab quam
-          ratione veniam soluta ullam, culpa asperiores earum omnis, distinctio,
-          saepe accusamus aliquam quae exercitationem. Lorem, ipsum dolor sit
-          amet consectetur adipisicing elit. Vitae, laborum ut? Vitae laudantium
-          commodi ab quam ratione veniam soluta ullam, culpa asperiores earum
-          omnis, distinctio, saepe accusamus aliquam quae exercitationem. Lorem,
-          ipsum dolor sit amet consectetur adipisicing elit. Vitae, laborum ut?
-          Vitae laudantium commodi ab quam ratione veniam soluta ullam, culpa
-          asperiores earum omnis, distinctio, saepe accusamus aliquam quae
-          exercitationem. Lorem, ipsum dolor sit amet consectetur adipisicing
-          elit. Vitae, laborum ut? Vitae laudantium commodi ab quam ratione
-          veniam soluta ullam, culpa asperiores earum omnis, distinctio, saepe
-          accusamus aliquam quae exercitationem. Lorem, ipsum dolor sit amet
-          consectetur adipisicing elit. Vitae, laborum ut? Vitae laudantium
-          commodi ab quam ratione veniam soluta ullam, culpa asperiores earum
-          omnis, distinctio, saepe accusamus aliquam quae exercitationem. Lorem,
-          ipsum dolor sit amet consectetur adipisicing elit. Vitae, laborum ut?
-          Vitae laudantium commodi ab quam ratione veniam soluta ullam, culpa
-          asperiores earum omnis, distinctio, saepe accusamus aliquam quae
-          exercitationem. Lorem, ipsum dolor sit amet consectetur adipisicing
-          elit. Vitae, laborum ut? Vitae laudantium commodi ab quam ratione
-          veniam soluta ullam, culpa asperiores earum omnis, distinctio, saepe
-          accusamus aliquam quae exercitationem. Lorem, ipsum dolor sit amet
-          consectetur adipisicing elit. Vitae, laborum ut? Vitae laudantium
-          commodi ab quam ratione veniam soluta ullam, culpa asperiores earum
-          omnis, distinctio, saepe accusamus aliquam quae exercitationem.
+          {blog.text}
         </p>
       </div>
     </div>
