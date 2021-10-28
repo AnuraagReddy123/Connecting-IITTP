@@ -44,6 +44,7 @@ function Authentication() {
       firstName: userData.firstName,
       lastName: userData.lastName,
       email: userData.emailId,
+      password: userData.password,
     }
     // store the user information in the database
     axios.post("http://localhost:4000/users/saveUser",user)
