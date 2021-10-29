@@ -47,7 +47,7 @@ function Authentication() {
       email: userData.emailId,
       password: userData.password,
     }
-    // validate registration
+    // registration
     try {
       const response = await axios.post("http://localhost:4000/users/register",user);
       console.log(response);
@@ -62,13 +62,7 @@ function Authentication() {
       }
     }
     catch (error) {
-      if(error.hasOwnProperty(error.response.data.errors)){
-        console.log(error.response.data.errors[0]);
-        alert(error.response.data.errors[0].msg);
-      }
-      else{
-        alert('An error occurred');
-      }
+      alert(error.response.data.errors[0].msg);
     }
   };
 

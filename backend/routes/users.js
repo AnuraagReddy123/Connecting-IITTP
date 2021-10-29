@@ -32,6 +32,12 @@ router.get('/findUsername',async (req,res) => {
     res.json(user);
 });
 
+// find a user by email
+router.get('/findEmail',async (req,res) => {
+    const user = await User.findOne({email: req.query.email}).exec();
+    res.json(user);
+});
+
 // register a user
 router.post('/register',body("username").custom(async (value) => {
     const user = await User.find({username: value});
