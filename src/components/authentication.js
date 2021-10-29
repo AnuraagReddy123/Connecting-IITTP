@@ -37,8 +37,9 @@ function Authentication() {
   const [otherData, setOtherData] = useState(initialStateOfotherData);
   const [validity, setValidity] = useState(initialStateOfValidity);
 
-  const signUpWithEmail = () => {
-    // Signed up
+  const signUpWithEmail = async (e) => {
+    e.preventDefault();
+    //sign up
     const user = {
       username: userData.username,
       firstName: userData.firstName,
@@ -46,25 +47,51 @@ function Authentication() {
       email: userData.emailId,
       password: userData.password,
     }
-    // store the user information in the database
-    axios.post("http://localhost:4000/users/saveUser",user)
-    .then((res) => console.log(res.data))
-    .then(() => {
-      createUserWithEmailAndPassword(auth,userData.emailId,userData.password)
-      .catch((error) => {
-        console.log(error)
-      })
-    })
-    .catch((error) => console.log(error))
-    history.push("/home");// send user to the home page
+    // validate registration
+    try {
+      const response = await axios.post("http://localhost:4000/users/register",user);
+      console.log(response);
+      try {
+        // register the account on firebase
+        const response = await createUserWithEmailAndPassword(auth,userData.emailId,userData.password);
+        console.log(response);
+        history.push("/home");
+      }
+      catch(error){
+        console.log(error);
+      }
+    }
+    catch (error) {
+      if(error.hasOwnProperty(error.response.data.errors)){
+        console.log(error.response.data.errors[0]);
+        alert(error.response.data.errors[0].msg);
+      }
+      else{
+        alert('An error occurred');
+      }
+    }
   };
 
-  const logInWithEmail = () => {
-    signInWithEmailAndPassword(auth,userData.emailId,userData.password)
-    .then((_user) => {
-      history.push("/home"); // send the user to the home page after logging in
-    })
-    .catch((error) => console.log(error));
+  const logInWithUsername = async (e) => {
+    e.preventDefault();
+    // check if user with given username exists
+    const response = await axios.get("http://localhost:4000/users/findUsername",{params: {username: userData.username}});
+    if(response.data) {
+      const user = response.data;
+      console.log(user);
+      // compare passwords
+      if(user.password === userData.password) {
+        //credentials are valid, sign in the user
+        const user_credential = await signInWithEmailAndPassword(auth,user.email,user.password);
+        history.push("/home");
+      }
+      else{
+        alert('Invalid password');
+      }
+    }
+    else{
+      alert('Invalid username');
+    }
   };
 
   const handleTab = (tab) => {
@@ -149,12 +176,10 @@ function Authentication() {
     setValidity(newValidity);
     const {name} = e.target;
     if(name === "signUpBtn") {
-        // TODO: Check if the user already exists using the username and email
-        signUpWithEmail();
+        signUpWithEmail(e);
     }
     else{
-      // TODO: Check if the user exists else signIn is not possible
-        logInWithEmail();
+        logInWithUsername(e);
     }
 
   };
