@@ -19,9 +19,11 @@ import Userprofile from './components/Userprofile';
 import Home from './pages/Home/home';
 
 import Food from './pages/Food/food';
+import { AuthProvider } from './components/firebase/context';
 
 function App() {
   return (
+   <AuthProvider>
     <BrowserRouter>
       <Navbar />
       <Switch>
@@ -70,6 +72,7 @@ function App() {
         </Route>
       </Switch>
     </BrowserRouter>
+  </AuthProvider>
   );
 }
 

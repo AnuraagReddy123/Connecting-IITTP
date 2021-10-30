@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import SignIn from "./signIn";
 import SignUp from "./signUp";
 import "./authentication.css"
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "@firebase/auth";
-import { auth } from "./firebase";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "@firebase/auth";
+import { auth } from "./firebase/firebase";
 import { useHistory } from "react-router";
 import axios from "axios";
 
@@ -37,8 +37,10 @@ function Authentication() {
   const [otherData, setOtherData] = useState(initialStateOfotherData);
   const [validity, setValidity] = useState(initialStateOfValidity);
 
-  const signUpWithEmail = () => {
-    // Signed up
+  const signUpWithEmail = async (e) => {
+    e.preventDefault();
+    const promise = await signOut(auth);
+    //sign up
     const user = {
       username: userData.username,
       firstName: userData.firstName,
@@ -46,25 +48,46 @@ function Authentication() {
       email: userData.emailId,
       password: userData.password,
     }
-    // store the user information in the database
-    axios.post("http://localhost:4000/users/saveUser",user)
-    .then((res) => console.log(res.data))
-    .then(() => {
-      createUserWithEmailAndPassword(auth,userData.emailId,userData.password)
-      .catch((error) => {
-        console.log(error)
-      })
-    })
-    .catch((error) => console.log(error))
-    history.push("/");// send user to the home page
+    // registration
+    try {
+      const response = await axios.post("http://localhost:4000/users/register",user);
+      console.log(response);
+      try {
+        // register the account on firebase
+        const response = await createUserWithEmailAndPassword(auth,userData.emailId,userData.password);
+        console.log(response);
+        history.push("/home");
+      }
+      catch(error){
+        console.log(error);
+      }
+    }
+    catch (error) {
+      alert(error.response.data.errors[0].msg);
+    }
   };
 
-  const logInWithEmail = () => {
-    signInWithEmailAndPassword(auth,userData.emailId,userData.password)
-    .then((_user) => {
-      history.push("/"); // send the user to the home page after logging in
-    })
-    .catch((error) => console.log(error));
+  const logInWithUsername = async (e) => {
+    e.preventDefault();
+    const promise = await signOut(auth);
+    // check if user with given username exists
+    const response = await axios.get("http://localhost:4000/users/findUsername",{params: {username: userData.username}});
+    if(response.data) {
+      const user = response.data;
+      console.log(user);
+      // compare passwords
+      if(user.password === userData.password) {
+        //credentials are valid, sign in the user
+        const user_credential = await signInWithEmailAndPassword(auth,user.email,user.password);
+        history.push("/home");
+      }
+      else{
+        alert('Invalid password');
+      }
+    }
+    else{
+      alert('Invalid username');
+    }
   };
 
   const handleTab = (tab) => {
@@ -149,12 +172,10 @@ function Authentication() {
     setValidity(newValidity);
     const {name} = e.target;
     if(name === "signUpBtn") {
-        // TODO: Check if the user already exists using the username and email
-        signUpWithEmail();
+        signUpWithEmail(e);
     }
     else{
-      // TODO: Check if the user exists else signIn is not possible
-        logInWithEmail();
+        logInWithUsername(e);
     }
 
   };
