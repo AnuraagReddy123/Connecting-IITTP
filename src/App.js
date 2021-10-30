@@ -23,58 +23,56 @@ import { AuthProvider } from './components/firebase/context';
 
 function App() {
   return (
-      <AuthProvider>
-        <BrowserRouter>
-        <Navbar />
-        <Switch>
-          <Route path='/' exact>
-            <Homepage />
-          </Route>
-          <Route path='/homeCategory'>
-            <Home />
-          </Route>
-          <Route path='/authentication'>
-            <Authentication />
-          </Route>
-          {/* <Route path = '/travelling'>
-            <Travelling />
-          </Route> */}
-          <Route path='/electricity'>
-            <Electricity />
-          </Route>
-          <Route path='/blogs'>
-            <BlogPage />
-          </Route>
-          <Route path='/buy'>
-            <Buy />
-          </Route>
-          <Route path='/sell'>
-            <Sell />
-          </Route>
-          <Route path='/singleBlog'>
-            <SingleBlog />
-          </Route>
-          <Route path='/writeBlog'>
-            <WriteBlog />
-          </Route>
-          <Route path='/shopping'>
-            <Shopping />
-          </Route>
-          <Route path='/travelling'>
-            <Travelling />
-          </Route>
-          <Route path='/food'>
-            <Food />
-          </Route>
-          <Route path='/pwdchange'>
-            <Pwdchange />
-          </Route>
-          <Route path='/userprofile'>
-            <Userprofile />
-          </Route>
-        </Switch>
-      </BrowserRouter>
-    </AuthProvider>
+   <AuthProvider>
+    <BrowserRouter>
+      <Navbar />
+      <Switch>
+        <Route path='/' exact>
+          <Homepage />
+        </Route>
+        <Route path='/homeCategory'>
+          <Home />
+        </Route>
+        <Route path='/authentication'>
+          <Authentication />
+        </Route>
+        {/* <Route path = '/travelling'>
+          <Travelling />
+        </Route> */}
+        <Route path='/electricity'>
+          <Electricity />
+        </Route>
+        <Route path='/blogs'>
+          <BlogPage />
+        </Route>
+        <Route path='/buy'>
+          <Buy />
+        </Route>
+        <Route path='/sell'>
+          <Sell />
+        </Route>
+        <Route path='/singleBlog/:id' component={SingleBlog} />
+        <Route path='/writeBlog'>
+          <WriteBlog />
+        </Route>
+        <Route path='/shopping'>
+          <Shopping />
+        </Route>
+        <Route path='/travelling'>
+          <Travelling />
+        </Route>
+        <Route path='/food'>
+          <Food />
+        </Route>
+        <Route path='/pwdchange'>
+          <Pwdchange />
+        </Route>
+        <Route path='/userprofile'>
+          <Userprofile />
+        </Route>
+      </Switch>
+    </BrowserRouter>
+  </AuthProvider>
   );
 }
 
