@@ -1,10 +1,11 @@
-import { deleteUser, GoogleAuthProvider, signInWithPopup } from "@firebase/auth";
+import { deleteUser, GoogleAuthProvider, signInWithPopup, signOut } from "@firebase/auth";
 import axios from "axios";
-import { auth } from "../firebase";
+import { auth } from "../firebase/firebase";
 
 const provider = new GoogleAuthProvider();
 
-export const signInWithGoogle = async (history) => {  
+export const signInWithGoogle = async (history) => {
+    const promise = await signOut(auth);
     const result = await signInWithPopup(auth,provider);
     const user = result.user;
     console.log(user.uid);
@@ -17,7 +18,7 @@ export const signInWithGoogle = async (history) => {
     if(response.data){
         const user_username = response.data;
         if(user_username.email === email){
-            history.push("/home");// sign in the user after matching the credentials
+            history.push("/");// sign in the user after matching the credentials
         }
         else{
             alert("Username exists with other email");
@@ -45,6 +46,7 @@ export const signInWithGoogle = async (history) => {
                     password: "",
                 });
                 console.log(response);
+                history.push("/");
             }
             catch (error) {
                 if(error.hasOwnProperty(error.response.data.errors)){

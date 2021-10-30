@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import SignIn from "./signIn";
 import SignUp from "./signUp";
 import "./authentication.css"
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "@firebase/auth";
-import { auth } from "./firebase";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "@firebase/auth";
+import { auth } from "./firebase/firebase";
 import { useHistory } from "react-router";
 import axios from "axios";
 
@@ -39,6 +39,7 @@ function Authentication() {
 
   const signUpWithEmail = async (e) => {
     e.preventDefault();
+    const promise = await signOut(auth);
     //sign up
     const user = {
       username: userData.username,
@@ -68,6 +69,7 @@ function Authentication() {
 
   const logInWithUsername = async (e) => {
     e.preventDefault();
+    const promise = await signOut(auth);
     // check if user with given username exists
     const response = await axios.get("http://localhost:4000/users/findUsername",{params: {username: userData.username}});
     if(response.data) {

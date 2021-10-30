@@ -4,32 +4,6 @@ import './homepage.css';
 
 const Homepage = () => {
 
-    const [userData, setuserData] = useState(() => {
-        const user = getAuth().currentUser;// get the currently signed in user
-        return {
-            initializing: !user,
-            user,
-        }
-    })
-
-    useEffect(() => {
-        // listen for auth state changes
-        const auth = getAuth();
-        const unsubscribe = onAuthStateChanged(auth,(user) => {
-            if (user) {
-                // User is signed in
-            }
-            else {
-                // User is signed out
-            }
-            console.log(userData)
-        });
-        // unsubscribe to the listener 
-        return () => {
-            unsubscribe();
-        }
-    },)
-
     return (
         <div className = "conatainer-fluid">
             <div className="container mt-5" id = "homepage-content">
