@@ -42,7 +42,7 @@ function App() {
         <Route path='/electricity'>
           <Electricity />
         </Route>
-        <Route path='/blogs'>
+        <Route path='/blogspage'>
           <BlogPage />
         </Route>
         <Route path='/buy'>
