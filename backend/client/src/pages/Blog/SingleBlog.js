@@ -3,6 +3,10 @@ import { useEffect, useState } from 'react';
 import classes from './SingleBlog.module.css';
 
 const port = process.env.PORT || 4000;
+let url = 'http://localhost:';
+if (process.env.NODE_ENV === 'production')
+  url = 'https://save-environment-iittp.herokuapp.com';
+else url = `http://localhost:${port}`;
 
 export default function SingleBlog({ match }) {
   const [blog, setBlog] = useState({});
@@ -10,7 +14,7 @@ export default function SingleBlog({ match }) {
   useEffect(() => {
     const fetchBlog = () => {
       axios
-        .get(`http://localhost:${port}/blogs/${match.params.id}`)
+        .get(`${url}/blogs/${match.params.id}`)
         .then((res) => {
           setBlog(res.data);
           console.log(blog);
@@ -20,7 +24,7 @@ export default function SingleBlog({ match }) {
         });
     };
     fetchBlog();
-  },[]);
+  }, []);
 
   return (
     <div className={classes.single}>
@@ -35,11 +39,11 @@ export default function SingleBlog({ match }) {
           <p className={classes.singlePostAuthor}>
             Author: <b>{blog.username}</b>
           </p>
-          <p className={classes.singlePostDate}>Creted at: {blog.createdDate}</p>
+          <p className={classes.singlePostDate}>
+            Creted at: {blog.createdDate}
+          </p>
         </div>
-        <p className={classes.singlePostText}>
-          {blog.text}
-        </p>
+        <p className={classes.singlePostText}>{blog.text}</p>
       </div>
     </div>
   );

@@ -5,6 +5,10 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const port = process.env.PORT || 4000;
+let url = 'http://localhost:';
+if (process.env.NODE_ENV === 'production')
+  url = 'https://save-environment-iittp.herokuapp.com';
+else url = `http://localhost:${port}`;
 
 export default function BlogPost() {
   const [blogs, setblogs] = useState([]);
@@ -12,7 +16,7 @@ export default function BlogPost() {
   useEffect(() => {
     const fetchBlogs = () => {
       axios
-        .get(`http://localhost:${port}/blogs`)
+        .get(`${url}/blogs`)
         .then((res) => {
           setblogs(res.data);
           console.log(blogs);

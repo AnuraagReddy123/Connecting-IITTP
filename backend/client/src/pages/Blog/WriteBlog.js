@@ -4,6 +4,10 @@ import { useHistory } from 'react-router';
 import './WriteBlog.css';
 
 const port = process.env.PORT || 4000;
+let url = 'http://localhost:';
+if (process.env.NODE_ENV === 'production')
+  url = 'https://save-environment-iittp.herokuapp.com';
+else url = `http://localhost:${port}`;
 
 export default function WriteBlog() {
 
@@ -22,7 +26,7 @@ export default function WriteBlog() {
     e.preventDefault();
     
     // send the blog information to the backend for storage
-    axios.post(`http://localhost:${port}/blogs/saveBlog`, blog)
+    axios.post(`${url}/blogs/saveBlog`, blog)
     .then((res) => console.log(res.data))
     .then(() => {
       setblog(initialValues);
