@@ -2,13 +2,15 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import classes from './SingleBlog.module.css';
 
+const port = process.env.PORT || 4000;
+
 export default function SingleBlog({ match }) {
   const [blog, setBlog] = useState({});
 
   useEffect(() => {
     const fetchBlog = () => {
       axios
-        .get(`http://localhost:4000/blogs/${match.params.id}`)
+        .get(`http://localhost:${port}/blogs/${match.params.id}`)
         .then((res) => {
           setBlog(res.data);
           console.log(blog);

@@ -4,13 +4,15 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
+const port = process.env.PORT || 4000;
+
 export default function BlogPost() {
   const [blogs, setblogs] = useState([]);
 
   useEffect(() => {
     const fetchBlogs = () => {
       axios
-        .get('http://localhost:4000/blogs')
+        .get(`http://localhost:${port}/blogs`)
         .then((res) => {
           setblogs(res.data);
           console.log(blogs);

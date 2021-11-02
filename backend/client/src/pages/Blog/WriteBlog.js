@@ -3,6 +3,8 @@ import { useState } from 'react';
 import { useHistory } from 'react-router';
 import './WriteBlog.css';
 
+const port = process.env.PORT || 4000;
+
 export default function WriteBlog() {
 
   const initialValues = {
@@ -20,11 +22,11 @@ export default function WriteBlog() {
     e.preventDefault();
     
     // send the blog information to the backend for storage
-    axios.post('http://localhost:4000/blogs/saveBlog', blog)
+    axios.post(`http://localhost:${port}/blogs/saveBlog`, blog)
     .then((res) => console.log(res.data))
     .then(() => {
       setblog(initialValues);
-      history.push("/blogs");// send the user back to the list of blogs
+      history.push("/blogspage");// send the user back to the list of blogs
     })
     .catch(error => console.log(error));
   };
