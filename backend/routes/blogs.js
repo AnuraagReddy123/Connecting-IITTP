@@ -1,5 +1,6 @@
 const router = require('express').Router();
-const Blog = require('../models/blog.model');
+const mongoose = require("mongoose");
+const Blog = mongoose.model('Blog',require('../schemas/blog.schemas'));
 
 router.route("/").get((request,response) => {
     Blog.find((error,blogs) => {
