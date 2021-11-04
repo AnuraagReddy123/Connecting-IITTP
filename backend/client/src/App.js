@@ -9,7 +9,6 @@ import Buy from './components/Products/Buy';
 import Sell from './components/Products/Sell';
 import SingleBlog from './pages/Blog/SingleBlog';
 import WriteBlog from './pages/Blog/WriteBlog';
-import Homepage0 from './pages/Homepage/Homepage0';
 import Electricity from './pages/Energy/Electricity/Electricity';
 import Shopping from './pages/Shopping/shopping';
 import Travelling from './pages/Travel/travelling';
@@ -20,6 +19,7 @@ import Home from './pages/Home/home';
 
 import Food from './pages/Food/food';
 import { AuthProvider } from './components/firebase/context';
+import SingleShoppingCard from './pages/Shopping/SingleShoppingCard';
 
 function App() {
   return (
@@ -52,6 +52,7 @@ function App() {
           <Sell />
         </Route>
         <Route path='/singleBlog/:id' component={SingleBlog} />
+        <Route path='/singleShoppingCard/:id' component={SingleShoppingCard} />
         <Route path='/writeBlog'>
           <WriteBlog />
         </Route>

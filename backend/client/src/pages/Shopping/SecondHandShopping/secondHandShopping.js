@@ -1,7 +1,7 @@
 import React from "react";
 import "./secondHandShopping.css";
 
-function SecondHandShopping() {
+function secondHandShopping(props) {
   return (
     <div>
       <nav className="navbar navbar-light shShoppingNavbar">
@@ -53,4 +53,4 @@ function SecondHandShopping() {
   );
 }
 
-export default SecondHandShopping;
+export default secondHandShopping;

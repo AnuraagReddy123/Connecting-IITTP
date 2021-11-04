@@ -7,10 +7,10 @@ const categorySchema = new Schema({
         type : String,
     },
     tips : {
-        type : String,
+        type : Array,
     },
     impacts : {
-        type : String,
+        type : Array,
     }
 });
 
