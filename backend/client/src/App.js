@@ -14,12 +14,10 @@ import Shopping from './pages/Shopping/shopping';
 import Travelling from './pages/Travel/travelling';
 import Pwdchange from './components/pwdchange';
 import Userprofile from './components/Userprofile';
-
 import Home from './pages/Home/home';
-
 import Food from './pages/Food/food';
 import { AuthProvider } from './components/firebase/context';
-import SingleShoppingCard from './pages/Shopping/SingleShoppingCard';
+import SingleShoppingCard from './pages/Shopping/SingleShopping/SingleShoppingCard';
 
 function App() {
   return (
