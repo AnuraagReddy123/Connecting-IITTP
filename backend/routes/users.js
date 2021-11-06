@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { body,validationResult } = require('express-validator');
-const User = require('../models/user.model');
+const mongoose = require("mongoose");
+const User = mongoose.model('User',require('../schemas/user.schemas'));
 
 // fetch all the users
 router.get('/',(req,res) => {

@@ -19,8 +19,14 @@ mongoose
 
 const usersRouter = require('./routes/users');
 const blogsRouter = require('./routes/blogs');
+const foodCategoryRouter = require('./routes/foodCategory');
+const shoppingCategoryRouter = require('./routes/shoppingCategory');
+const homeCategoryRouter = require('./routes/homeCategory');
 app.use('/users', usersRouter);
 app.use('/blogs', blogsRouter);
+app.use('/foodCategories',foodCategoryRouter);
+app.use('/shoppingCategories',shoppingCategoryRouter);
+app.use('/homeCategories',homeCategoryRouter);
 
 if (process.env.NODE_ENV == 'production') {
   app.use(express.static('client/build'));
