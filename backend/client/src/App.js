@@ -21,6 +21,8 @@ import SingleShopping from './pages/Shopping/SingleShopping/SingleShopping';
 import SingleFood from './pages/Food/SingleFood/SingleFood';
 import SingleHome from './pages/Home/SingleHome/SingleHome';
 
+import Accodion from './pages/Accodion/Accodion';
+
 function App() {
   return (
    <AuthProvider>
@@ -72,6 +74,9 @@ function App() {
         </Route>
         <Route path='/userprofile'>
           <Userprofile />
+        </Route>
+        <Route path='/Accodion'>
+          <Accodion />
         </Route>
       </Switch>
     </BrowserRouter>
