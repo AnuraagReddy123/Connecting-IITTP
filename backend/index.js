@@ -19,8 +19,10 @@ mongoose
 
 const usersRouter = require('./routes/users');
 const blogsRouter = require('./routes/blogs');
+const buyRouter = require('./routes/buy_')
 app.use('/users', usersRouter);
 app.use('/blogs', blogsRouter);
+app.use('/buyItems', buyRouter);
 
 if (process.env.NODE_ENV == 'production') {
   app.use(express.static('client/build'));
