@@ -19,15 +19,11 @@ mongoose
 
 const usersRouter = require('./routes/users');
 const blogsRouter = require('./routes/blogs');
-const travellingCategoryRouter = require('./routes/travellingCategory');
-const electricityCategoryRouter = require('./routes/electricityCategory');
 const foodCategoryRouter = require('./routes/foodCategory');
 const shoppingCategoryRouter = require('./routes/shoppingCategory');
 const homeCategoryRouter = require('./routes/homeCategory');
 app.use('/users', usersRouter);
 app.use('/blogs', blogsRouter);
-app.use('/travellingCategories',travellingCategoryRouter);
-app.use('/electricityCategories',electricityCategoryRouter);
 app.use('/foodCategories',foodCategoryRouter);
 app.use('/shoppingCategories',shoppingCategoryRouter);
 app.use('/homeCategories',homeCategoryRouter);

@@ -1,5 +1,8 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
+import './singleshopping.css';
+
+// component for displaying a single shopping category page
 
 const port = process.env.PORT || 4000;
 let url = 'http://localhost:';
@@ -7,21 +10,21 @@ if (process.env.NODE_ENV === 'production')
   url = 'https://save-environment-iittp.herokuapp.com';
 else url = `http://localhost:${port}`;
 
-const SingleShoppingCard = ({match}) => {
+const SingleShopping = ({match}) => {
 
-    const [card, setCard] = useState({});
+    const [card, setCard] = useState(null);
 
     useEffect(() => {
         const fetchCard = () => {
-        axios
-            .get(`${url}/shoppingCategories/${match.params.id}`)
-            .then((res) => {
-            setCard(res.data);
-                console.log(card);
-            })
-            .catch((err) => {
-                console.log(err);
-            });
+            axios
+                .get(`${url}/shoppingCategories/${match.params.id}`)
+                .then((res) => {
+                setCard(res.data);
+                    console.log(card);
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
         };
         fetchCard();
     }, []);
@@ -30,7 +33,7 @@ const SingleShoppingCard = ({match}) => {
         <div>
             <nav className="navbar navbar-light shShoppingNavbar">
                 <div className="container-fluid">
-                <span className="subCategoryName">{card.title}</span>
+                <span className="subCategoryName">{card && card.title}</span>
                 </div>
             </nav>
 
@@ -42,7 +45,7 @@ const SingleShoppingCard = ({match}) => {
                                 <h4 style={{color: "green", fontFamily: "monospace"}}>Tips</h4>
                                 <hr></hr>
                                 <ul>
-                                    {card.tips.map((tip) => {
+                                    {card && card.tips.map((tip) => {
                                         return <li key={tip}><p className="shShoppingContent">{tip}</p></li>
                                     })}
                                 </ul>
@@ -55,7 +58,7 @@ const SingleShoppingCard = ({match}) => {
                                 <h4 style={{color: "red", fontFamily: "monospace"}}>Impacts</h4>
                                 <hr></hr>
                                 <ul>
-                                    {card.impacts.map((impact) => {
+                                    {card && card.impacts.map((impact) => {
                                         return <li key={impact}><p className="shShoppingContent">{impact}</p></li>
                                     })}
                                 </ul>
@@ -68,4 +71,4 @@ const SingleShoppingCard = ({match}) => {
     );
 }
 
-export default SingleShoppingCard;
+export default SingleShopping;

@@ -38,7 +38,7 @@ function Shopping(props) {
                 </div>
               </nav>
               <Link
-                to={`/singleShoppingCard/${card._id}`}
+                to={`/singleShopping/${card._id}`}
                 style={{ textDecoration: 'none', color: 'inherit' }}
               >
                 <ShoppingCard card={card}/>

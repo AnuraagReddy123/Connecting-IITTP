@@ -1,51 +1,53 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
-import CategoryCard from "../../components/categoryCard";
-import Composting from "./Composting/composting";
-import compostingImage from "./Composting/compostingImage.jpg";
+import React, { useEffect, useState } from "react";
+import {Link} from "react-router-dom";
 import "./home.css";
+import HomeCard from "./HomeCard";
+import axios from "axios";
 
-function Home(props) {
+const port = process.env.PORT || 4000;
+let url = 'http://localhost:';
+if (process.env.NODE_ENV === 'production')
+  url = 'https://save-environment-iittp.herokuapp.com';
+else url = `http://localhost:${port}`;
+
+function Home() {
+
+  const [cards, setcards] = useState([]);
+
+  useEffect(() => {
+    const fetchCards = () => {
+      axios
+        .get(`${url}/homeCategories`)
+        .then((res) => {
+          setcards(res.data);
+          console.log(cards);
+        })
+        .catch((err) => console.log(err));
+    };
+    fetchCards(); // fetch the cards from the database
+  },[]);
+
   return (
-    <Router>
-      <Switch>
-        <Route
-          exact
-          path="/homeCategory"
-          render={() => (
+
+    <div>
+      {cards.map((card) => {
+        return (
             <div>
               <nav className="navbar navbar-light homeCategoryNavbar">
                 <div className="container-fluid">
                   <h4 className="categoryName">Home</h4>
                 </div>
               </nav>
-
-              <div className="container-fluid cardsList">
-                <div className="row">
-                  <div className="col-md-3 card1">
-                    <Link
-                      to="/homeCategory/composting"
-                      className="compostingLink"
-                    >
-                      <CategoryCard
-                        cardName="Composting"
-                        cardText="Composting takes food scraps, plants, and other organic matter and returns it to the earth to create a nutrient rich soil. And, it’s awesome for the planet."
-                        cardImageLink={compostingImage}
-                      />
-                    </Link>
-                  </div>
-                </div>
-              </div>
+              <Link
+                to={`/singleHome/${card._id}`}
+                style={{ textDecoration: 'none', color: 'inherit' }}
+              >
+                <HomeCard card={card}/>
+              </Link>
             </div>
-          )}
-        />
-        <Route
-          exact
-          path="/homeCategory/composting"
-          render={() => <Composting />}
-        />
-      </Switch>
-    </Router>
+        );
+      })}
+    </div>
   );
 }
 

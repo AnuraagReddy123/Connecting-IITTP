@@ -17,7 +17,9 @@ import Userprofile from './components/Userprofile';
 import Home from './pages/Home/home';
 import Food from './pages/Food/food';
 import { AuthProvider } from './components/firebase/context';
-import SingleShoppingCard from './pages/Shopping/SingleShopping/SingleShoppingCard';
+import SingleShopping from './pages/Shopping/SingleShopping/SingleShopping';
+import SingleFood from './pages/Food/SingleFood/SingleFood';
+import SingleHome from './pages/Home/SingleHome/SingleHome';
 
 function App() {
   return (
@@ -50,7 +52,9 @@ function App() {
           <Sell />
         </Route>
         <Route path='/singleBlog/:id' component={SingleBlog} />
-        <Route path='/singleShoppingCard/:id' component={SingleShoppingCard} />
+        <Route path='/singleShopping/:id' component={SingleShopping} />
+        <Route path='/singleFood/:id' component={SingleFood}/>
+        <Route path='/singleHome/:id' component={SingleHome}/>
         <Route path='/writeBlog'>
           <WriteBlog />
         </Route>

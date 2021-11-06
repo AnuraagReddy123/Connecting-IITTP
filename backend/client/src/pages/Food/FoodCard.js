@@ -1,8 +1,8 @@
 import React from 'react'
 import CategoryCard from '../../components/categoryCard'
-import shShoppingImage from "./SingleShopping/secondHandShoppingImage.jpg";
+import foodWasteImage from "./ReduceFoodWasteAtHome/foodWasteImage.jpg"
 
-const ShoppingCard = (props) => {
+const FoodCard = (props) => {
     return (
         <div className="container-fluid cardsList">
             <div className="row">
@@ -10,12 +10,12 @@ const ShoppingCard = (props) => {
                     <CategoryCard
                         cardName={props.card.title}
                         cardText={props.card.text}
-                        cardImageLink={shShoppingImage}
+                        cardImageLink={foodWasteImage}
                     />
                 </div>
             </div>
-        </div>
+      </div>
     )
 }
 
-export default ShoppingCard;
+export default FoodCard

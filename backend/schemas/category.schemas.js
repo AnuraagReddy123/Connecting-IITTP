@@ -6,6 +6,9 @@ const categorySchema = new Schema({
     title : {
         type : String,
     },
+    text : {
+        type: String,
+    },
     tips : {
         type : Array,
     },
