@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router';
 import './WriteBlog.css';
 
@@ -10,33 +10,51 @@ if (process.env.NODE_ENV === 'production')
 else url = `http://localhost:${port}`;
 
 export default function WriteBlog() {
-
   const initialValues = {
     title: '',
     text: '',
     picture: '',
     username: 'Anuraag',
     createdDate: new Date(),
-  }
+  };
 
   const [blog, setblog] = useState(initialValues);
+  const [file, setFile] = useState('');
   const history = useHistory();
+
+  useEffect(() => {
+    const getImage = async () => {
+      if (file) {
+        console.log(file);
+        const data = new FormData();
+        data.append('name', file.name);
+        data.append('file', file);
+
+        axios
+          .post(`${url}/blogs/uploadImage`, data)
+          .then((res) => console.log(res.data))
+          .catch((error) => console.log(error));
+      }
+    };
+    getImage();
+  }, [file]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
     // send the blog information to the backend for storage
-    axios.post(`${url}/blogs/saveBlog`, blog)
-    .then((res) => console.log(res.data))
-    .then(() => {
-      setblog(initialValues);
-      history.push("/blogspage");// send the user back to the list of blogs
-    })
-    .catch(error => console.log(error));
+    axios
+      .post(`${url}/blogs/saveBlog`, blog)
+      .then((res) => console.log(res.data))
+      .then(() => {
+        setblog(initialValues);
+        history.push('/blogspage'); // send the user back to the list of blogs
+      })
+      .catch((error) => console.log(error));
   };
 
   const handleChange = (e) => {
-    setblog({...blog,[e.target.name]:e.target.value});
+    setblog({ ...blog, [e.target.name]: e.target.value });
   };
 
   return (
@@ -51,7 +69,12 @@ export default function WriteBlog() {
           <label for='fileInput'>
             <i class='writeIcon fas fa-plus' />
           </label>
-          <input type='file' id='fileInput' style={{ display: 'none' }} />
+          <input
+            type='file'
+            id='fileInput'
+            style={{ display: 'none' }}
+            onChange={(e) => setFile(e.target.files[0])}
+          />
           <input
             type='text'
             placeholder='Title'
@@ -61,7 +84,9 @@ export default function WriteBlog() {
             name='title'
             onChange={handleChange}
           />
-          <button className='writeSubmit' type='Submit'>Publish</button>
+          <button className='writeSubmit' type='Submit'>
+            Publish
+          </button>
         </div>
         <div className='writeFormGroup'>
           <textarea
