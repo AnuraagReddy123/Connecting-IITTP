@@ -7,8 +7,8 @@ const Accodion = () =>{
     const [data, setData] = useState(questions);  
     return (
         <>
-            <section className = "main-div">
-                <h1 > FAQ </h1>
+            <section className = "main-block">
+                <h1 classname="faqheading"> FAQ </h1>
             {
                 data.map((curElem) => {
                     const {id} = curElem;
