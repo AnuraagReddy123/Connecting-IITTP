@@ -19,6 +19,8 @@ mongoose
 
 const usersRouter = require('./routes/users');
 const blogsRouter = require('./routes/blogs');
+const buyRouter = require('./routes/buy_')
+app.use('/buyItems', buyRouter);
 const foodCategoryRouter = require('./routes/foodCategory');
 const shoppingCategoryRouter = require('./routes/shoppingCategory');
 const homeCategoryRouter = require('./routes/homeCategory');
