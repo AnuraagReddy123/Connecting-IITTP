@@ -20,6 +20,7 @@ import { AuthProvider } from './components/firebase/context';
 import SingleShopping from './pages/Shopping/SingleShopping/SingleShopping';
 import SingleFood from './pages/Food/SingleFood/SingleFood';
 import SingleHome from './pages/Home/SingleHome/SingleHome';
+import ChatbotMain from './pages/Chatbot/ChatbotMain';
 
 function App() {
   return (
@@ -72,6 +73,9 @@ function App() {
         </Route>
         <Route path='/userprofile'>
           <Userprofile />
+        </Route>
+        <Route path='/chatbot'>
+          <ChatbotMain />
         </Route>
       </Switch>
     </BrowserRouter>
