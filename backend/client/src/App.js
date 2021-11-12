@@ -5,7 +5,7 @@ import Homepage from './pages/Homepage/Homepage';
 import { Route, Switch } from 'react-router';
 import BlogPage from './pages/Blog/BlogPage';
 import { BrowserRouter } from 'react-router-dom';
-import Buy from './components/Products/Buy';
+// import Buy from './components/Products/Buy';
 import Sell from './components/Products/Sell';
 import SingleBlog from './pages/Blog/SingleBlog';
 import WriteBlog from './pages/Blog/WriteBlog';

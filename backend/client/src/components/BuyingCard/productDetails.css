@@ -1,0 +1,24 @@
+.leftSection {
+    margin-top: 15px;
+}
+
+.rightSection {
+    margin-top: 15px;
+}
+
+.productdetails h5 {
+    padding-left: 7px;
+    padding-top: 5px;
+    font-family: monospace;
+}
+
+.productdetails p {
+    padding-left: 7px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.line {
+    margin-left: 5px;
+    margin-right: 5px;
+    border-bottom: 1px solid lightgray;
+}
