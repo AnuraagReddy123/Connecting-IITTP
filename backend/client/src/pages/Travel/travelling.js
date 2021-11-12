@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import CategoryCard from "../../components/categoryCard";
 import "./travelling.css";
 import Vehicle from "./Vehicle/vehicles.js";
 import vehicleImage from "./Vehicle/travelling.jpg";
 
-function Travelling(props) {
+
+function Travelling() {
+
 
   return (
     <Router>
