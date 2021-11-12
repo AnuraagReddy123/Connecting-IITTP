@@ -8,11 +8,11 @@ import ActionProvider from './ActionProvider.js';
 export default function ChatbotMain() {
   return (
     <div className={classes.chatbotHeader}>
-      <Chatbot
-        config={config}
-        messageParser={MessageParser}
-        actionProvider={ActionProvider}
-      />
-    </div>
+        <Chatbot
+          config={config}
+          messageParser={MessageParser}
+          actionProvider={ActionProvider}
+        />
+      </div>
   );
 }

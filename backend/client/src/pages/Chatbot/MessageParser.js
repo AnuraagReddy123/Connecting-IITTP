@@ -4,7 +4,15 @@ class MessageParser {
     this.state = state;
   }
   parse(message) {
-    console.log(message);
+    const lowercase = message.toLowerCase();
+    
+    if (lowercase.includes("hello")) {
+      this.actionProvider.helloWorldHandler();
+    }
+
+    if (lowercase.includes("is climate change real")) {
+      this.actionProvider.climateRealHandler();
+    }
   }
 }
 
