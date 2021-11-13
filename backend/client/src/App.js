@@ -5,8 +5,6 @@ import Homepage from './pages/Homepage/Homepage';
 import { Route, Switch } from 'react-router';
 import BlogPage from './pages/Blog/BlogPage';
 import { BrowserRouter } from 'react-router-dom';
-// import Buy from './components/Products/Buy';
-import Sell from './components/Products/Sell';
 import SingleBlog from './pages/Blog/SingleBlog';
 import WriteBlog from './pages/Blog/WriteBlog';
 import Electricity from './pages/Energy/Electricity/Electricity';
@@ -16,10 +14,12 @@ import Pwdchange from './components/pwdchange';
 import Userprofile from './components/Userprofile';
 import Home from './pages/Home/home';
 import Food from './pages/Food/food';
+import Buy from './pages/Buy/buy';
 import { AuthProvider } from './components/firebase/context';
 import SingleShopping from './pages/Shopping/SingleShopping/SingleShopping';
 import SingleFood from './pages/Food/SingleFood/SingleFood';
 import SingleHome from './pages/Home/SingleHome/SingleHome';
+import Sell from './pages/Sell/sell';
 
 function App() {
   return (

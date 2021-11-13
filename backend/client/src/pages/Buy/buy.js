@@ -4,7 +4,12 @@ import BuyingCard from "../../components/BuyingCard/buyingCard";
 import ProductDetails from "../../components/BuyingCard/productDetails";
 import axios from 'axios';
 import "./buy.css";
+import Sell from '../Sell/sell';
 
+/*  TO-DO
+    change productName to title
+    restrict title content size on card
+*/
 function Buy() {
 
   // const items = [{key: 1, productName: "Shoes", category: "fashion", description: "abc def ghi jklm n op qrs st uvw xy z", price: 500, address: "mumbai, maharashtra", mobileNumber: "1234567890"},
@@ -23,10 +28,10 @@ function Buy() {
   useEffect(() => {
     axios.get('http://localhost:4000/buyItems')
       .then(response => {
-        if(response.data.length > 0){
-          const buyingItems = response.data.buyingItems;
+        
+          const buyingItems = response.data[0].buyingItems;
           setBuyingItems(buyingItems);
-        }
+        
       })
   });
 
@@ -67,7 +72,16 @@ function Buy() {
               <Link to="/buy/kids_toys" className="listItemName">
                 <li className="sideBarListItem">Kids and Toys</li>
               </Link>
+
             </ul>
+            <div className="sellButtonSection">
+              <p className="postYourAdd">Post Your Add</p>
+              <Link to="/sell" className="listItemName">
+                <div className="btn btn-primary sellButton">
+                  SELL
+                </div>
+              </Link>
+            </div>
           </div>
 
           <div className="col-md-10 buyingItems">
@@ -174,6 +188,11 @@ function Buy() {
                 exact
                 path="/buy/buyingItem"
                 render={() => <ProductDetails productDetails={buyingItem}/> }
+              />
+              <Route
+                exact
+                path="/sell"
+                render={() => <Sell/> } 
               />
             </Switch>
           </div>
