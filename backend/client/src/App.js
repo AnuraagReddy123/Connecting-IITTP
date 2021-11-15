@@ -21,6 +21,7 @@ import SingleShopping from './pages/Shopping/SingleShopping/SingleShopping';
 import SingleFood from './pages/Food/SingleFood/SingleFood';
 import SingleHome from './pages/Home/SingleHome/SingleHome';
 import ChatbotMain from './pages/Chatbot/ChatbotMain';
+import Buy from './pages/Buy/buy'
 
 function App() {
   return (
