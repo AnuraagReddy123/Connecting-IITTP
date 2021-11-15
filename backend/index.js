@@ -3,11 +3,12 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const cors = require('cors');
+require('dotenv').config();
 const port = process.env.PORT || 4000;
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-require('dotenv').config();
+
 
 const mongoose = require('mongoose');
 const connection = process.env.ATLAS_URI;

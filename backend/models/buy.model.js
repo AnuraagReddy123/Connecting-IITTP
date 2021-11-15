@@ -38,5 +38,5 @@ const buyProductSchema = new Schema({
     // },
 });
 
-const BuyModel = mongoose.model('BuyModel', buyProductSchema);
+const BuyModel = mongoose.model('BuyModel', buyProductSchema, 'buy');
 module.exports = BuyModel;

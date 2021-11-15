@@ -1,2 +1,0 @@
-ATLAS_URI=mongodb+srv://iittpuser:iittpuser@saveenvironment.cxznb.mongodb.net/saveenvironment?retryWrites=true&w=majority
-PORT=4000 
