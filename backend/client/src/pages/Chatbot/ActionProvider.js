@@ -17,11 +17,29 @@ class ActionProvider {
     this.setChatBotMessage(message);
   };
 
+  handleClimateOption = () => {
+    const message = this.createChatbotMessage(
+      'It is a very real problem. Would you like to know more?'
+    );
+    this.setChatBotMessage(message);
+  };
+
   setChatBotMessage = (message) => {
     this.setState((state) => ({
       ...state,
       messages: [...state.messages, message],
     }));
   };
+
+  handleDog() {
+    const message = this.createChatbotMessage(
+      "Here's a nice dog picture for you!",
+      { widget: 'dogPicture' }
+    );
+    this.setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, message],
+    }));
+  }
 }
 export default ActionProvider;

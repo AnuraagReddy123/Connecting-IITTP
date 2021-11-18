@@ -21,7 +21,7 @@ import SingleFood from './pages/Food/SingleFood/SingleFood';
 import SingleHome from './pages/Home/SingleHome/SingleHome';
 import ChatbotMain from './pages/Chatbot/ChatbotMain';
 import Sell from './pages/Sell/sell';
-
+import './App.css'
 function App() {
   return (
    <AuthProvider>
