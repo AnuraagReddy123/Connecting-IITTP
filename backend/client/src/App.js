@@ -20,6 +20,7 @@ import { AuthProvider } from './components/firebase/context';
 import SingleShopping from './pages/Shopping/SingleShopping/SingleShopping';
 import SingleFood from './pages/Food/SingleFood/SingleFood';
 import SingleHome from './pages/Home/SingleHome/SingleHome';
+import SingleTravel from './pages/Travel/SingleTravel/SingleTravel';
 
 import Accodion from './pages/Accodion/Accodion';
 
@@ -57,6 +58,7 @@ function App() {
         <Route path='/singleShopping/:id' component={SingleShopping} />
         <Route path='/singleFood/:id' component={SingleFood}/>
         <Route path='/singleHome/:id' component={SingleHome}/>
+        <Route path='/singleTravel/:id' component={SingleTravel}/>
         <Route path='/writeBlog'>
           <WriteBlog />
         </Route>

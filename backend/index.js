@@ -22,11 +22,13 @@ const blogsRouter = require('./routes/blogs');
 const foodCategoryRouter = require('./routes/foodCategory');
 const shoppingCategoryRouter = require('./routes/shoppingCategory');
 const homeCategoryRouter = require('./routes/homeCategory');
+const travellingCategoryRouter = require('./routes/travellingCategory');
 app.use('/users', usersRouter);
 app.use('/blogs', blogsRouter);
 app.use('/foodCategories',foodCategoryRouter);
 app.use('/shoppingCategories',shoppingCategoryRouter);
 app.use('/homeCategories',homeCategoryRouter);
+app.use('/travellingCategory',travellingCategoryRouter);
 
 if (process.env.NODE_ENV == 'production') {
   app.use(express.static('client/build'));
