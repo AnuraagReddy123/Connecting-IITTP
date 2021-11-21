@@ -29,11 +29,8 @@ export default function WriteBlog() {
         const data = new FormData();
         data.append('name', file.name);
         data.append('file', file);
-
-        axios
-          .post(`${url}/blogs/uploadImage`, data)
-          .then((res) => console.log(res.data))
-          .catch((error) => console.log(error));
+        const image = await axios.post(`${url}/files/uploadImage`,data);// upload the image to the database
+        console.log(image.data);
       }
     };
     getImage();

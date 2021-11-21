@@ -5,9 +5,9 @@ const storage = new GridFsStorage({
   url: process.env.ATLAS_URI,
   options: { useNewUrlParser: true, useUnifiedTopology: true },
   file: (request, file) => {
-    const match = ['image/png', 'image/jpg'];
+    const match = ['image/png', 'image/jpeg','image/jpg'];
     if (match.indexOf(file.mimetype) === -1)
-      return null;
+      return `${Date.now()}-blog-${file.originalname}`;
 
     return {
       bucketName: 'photos',

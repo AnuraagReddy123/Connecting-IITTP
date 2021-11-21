@@ -18,6 +18,7 @@ mongoose
   .then(() => console.log('Database connected successfully'))
   .catch((error) => console.log(error));
 
+const imageRouter = require('./routes/images');
 const usersRouter = require('./routes/users');
 const blogsRouter = require('./routes/blogs');
 const buyRouter = require('./routes/buy_')
@@ -30,6 +31,7 @@ app.use('/blogs', blogsRouter);
 app.use('/foodCategories',foodCategoryRouter);
 app.use('/shoppingCategories',shoppingCategoryRouter);
 app.use('/homeCategories',homeCategoryRouter);
+app.use('/files',imageRouter);
 
 if (process.env.NODE_ENV == 'production') {
   app.use(express.static('client/build'));

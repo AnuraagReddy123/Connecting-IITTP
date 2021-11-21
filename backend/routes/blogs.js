@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const mongoose = require('mongoose');
 const Blog = mongoose.model('Blog', require('../schemas/blog.schemas'));
-const upload = require('../middleware/upload');
+
 
 const port = process.env.PORT || 4000;
 let url = 'http://localhost:';
@@ -40,17 +40,6 @@ router.route('/saveBlog').post((request, response) => {
     .catch((error) => {
       response.status(400).send('adding new blog failed');
     });
-});
-
-router.route('/uploadImage').post(upload.single('file'), (req, res) => {
-  try {
-    if (!req.file) return res.status(404).json('file not found');
-
-    const imageURL = `${url}/blogs/uploadImage/${req.file.filename}`;
-    res.status(200).json(imageURL);
-  } catch (error) {
-    res.status(500).json(error);
-  }
 });
 
 module.exports = router;
