@@ -30,7 +30,7 @@ export default function SingleBlog({ match }) {
     <div className={classes.single}>
       <div className={classes.singlePostWrapper}>
         <img
-          src='https://www.thespruce.com/thmb/LUtS0lKGZT2krNHDxqkPpHu4Jao=/960x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/the-difference-between-trees-and-shrubs-3269804-hero-a4000090f0714f59a8ec6201ad250d90.jpg'
+          src={blog.picture}
           alt=''
           class={classes.singlePostImage}
         />
