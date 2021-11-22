@@ -20,6 +20,12 @@ export default function WriteBlog() {
 
   const [blog, setblog] = useState(initialValues);
   const [file, setFile] = useState('');
+  const [image, setImage] = useState('');
+
+  const imageUrl = blog.picture
+    ? blog.picture
+    : 'https://i1.wp.com/www.itsmyfavoriteday.com/wp-content/uploads/2019/09/products-that-save-money-and-good-for-environment.jpg?w=1003&ssl=1';
+
   const history = useHistory();
 
   useEffect(() => {
@@ -29,8 +35,11 @@ export default function WriteBlog() {
         const data = new FormData();
         data.append('name', file.name);
         data.append('file', file);
-        const image = await axios.post(`${url}/files/uploadImage`,data);// upload the image to the database
+
+        const image = await axios.post(`${url}/files/uploadImage`, data); // upload the image to the database
         console.log(image.data);
+        blog.picture = image.data;
+        setImage(image.data);
       }
     };
     getImage();
@@ -56,11 +65,7 @@ export default function WriteBlog() {
 
   return (
     <div className='write'>
-      <img
-        className='writeImg'
-        src='https://staticdelivery.nexusmods.com/images/952/16613024-1477159025.png'
-        alt=''
-      />
+      <img className='writeImg' src={imageUrl} alt='' />
       <form className='writeForm' onSubmit={handleSubmit}>
         <div className='writeFormGroup'>
           <label for='fileInput'>

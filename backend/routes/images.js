@@ -34,7 +34,7 @@ router.route('/uploadImage').post(upload.single('file'), (req, res) => {
     try {
         if (!req.file) return res.status(404).json('file not found');
   
-        const imageURL = `${url}/files/uploadImage/${req.file.filename}`;
+        const imageURL = `${url}/files/${req.file.filename}`;
         res.status(200).json(imageURL);
     }catch (error) {
         res.status(500).json(error);
