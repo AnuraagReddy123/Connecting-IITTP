@@ -2,6 +2,10 @@ import React from "react";
 import "./productDetails.css";
 import buyImage from "./buyDefaultImage.jpg"
 
+/* To-Do
+  remove hadcoded username xyz
+*/
+
 function ProductDetails(props) {
   return (
     <div className="container-fluid">
@@ -10,7 +14,7 @@ function ProductDetails(props) {
           <div className="card productdetails">
             <img src={buyImage} className="card-img-top" alt="" />
             <h5>Details</h5>
-            <p>{props.productDetails.productName}</p>
+            <p>{props.productDetails.title}</p>
             <div class="line"></div>
             <h5>Description</h5>
             <p>{props.productDetails.description}</p>
@@ -20,7 +24,7 @@ function ProductDetails(props) {
           <div className="card productdetails">
             <h5>Price</h5>
             <p>{props.productDetails.price}</p>
-            <p>{props.productDetails.description}</p>
+            <p>{props.productDetails.title}</p>
             <div class="line"></div>
             <h5>Seller Details</h5>
             <p>Name : XYZ</p>
