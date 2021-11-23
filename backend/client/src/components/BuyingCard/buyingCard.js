@@ -8,7 +8,7 @@ function BuyingCard(props) {
       <div className="card buyingcard">
         <img src={buyImage} className="card-img-top" alt="" />
         <div className="card-body">
-          <h6 className="card-title">{props.productDetails.productName}</h6>
+          <h6 className="card-title text-truncate">{props.productDetails.title}</h6>
           <p className="card-text">Price : {props.productDetails.price} Rs</p>
         </div>
       </div>
