@@ -1,8 +1,20 @@
+#homepage0{
+    margin-top: 56px;
+}
+
+/* navbar */
 #span1{
     color: white;
     font-size: larger;
 }
 
-#homepage0{
-    margin-top: 56px;
+/* footer */
+#footer0 a{
+    text-decoration: none;
+    color: white;
+    opacity: 0.8;
+}
+
+#footer0 a:hover{
+    opacity: 1;
 }

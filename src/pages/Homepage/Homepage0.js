@@ -17,18 +17,23 @@ const Homepage0 = () => {
                         <img src="../imgs/jar.jpg" alt="jar.jpg " className="img-fluid rounded py-5 img" />
                     </div>
                     <div className="col-md-6">
-                        <h2>Lorem</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptates dolorem cumque minima ut vel hic aliquam pariatur repudiandae possimus quis necessitatibus soluta culpa modi expedita, quas cupiditate? Veritatis, magnam eligendi.
-                        Et pariatur odio nam architecto debitis suscipit voluptates hic. Quos maxime, dicta soluta, itaque aliquid consequuntur sapiente animi a, saepe mollitia veritatis placeat cumque voluptates. Ducimus voluptatum eum atque quibusdam?</p>
+                        <h2>Our Goal</h2>
+                        <p className="ourGoalContent">Climate Change is an ongoing problem that people are neglecting. Acting on climate change represents a trade-off between short-term and long-term benefits, which is the hardest trade-off to make. Our website provides you with different ways of saving environment along with protecting environment to make you more connected with the climate change problem</p>
                     </div>
                 </div>
             </div>
 
-            <footer className="footer-dark mx-0">
+            <footer className="footer-dark mx-0" id = "footer0">
                 <div className="row mb-4 justify-content-center">
-                    <div className="col-2 text-end">About</div>
-                    <div className="col-2 text-center">FAQ</div>
-                    <div className="col-2">Something</div>
+                    <div className="col-2 text-end">
+                        <a href="">About</a>
+                    </div>
+                    <div className="col-2 text-center">
+                        <a href="">FAQ</a>
+                    </div>
+                    <div className="col-2">
+                        <a href="">Feedback</a>
+                    </div>
                 </div>
                 <div className="col item social">
                     <a href="#"><i className="bi bi-facebook"></i></a>
