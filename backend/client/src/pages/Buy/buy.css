@@ -1,0 +1,59 @@
+.sideBar {
+    background-color: aliceblue;
+    margin-top: 9vh;
+    /* margin-left: 2vw; */
+    height: 87vh;
+    /* width: 20vw; */
+}
+
+.sideBarList {
+    list-style-type: none;
+    padding-top: 2vh;
+}
+
+.sideBarListItem{
+    margin-right: 4vh;
+    border-bottom: 1px solid black;
+    align-content: center;
+    padding: 16px 8px 8px 8px;
+}
+
+.sideBarListItem:hover {
+    background-color: lightgreen;
+}
+
+.listItemName {
+    text-decoration: none;
+    color: black;
+    font-family: monospace;
+}
+
+.buyingItems {
+    background-color: white;
+    padding-left: 2vw;
+    padding-top: 1vh;
+    margin-top: 9vh;
+    height: 87vh;
+    overflow-y: auto;
+}
+
+.buying_card {
+    color: black;
+    text-decoration: none;
+}
+
+.sellButtonSection {
+    margin-top: 13vh;
+    margin-left: 3vw;
+}
+
+.sellButton {
+    margin-left: 2vw;
+    border-radius: 20px;
+}
+
+.postYourAdd {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+    font-size: large;
+}

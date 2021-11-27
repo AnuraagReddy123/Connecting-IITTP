@@ -1,25 +1,75 @@
 const router = require('express').Router();
-const User = require('../models/user.model');
-router.route("/").get((request,response) => {
+const { body,validationResult } = require('express-validator');
+const mongoose = require("mongoose");
+const User = mongoose.model('User',require('../schemas/user.schemas'));
+
+// fetch all the users
+router.get('/',(req,res) => {
     User.find((error,users) => {
         if(error) {
             console.log(error);
         }
         else{
-            response.json(users);
+            res.json(users);
         }
     });
 });
+
 // add the user to the database
-router.route("/saveUser").post((request,response) => {
-    const user = new User(request.body);
+router.post('/saveUser',(req,res) => {
+    const user = new User(req.body);
     user.save()
     .then((_user) => {
-        response.status(200).json({'user': 'user added successfully'});
+        res.status(200).json({'user': 'user added successfully'});
     })
-    .catch((error) => {
-        response.status(400).send('adding new user failed');
+    .catch((_error) => {
+        res.status(400).send('adding new user failed');
     })
+});
+
+// find a user by username
+router.get('/findUsername',async (req,res) => {
+    const user = await User.findOne({username: req.query.username}).exec();
+    res.json(user);
+});
+
+// find a user by email
+router.get('/findEmail',async (req,res) => {
+    const user = await User.findOne({email: req.query.email}).exec();
+    res.json(user);
+});
+
+// register a user
+router.post('/register',body("username").custom(async (value) => {
+    const user = await User.find({username: value});
+    if(user.length > 0) {
+        // user name already exists
+        // reject the promise
+        return Promise.reject('Username already in use');
+    }
+}),body("email").custom(async (value) => {
+    const user = await User.find({email : value});
+    if(user.length > 0) {
+        // email already exists
+        // reject the promise
+        return Promise.reject('Email already in use');
+    }
+}),async (req,res) => {
+    // Validate incoming input
+    const errors = validationResult(req);
+    if(!errors.isEmpty()) {
+        res.status(400).send(errors)
+    }
+    else{
+        const user = new User(req.body);
+        user.save()
+        .then((_user) => {
+            res.status(200).json({'user': 'user added successfully'});
+        })
+        .catch((error) => {
+            res.status(400).send('adding new user failed');
+        })
+    }
 });
 
 module.exports = router;
