@@ -4,32 +4,40 @@ import BuyingCard from "../../components/BuyingCard/buyingCard";
 import ProductDetails from "../../components/BuyingCard/productDetails";
 import axios from 'axios';
 import "./buy.css";
+import { useHistory } from 'react-router';
 import Sell from '../Sell/sell';
 
 /*  TO-DO
-    change productName to title
+    change prodectName to title : Done
     restrict title content size on card
 */
 function Buy() {
 
-  // const items = [{key: 1, productName: "Shoes", category: "fashion", description: "abc def ghi jklm n op qrs st uvw xy z", price: 500, address: "mumbai, maharashtra", mobileNumber: "1234567890"},
-  // {key: 2, productName: "Mobile Phone", category: "electronics", description: "abc def ghi jklm n op qrs st uvw xy z", price: 5000, address: "mumbai, maharashtra", mobileNumber: "1234567890"},
-  // {key: 3, productName: "Dell Laptop", category: "electronics", description: "abc def ghi jklm n op qrs st uvw xy z", price: 50000, address: "mumbai, maharashtra", mobileNumber: "1234567890"},
-  // {key: 4, productName: "Car", category: "cars_bikes", description: "abc def ghi jklm n op qrs st uvw xy z", price: 500000, address: "mumbai, maharashtra", mobileNumber: "1234567890"},
-  // {key: 5, productName: "Class Notes", category: "books_sports_hobbies", description: "abc def ghi jklm n op qrs st uvw xy z", price: 500, address: "mumbai, maharashtra", mobileNumber: "1234567890"},
-  // {key: 6, productName: "Study Table", category: "furniture", description: "abc def ghi jklm n op qrs st uvw xy z", price: 500, address: "mumbai, maharashtra", mobileNumber: "1234567890"},
-  // {key: 7, productName: "Teddy Bear", category: "kids_toys", description: "abc def ghi jklm n op qrs st uvw xy z", price: 500, address: "mumbai, maharashtra", mobileNumber: "1234567890"},
-  // {key: 8, productName: "Dining Table", category: "furniture", description: "abc def ghi jklm n op qrs st uvw xy z", price: 500, address: "mumbai, maharashtra", mobileNumber: "1234567890"},
-  // {key: 9, productName: "Watch", category: "fashion", description: "abc def ghi jklm n op qrs st uvw xy z", price: 500, address: "mumbai, maharashtra", mobileNumber: "1234567890"}]
+  // const items = [{title: "Shoes", category: "fashion", description: "abc def ghi jklm n op qrs st uvw xy z", price: 500, address: "mumbai, maharashtra", mobileNumber: "1234567890"},
+  // {title: "Mobile Phone", category: "electronics", description: "abc def ghi jklm n op qrs st uvw xy z", price: 5000, address: "mumbai, maharashtra", mobileNumber: "1234567890"},
+  // {title: "Dell Laptop", category: "electronics", description: "abc def ghi jklm n op qrs st uvw xy z", price: 50000, address: "mumbai, maharashtra", mobileNumber: "1234567890"},
+  // {title: "Car", category: "cars_bikes", description: "abc def ghi jklm n op qrs st uvw xy z", price: 500000, address: "mumbai, maharashtra", mobileNumber: "1234567890"},
+  // {title: "Class Notes", category: "books_sports_hobbies", description: "abc def ghi jklm n op qrs st uvw xy z", price: 500, address: "mumbai, maharashtra", mobileNumber: "1234567890"},
+  // {title: "Study Table", category: "furniture", description: "abc def ghi jklm n op qrs st uvw xy z", price: 500, address: "mumbai, maharashtra", mobileNumber: "1234567890"},
+  // {title: "Teddy Bear", category: "kids_toys", description: "abc def ghi jklm n op qrs st uvw xy z", price: 500, address: "mumbai, maharashtra", mobileNumber: "1234567890"},
+  // {title: "Dining Table", category: "furniture", description: "abc def ghi jklm n op qrs st uvw xy z", price: 500, address: "mumbai, maharashtra", mobileNumber: "1234567890"},
+  // {title: "Watch", category: "fashion", description: "abc def ghi jklm n op qrs st uvw xy z", price: 500, address: "mumbai, maharashtra", mobileNumber: "1234567890"}]
 
   const [buyingItems, setBuyingItems] = useState([]);
-  const [buyingItem, setBuyingItem] = useState({key: "", productName: "", category: "", description: "", price: 5000, address: "", mobileNumber: ""});
+  const [buyingItem, setBuyingItem] = useState({ title: "", category: "", description: "", price: "", address: "", mobileNumber: ""});
+  const history = useHistory();
+
+  const port = process.env.PORT || 4000;
+  let url = 'http://localhost:';
+  if (process.env.NODE_ENV === 'production')
+    url = 'https://save-environment-iittp.herokuapp.com';
+  else url = `http://localhost:${port}`;
+
 
   useEffect(() => {
-    axios.get('http://localhost:4000/buyItems')
+    axios.get(`${url}/buyItems`)
       .then(response => {
-        
-          const buyingItems = response.data[0].buyingItems;
+          const buyingItems = response.data;
           setBuyingItems(buyingItems);
         
       })
@@ -37,6 +45,10 @@ function Buy() {
 
   const handleClick = (e) => {
     setBuyingItem(e);
+  }
+
+  const handleSell = (e) => {
+    history.push("/sell");
   }
 
   return (
@@ -76,11 +88,9 @@ function Buy() {
             </ul>
             <div className="sellButtonSection">
               <p className="postYourAdd">Post Your Add</p>
-              <Link to="/sell" className="listItemName">
-                <div className="btn btn-primary sellButton">
+                <div className="btn btn-primary sellButton" onClick={handleSell}>
                   SELL
                 </div>
-              </Link>
             </div>
           </div>
 
@@ -188,11 +198,6 @@ function Buy() {
                 exact
                 path="/buy/buyingItem"
                 render={() => <ProductDetails productDetails={buyingItem}/> }
-              />
-              <Route
-                exact
-                path="/sell"
-                render={() => <Sell/> } 
               />
             </Switch>
           </div>

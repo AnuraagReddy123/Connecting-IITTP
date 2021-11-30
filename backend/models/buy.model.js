@@ -4,12 +4,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const buyProductSchema = new Schema({
-    key: {
-        type: String,
-        required: true,
-        unique: true
-    }, 
-    productName: {
+    title: {
         type: String,
         required: true,
     },
@@ -32,7 +27,7 @@ const buyProductSchema = new Schema({
     mobileNumber: {
         type: String,
         required: true,
-    }, 
+    }
     // image: {
 
     // },
