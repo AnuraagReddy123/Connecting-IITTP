@@ -31,6 +31,14 @@ const Homepage = () => {
                             </ul>
                         </div>
                         <div className="col-md-3 item">
+                            <h3>Tools</h3>
+                            <ul>
+                                <li><a href="/blogs">Chatbot</a></li>
+                                <li><a href="/buy">Buy</a></li>
+                                <li><a href="/sell">Sell</a></li>
+                            </ul>
+                        </div>
+                        <div className="col-md-3 item">
                             <h3>Blog</h3>
                             <ul>
                                 <li><a href="/blogs">Blogs</a></li>
@@ -62,7 +70,7 @@ const Homepage = () => {
                             <a href="#"><i className="bi bi-youtube"></i></a>
                             <a href="#"><i className="bi bi-instagram"></i></a>
                             <a href="#"><i className="bi bi-google"></i></a>
-                            <a href=""><i className="bi bi-github"></i></a>
+                            <a href="#"><i className="bi bi-github"></i></a>
                         </div>
                     </div>
                     <p className="copyright">*.com © 2021</p>

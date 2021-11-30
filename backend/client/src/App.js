@@ -37,9 +37,6 @@ function App() {
         <Route path='/authentication'>
           <Authentication />
         </Route>
-        {/* <Route path = '/travelling'>
-          <Travelling />
-        </Route> */}
         <Route path='/electricity'>
           <Electricity />
         </Route>
