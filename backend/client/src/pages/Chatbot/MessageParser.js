@@ -11,7 +11,7 @@ class MessageParser {
     }
 
     if (lowercase.includes("is climate change real")) {
-      this.actionProvider.climateRealHandler();
+      this.actionProvider.handleClimateOption();
     }
     
   }
