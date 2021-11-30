@@ -13,10 +13,7 @@ class MessageParser {
     if (lowercase.includes("is climate change real")) {
       this.actionProvider.climateRealHandler();
     }
-
-    if (lowercase.includes('dog')) {
-      this.actionProvider.handleDog();
-    }
+    
   }
 }
 
