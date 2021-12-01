@@ -6,6 +6,7 @@ import "./profile.css";
 import BuyingCard from "../../components/BuyingCard/buyingCard";
 import ProductDetails from "../../components/BuyingCard/productDetails";
 import { AuthContext } from '../../components/firebase/context';
+import BlogCard from "../../components/BlogCard/BlogCard";
 
 function Profile() {
 
@@ -18,6 +19,7 @@ function Profile() {
   const [tabContent, setTabContent] = useState(["", "none"]);
   const [userAdds, setUserAdds] = useState([]);
   const [add, setAdd] = useState({});
+  const [blogs, setBlogs] = useState([]);
 
   const port = process.env.PORT || 4000;
   let url = "http://localhost:";
@@ -32,7 +34,20 @@ function Profile() {
       arr = response.data;
       setUserAdds(arr.filter((i) => i.username === user.username));
     }); }
-    setUserInformation(user);
+    setUserInformation();
+
+    const fetchBlogs = () => {
+      axios
+        .get(`${url}/blogs`)
+        .then((res) => {
+          let arr = [];
+          arr = res.data;
+          setBlogs(arr.filter((i) => i.username === user.username));
+          console.log(blogs);
+        })
+        .catch((err) => console.log(err));
+    };
+    fetchBlogs();
   });
 
   const handleTab = (i) => {
@@ -122,7 +137,13 @@ function Profile() {
                     </div>
                     <div className="container-fluid " style={{display: tabContent[0]}}>
                       <div className="row yourBlogs">
-                        BLOGS....
+                      {blogs.map((blog) => (
+                          
+                        <Link to={`/singleBlog/${blog._id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                          <BlogCard blog={blog} />
+                        </Link>
+                              
+                        ))}
                       </div>
                     </div>
                   </div>

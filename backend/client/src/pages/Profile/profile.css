@@ -25,6 +25,10 @@
     overflow-y: scroll;
 }
 
+.yourBlogs {
+    overflow-y: scroll;
+}
+
 .userAdd {
     padding-top: 7vh;
 }
