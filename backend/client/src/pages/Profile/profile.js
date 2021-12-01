@@ -7,6 +7,7 @@ import BuyingCard from "../../components/BuyingCard/buyingCard";
 import ProductDetails from "../../components/BuyingCard/productDetails";
 import { AuthContext } from '../../components/firebase/context';
 import BlogCard from "../../components/BlogCard/BlogCard";
+import { useHistory } from 'react-router';
 
 function Profile() {
 
@@ -20,6 +21,8 @@ function Profile() {
   const [userAdds, setUserAdds] = useState([]);
   const [add, setAdd] = useState({});
   const [blogs, setBlogs] = useState([]);
+
+  const history = useHistory();
 
   const port = process.env.PORT || 4000;
   let url = "http://localhost:";
@@ -69,6 +72,10 @@ function Profile() {
       .catch(err => {
         console.log(err);
       });
+  }
+
+  const handleBlogCardClick = (blog) => {
+    history.push(`/singleBlog/${blog._id}`);
   }
 
   return (
@@ -138,7 +145,7 @@ function Profile() {
                     <div className="container-fluid yourBlogs" style={{display: tabContent[0]}}>
                       <div className="row">
                       {blogs.map((blog) => (
-                        <div className="userBlogList">
+                        <div className="userBlogList" onClick={() => handleBlogCardClick(blog)}>
                             <BlogCard blog={blog} />
                         </div>
                         ))}
