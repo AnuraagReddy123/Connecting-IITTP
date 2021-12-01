@@ -16,10 +16,8 @@ function Profile() {
 
   const [activeTab, setActiveTab] = useState([" active", ""]);
   const [tabContent, setTabContent] = useState(["", "none"]);
-  const [userDetails, setUserDetails] = useState(user);
   const [userAdds, setUserAdds] = useState([]);
   const [add, setAdd] = useState({});
-  // const [file, setFile] = useState('');
 
   const port = process.env.PORT || 4000;
   let url = "http://localhost:";
@@ -28,12 +26,13 @@ function Profile() {
   else url = `http://localhost:${port}`;
 
   useEffect(() => {
+    const setUserInformation = () => {
     axios.get(`${url}/buyItems`).then((response) => {
       let arr = [];
       arr = response.data;
-      setUserAdds(arr.filter((i) => i.username === userDetails.username));
-    }); 
-    setUserDetails(user);
+      setUserAdds(arr.filter((i) => i.username === user.username));
+    }); }
+    setUserInformation(user);
   });
 
   const handleTab = (i) => {
@@ -57,18 +56,11 @@ function Profile() {
       });
   }
 
-  // const handleImage = (i) => {
-  //   setFile(i);
-  //   const data = new FormData();
-  //   data.append('name', file.name);
-  //   data.append('file', file);
-
-  //   const image = await axios.post(`${url}/files/uploadImage`, data); // upload the image to the database
-  //   console.log(image.data);
-  //   user.image = image.data;
-  // }
-
   return (
+    <div>
+    {!user ? (
+        <p>Loading...</p>
+      ) : (
     <Router>
       <Switch>
         <Route
@@ -79,17 +71,17 @@ function Profile() {
               <div className="row">
                 <div className="col-md-2">
                   <div className="card imageCard">
-                    <img src={/*user.image*/Image} className="card-img-top" alt="" />
+                    <img src={Image} className="card-img-top" alt="" />
                   </div>
-                  <div /*type='file'*/ className="btn btn-primary changePhoto" /*onClick={(e) => handleImage(e.target.files[0])}*/>Change Photo</div>
+                  <div className="btn btn-primary changePhoto" >Change Photo</div>
                 </div>
                 <div className="col-md-10">
                   <div className="card details">
                       <div className="container">
-                        <div className="row"><div className="col-md-2"><p className="userDetailTitles">User Name</p></div><div className="col-md-8"><p className="userDetail">{userDetails["username"]}</p></div></div>
-                        <div className="row"><div className="col-md-2"><p className="userDetailTitles">First Name</p></div><div className="col-md-8"><p className="userDetail">{userDetails["firstName"]}</p></div></div>
-                        <div className="row"><div className="col-md-2"><p className="userDetailTitles">Last Name</p></div><div className="col-md-8"><p className="userDetail">{userDetails["lastName"]}</p></div></div>
-                        <div className="row"><div className="col-md-2"><p className="userDetailTitles">Email</p></div><div className="col-md-8"><p className="userDetail">{userDetails["email"]}</p></div></div>
+                        <div className="row"><div className="col-md-2"><p className="userDetailTitles">User Name</p></div><div className="col-md-8"><p className="userDetail">{user["username"]}</p></div></div>
+                        <div className="row"><div className="col-md-2"><p className="userDetailTitles">First Name</p></div><div className="col-md-8"><p className="userDetail">{user["firstName"]}</p></div></div>
+                        <div className="row"><div className="col-md-2"><p className="userDetailTitles">Last Name</p></div><div className="col-md-8"><p className="userDetail">{user["lastName"]}</p></div></div>
+                        <div className="row"><div className="col-md-2"><p className="userDetailTitles">Email</p></div><div className="col-md-8"><p className="userDetail">{user["email"]}</p></div></div>
                       </div>
                   </div>
                   <div className="card shadow p-3 bg-white rounded tabs">
@@ -123,7 +115,6 @@ function Profile() {
                               <Link to="/add" className="buying_card" onClick={() => setAdd(add)}>
                                 <BuyingCard productDetails={add} />
                               </Link>
-                              {/* <div className="col-6 btn btn-sm btn-secondary" onClick={() => handleUpdate(add)}>Update</div> */}
                               <div className="col-6 btn btn-sm btn-danger del" data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={() => setAdd(add)}>Delete</div>
                           </div>
                         ))}
@@ -159,7 +150,8 @@ function Profile() {
         />
         <Route exact path="/add" render={() => <div className="userAdd"><ProductDetails productDetails={add}/></div> } />
       </Switch>
-    </Router>
+    </Router> )}
+    </div>
   );
 }
 
