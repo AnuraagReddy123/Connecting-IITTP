@@ -12,7 +12,7 @@ function ProductDetails(props) {
       <div className="row">
         <div className="col-md-6 leftSection">
           <div className="card productdetails">
-            <div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel">
+            <div id="carouselExampleControls" className="carousel slide addImages" data-bs-ride="carousel">
               <div className="carousel-inner">
               <div className="carousel-item active">
                 <img src={props.productDetails.image[0]} className="d-block w-100" alt="..."/>
