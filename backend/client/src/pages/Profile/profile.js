@@ -135,14 +135,12 @@ function Profile() {
                         ))}
                       </div>
                     </div>
-                    <div className="container-fluid " style={{display: tabContent[0]}}>
-                      <div className="row yourBlogs">
+                    <div className="container-fluid yourBlogs" style={{display: tabContent[0]}}>
+                      <div className="row">
                       {blogs.map((blog) => (
-                          
-                        <Link to={`/singleBlog/${blog._id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-                          <BlogCard blog={blog} />
-                        </Link>
-                              
+                        <div className="userBlogList">
+                            <BlogCard blog={blog} />
+                        </div>
                         ))}
                       </div>
                     </div>
