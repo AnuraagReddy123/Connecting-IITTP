@@ -15,13 +15,14 @@ const userSchema = new Schema({
         type: String,
         required: true,
     },
-    // image: {
-    //     type: String
-    // },
     password: String,
     bill: {
         type: Number,
+<<<<<<< HEAD
     },
+=======
+    }
+>>>>>>> main
 });
 
 module.exports = userSchema;

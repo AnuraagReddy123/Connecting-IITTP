@@ -39,6 +39,24 @@ router.get('/findEmail',async (req,res) => {
     res.json(user);
 });
 
+//update the user information
+router.post('/updateUser/:id',(req,res) => {
+    User.findById(req.params.id, (err,user) => {
+        if(!user){
+            res.status(404).send("data not found");
+        }
+        else{
+            user.bill = req.body.bill;
+            user.save().then((_user) => {
+                res.json('User information updated');
+            })
+            .catch(err => {
+                res.status(400).send("Update failed");
+            })
+        }
+    })
+});
+
 // register a user
 router.post('/register',body("username").custom(async (value) => {
     const user = await User.find({username: value});
