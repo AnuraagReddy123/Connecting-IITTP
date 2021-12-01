@@ -19,8 +19,10 @@ import { AuthProvider } from './components/firebase/context';
 import SingleShopping from './pages/Shopping/SingleShopping/SingleShopping';
 import SingleFood from './pages/Food/SingleFood/SingleFood';
 import SingleHome from './pages/Home/SingleHome/SingleHome';
+import ChatbotMain from './pages/Chatbot/ChatbotMain';
 import Sell from './pages/Sell/sell';
 import Profile from './pages/Profile/profile';
+import './App.css'
 
 function App() {
   return (
@@ -37,9 +39,6 @@ function App() {
         <Route path='/authentication'>
           <Authentication />
         </Route>
-        {/* <Route path = '/travelling'>
-          <Travelling />
-        </Route> */}
         <Route path='/electricity'>
           <Electricity />
         </Route>
@@ -73,6 +72,9 @@ function App() {
         </Route>
         <Route path='/userprofile'>
           <Profile />
+        </Route>
+        <Route path='/chatbot'>
+          <ChatbotMain />
         </Route>
       </Switch>
     </BrowserRouter>
