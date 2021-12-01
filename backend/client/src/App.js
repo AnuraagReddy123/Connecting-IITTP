@@ -7,7 +7,7 @@ import BlogPage from './pages/Blog/BlogPage';
 import { BrowserRouter } from 'react-router-dom';
 import SingleBlog from './pages/Blog/SingleBlog';
 import WriteBlog from './pages/Blog/WriteBlog';
-import Electricity from './pages/Energy/Electricity/Electricity';
+import Electricity from './pages/Energy/Electricity';
 import Shopping from './pages/Shopping/shopping';
 import Travelling from './pages/Travel/travelling';
 import Pwdchange from './components/pwdchange';
