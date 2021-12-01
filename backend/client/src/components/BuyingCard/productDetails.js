@@ -3,7 +3,7 @@ import "./productDetails.css";
 import buyImage from "./buyDefaultImage.jpg"
 
 /* To-Do
-  remove hadcoded username xyz
+
 */
 
 function ProductDetails(props) {
@@ -27,7 +27,7 @@ function ProductDetails(props) {
             <p>{props.productDetails.title}</p>
             <div class="line"></div>
             <h5>Seller Details</h5>
-            <p>Name : XYZ</p>
+            <p>Name : {props.productDetails.name}</p>
             <p>Address : {props.productDetails.address}</p>
             <p>Mobile Number : {props.productDetails.mobileNumber}</p>
           </div>

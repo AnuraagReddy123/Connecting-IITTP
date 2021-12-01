@@ -20,6 +20,7 @@ import SingleShopping from './pages/Shopping/SingleShopping/SingleShopping';
 import SingleFood from './pages/Food/SingleFood/SingleFood';
 import SingleHome from './pages/Home/SingleHome/SingleHome';
 import Sell from './pages/Sell/sell';
+import Profile from './pages/Profile/profile';
 
 function App() {
   return (
@@ -71,7 +72,7 @@ function App() {
           <Pwdchange />
         </Route>
         <Route path='/userprofile'>
-          <Userprofile />
+          <Profile />
         </Route>
       </Switch>
     </BrowserRouter>

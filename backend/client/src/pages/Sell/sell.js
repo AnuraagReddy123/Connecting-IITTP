@@ -6,8 +6,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 /* TO-DO
-    1. show number of characters entered.
-    2. check if mobile number is correctly entered : Done
+    1. Get current user's name.
 */
 
 const port = process.env.PORT || 4000;
@@ -26,6 +25,8 @@ function Sell() {
     price: "",
     address: "",
     mobileNumber: "",
+    name: "adc",
+    username: "nbh",
   };
 
   const [sellItem, setSellItem] = useState(initialSellItem);
@@ -35,7 +36,7 @@ function Sell() {
   const handleChange = (e) => {
     const { value, name } = e.target;
     const newSellItem = JSON.parse(JSON.stringify(sellItem));
-    if(name == "price" || name == "mobileNumber")
+    if(name === "price" || name === "mobileNumber")
       newSellItem[name] = value.toString(10);
     else
       newSellItem[name] = value;
@@ -45,7 +46,6 @@ function Sell() {
   }
 
   const handlePost = (e) => {
-    // console.log(sellItem);
     const newValidity = {
       title: "",
       category: "",
@@ -53,35 +53,38 @@ function Sell() {
       price: "",
       address: "",
       mobileNumber: "",
+      name: "",
+      username: "",
     };
     let flag=0;
-    if(sellItem.category.length == 0){
+    if(sellItem.category.length === 0){
       newValidity["category"] = " is-invalid";
       flag=1;
     }
-    if(sellItem.title.length == 0){
+    if(sellItem.title.length === 0){
       newValidity["title"] = " is-invalid";
       flag=1;
     }
-    if(sellItem.description.length == 0){
+    if(sellItem.description.length === 0){
       newValidity["description"] = " is-invalid";
       flag=1;
     }
-    if(sellItem.price.length == 0){
+    if(sellItem.price.length === 0){
       newValidity["price"] = " is-invalid";
       flag=1;
     }
-    if(sellItem.address.length == 0 || sellItem.mobileNumber.indexOf('-') > -1){
+    if(sellItem.address.length === 0 || sellItem.mobileNumber.indexOf('-') > -1){
       newValidity["address"] = " is-invalid";
       flag=1;
     }
-    if(sellItem.mobileNumber.length != 10 || sellItem.mobileNumber.indexOf('e') > -1 || sellItem.mobileNumber.indexOf('.') > -1 || sellItem.mobileNumber.indexOf('+') > -1 || sellItem.mobileNumber.indexOf('-') > -1){
+    if(sellItem.mobileNumber.length !== 10 || sellItem.mobileNumber.indexOf('e') > -1 || sellItem.mobileNumber.indexOf('.') > -1 || sellItem.mobileNumber.indexOf('+') > -1 || sellItem.mobileNumber.indexOf('-') > -1){
       newValidity["mobileNumber"] = " is-invalid";
       flag=1;
     }
     setValidity(newValidity);
 
-    if(flag == 0){
+    if(flag === 0){
+      console.log(sellItem);
       axios.post(`${url}/buyItems`, sellItem)
       .then(() => {
         history.push("/sell");
