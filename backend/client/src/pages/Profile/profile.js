@@ -1,18 +1,25 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link, Switch, Route, BrowserRouter as Router } from "react-router-dom";
 import Image from "./default.jpg";
 import axios from "axios";
 import "./profile.css";
 import BuyingCard from "../../components/BuyingCard/buyingCard";
 import ProductDetails from "../../components/BuyingCard/productDetails";
+import { AuthContext } from '../../components/firebase/context';
 
 function Profile() {
+
+  let { user } = useContext(AuthContext);
+  console.log(user);
+  if(!user)
+    user = {username: "", firstName: "", lastName: "", email: "", password: ""};
+
   const [activeTab, setActiveTab] = useState([" active", ""]);
   const [tabContent, setTabContent] = useState(["", "none"]);
-  const [username, setUsername] = useState("abc");
+  const [userDetails, setUserDetails] = useState(user);
   const [userAdds, setUserAdds] = useState([]);
-  const [userDetails, setUserDetails] = useState({username: "", firstName: "", lastName: "", email: ""});
   const [add, setAdd] = useState({});
+  // const [file, setFile] = useState('');
 
   const port = process.env.PORT || 4000;
   let url = "http://localhost:";
@@ -24,15 +31,9 @@ function Profile() {
     axios.get(`${url}/buyItems`).then((response) => {
       let arr = [];
       arr = response.data;
-      setUserAdds(arr.filter((i) => i.username === username));
-    });
-    axios.get(`${url}/users`).then((response) => {
-        let arr = [];
-        arr = response.data;
-        const det = arr.filter((i) => i.username === "cs19b031");
-        // console.log(det);
-        setUserDetails(det[0]);
-      });
+      setUserAdds(arr.filter((i) => i.username === userDetails.username));
+    }); 
+    setUserDetails(user);
   });
 
   const handleTab = (i) => {
@@ -43,14 +44,6 @@ function Profile() {
     u[i] = "";
     setTabContent(u);
   };
-
-  const handleClick = (a) => {
-    setAdd(a);
-  }
-
-  const handleDelClick = (a) => {
-    setAdd(a);
-  }
 
   const handleDelete = (id) => {
     axios.delete(`${url}/buyItems/${id}`)
@@ -64,6 +57,17 @@ function Profile() {
       });
   }
 
+  // const handleImage = (i) => {
+  //   setFile(i);
+  //   const data = new FormData();
+  //   data.append('name', file.name);
+  //   data.append('file', file);
+
+  //   const image = await axios.post(`${url}/files/uploadImage`, data); // upload the image to the database
+  //   console.log(image.data);
+  //   user.image = image.data;
+  // }
+
   return (
     <Router>
       <Switch>
@@ -75,9 +79,9 @@ function Profile() {
               <div className="row">
                 <div className="col-md-2">
                   <div className="card imageCard">
-                    <img src={Image} className="card-img-top" alt="" />
+                    <img src={/*user.image*/Image} className="card-img-top" alt="" />
                   </div>
-                  <div className="btn btn-primary changePhoto">Change Photo</div>
+                  <div /*type='file'*/ className="btn btn-primary changePhoto" /*onClick={(e) => handleImage(e.target.files[0])}*/>Change Photo</div>
                 </div>
                 <div className="col-md-10">
                   <div className="card details">
@@ -116,11 +120,11 @@ function Profile() {
                       <div className="row yourAdds">
                         {userAdds.map((add) => (
                           <div className="userAddsList">
-                              <Link to="/add" className="buying_card" onClick={() => handleClick(add)}>
+                              <Link to="/add" className="buying_card" onClick={() => setAdd(add)}>
                                 <BuyingCard productDetails={add} />
                               </Link>
                               {/* <div className="col-6 btn btn-sm btn-secondary" onClick={() => handleUpdate(add)}>Update</div> */}
-                              <div className="col-6 btn btn-sm btn-danger del" data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={() => handleDelClick(add)}>Delete</div>
+                              <div className="col-6 btn btn-sm btn-danger del" data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={() => setAdd(add)}>Delete</div>
                           </div>
                         ))}
                       </div>

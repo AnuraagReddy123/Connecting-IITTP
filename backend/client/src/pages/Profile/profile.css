@@ -6,6 +6,7 @@
 .changePhoto {
     margin-top: 1vh;
     margin-left: 3vw;
+    display: none;
 }
 
 .details {
@@ -39,9 +40,9 @@
 }
 
 .userAddsList {
-    width: 15vw;
+    width: 18vw;
 }
 
 .del {
-    width: 13.5vw;
+    width: 16.5vw;
 }

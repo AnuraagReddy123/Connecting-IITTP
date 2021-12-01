@@ -69,7 +69,7 @@ export default function WriteBlog() {
       <form className='writeForm' onSubmit={handleSubmit}>
         <div className='writeFormGroup'>
           <label for='fileInput'>
-            <i class='writeIcon fas fa-plus' />
+            <i className='writeIcon fas fa-plus' />
           </label>
           <input
             type='file'

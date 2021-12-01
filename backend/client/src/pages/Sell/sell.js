@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "./sell.css";
+import buyImage from "./defaultImage.PNG"
 import axios from 'axios';
 import { useHistory } from 'react-router';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { AuthContext } from '../../components/firebase/context';
 
 /* TO-DO
-    1. Get current user's name.
+    User name is coming after some delay...
+    I think we should include object id in the imageurl
 */
 
 const port = process.env.PORT || 4000;
@@ -18,6 +21,9 @@ else url = `http://localhost:${port}`;
 toast.configure();
 
 function Sell() {
+  const { user } = useContext(AuthContext);
+  console.log(user);
+
   const initialSellItem = {
     title: "",
     category: "",
@@ -25,13 +31,39 @@ function Sell() {
     price: "",
     address: "",
     mobileNumber: "",
-    name: "adc",
-    username: "nbh",
+    name: "",
+    username: "",
+    image: [],
   };
+
+  // console.log(initialSellItem);
 
   const [sellItem, setSellItem] = useState(initialSellItem);
   const [validity, setValidity] = useState(initialSellItem);
+  const [ithImage, setIthImage] = useState(0);
+  const [file, setFile] = useState([]);
   const history = useHistory();
+
+  useEffect(() => {
+    const getImage = async () => {
+      const f = file[file.length-1];
+      if (f) {
+        // console.log(f);
+        const data = new FormData();
+        data.append('name', f.name);
+        data.append('file', f);
+
+        const image = await axios.post(`${url}/files/uploadImage`, data); // upload the image to the database
+        // console.log(image.data);
+        
+        const newSellItem = JSON.parse(JSON.stringify(sellItem));
+        newSellItem.image.push(image.data);
+        setSellItem(newSellItem);
+        console.log(sellItem);
+      }
+  };
+  getImage();
+  }, [file]);
 
   const handleChange = (e) => {
     const { value, name } = e.target;
@@ -43,6 +75,12 @@ function Sell() {
 
     setSellItem(newSellItem);
     
+  }
+
+  const handleImageChange = (f) => {
+    const a = JSON.parse(JSON.stringify(file));
+    a.push(f);
+    setFile(a);
   }
 
   const handlePost = (e) => {
@@ -73,6 +111,10 @@ function Sell() {
       newValidity["price"] = " is-invalid";
       flag=1;
     }
+    if(sellItem.image.length === 0){
+      newValidity["image"] = " is-invalid";
+      flag=1;
+    }
     if(sellItem.address.length === 0 || sellItem.mobileNumber.indexOf('-') > -1){
       newValidity["address"] = " is-invalid";
       flag=1;
@@ -84,8 +126,12 @@ function Sell() {
     setValidity(newValidity);
 
     if(flag === 0){
-      console.log(sellItem);
-      axios.post(`${url}/buyItems`, sellItem)
+      const newSellItem = JSON.parse(JSON.stringify(sellItem));
+      newSellItem.name = user.firstName + " " + user.lastName;
+      newSellItem.username = user.username;
+
+      console.log(newSellItem);
+      axios.post(`${url}/buyItems`, newSellItem)
       .then(() => {
         history.push("/sell");
         setSellItem(initialSellItem);
@@ -148,6 +194,32 @@ function Sell() {
               maxLength="5000"
               required
             ></textarea>
+
+            <label for="addImage" className="form-label labels">
+              Add Images of your Add
+            </label>
+            <div className="input-group mb-3">
+              <input type="file" name="ImageInput" className={"form-control" + validity["image"]} id="inputImageFile" onChange={(e) => {handleImageChange(e.target.files[0])}} required />
+            </div>
+            <div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel">
+              <div className="carousel-inner">
+              <div className="carousel-item active">
+                <img src={buyImage} className="d-block w-100" alt="..."/>
+              </div>
+                {
+                  sellItem.image.map((imageUrl) => <div className="carousel-item">
+                  <img src={imageUrl} className="d-block w-100 inputImages" alt={buyImage}/>
+                </div>)}
+              </div>
+              <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                <span className="carousel-control-prev-icon" style={{backgroundColor: "black"}} aria-hidden="true"></span>
+                <span className="visually-hidden">Previous</span>
+              </button>
+              <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                <span className="carousel-control-next-icon" style={{backgroundColor: "black"}} aria-hidden="true"></span>
+                <span className="visually-hidden">Next</span>
+              </button>
+            </div>
 
             <label for="price" className="form-label labels">
               Price

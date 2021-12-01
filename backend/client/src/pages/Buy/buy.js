@@ -14,7 +14,7 @@ import Sell from '../Sell/sell';
 function Buy() {
 
   const [buyingItems, setBuyingItems] = useState([]);
-  const [buyingItem, setBuyingItem] = useState({ title: "", category: "", description: "", price: "", address: "", mobileNumber: ""});
+  const [buyingItem, setBuyingItem] = useState({ title: "", category: "", description: "", price: "", address: "", mobileNumber: "", image: "", name: "", username: ""});
   const history = useHistory();
 
   const port = process.env.PORT || 4000;
