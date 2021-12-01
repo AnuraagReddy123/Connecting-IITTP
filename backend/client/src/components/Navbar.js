@@ -1,9 +1,7 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { AuthContext } from './firebase/context';
 import { auth } from "./firebase/firebase";
 import { signOut } from "@firebase/auth"
-// import { Redirect } from "react-router-dom";
-// import { createHashHistory } from "history";
 import { useHistory  } from 'react-router';
 import './navbar.css';
 const Navbar = () => {
@@ -12,6 +10,7 @@ const Navbar = () => {
 
     const history = useHistory();
 
+    //checking wether the user is signed in or not
     const checkLogin = (e) => {
         if(!user){
             alert("Sign In to access");
@@ -21,12 +20,10 @@ const Navbar = () => {
 
     const logout = () =>{
         signOut(auth).then(() => {
-            alert("logged out successfully");
-            // return(
-            //     <Redirect to="/"/>
-            // )
+            // redirecting to the hompepage
             history.push("/");
             window.location.reload();
+            alert("logged out successfully");
           }).catch((error) => {
             alert("Error in logout");
           });
@@ -52,13 +49,19 @@ const Navbar = () => {
                     <li class="nav-item">
                         <a className="nav-link active" onClick={checkLogin} href="/userprofile">Profile</a>
                     </li>
+                    <li class="nav-item">
+                        <a className="nav-link active" onClick={checkLogin} href="/buy">Buy</a>
+                    </li>
+                    <li class="nav-item">
+                        <a className="nav-link active" onClick={checkLogin} href="/sell">Sell</a>
+                    </li>
                     <li className="nav-item dropdown active">
                         <a className="nav-link active dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Categories
                         </a>
                         <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <li><a className="dropdown-item" href="/travelling">Travelling</a></li>
-                            <li><a className="dropdown-item" href="/electricity">Electricity</a></li>
+                            <li><a className="dropdown-item" onClick={checkLogin} href="/electricity">Electricity</a></li>
                             <li><a className="dropdown-item" href="/food">Food</a></li>
                             <li><a className="dropdown-item" href="/shopping">Shopping</a></li>
                             <li><a className="dropdown-item" href="/homeCategory">Home</a></li>

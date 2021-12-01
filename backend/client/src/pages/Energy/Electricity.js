@@ -1,9 +1,23 @@
+import { AuthContext } from '../../components/firebase/context';
+import { useContext, useState } from "react";
+import axios from 'axios';
 import "./electricity.css";
-
 const Electricity = () => {
-    const handleSave = () =>{
+
+    const { user } = useContext(AuthContext);
+
+    const [bill, setBill] = useState();
+
+    const [prevBill, setPrevBill] = useState();
+
+    const handleChange = (e) =>{
+        setBill(e.target.value)
+    }
+
+    const handleSave = () =>{  
         
     }
+
     return (
         <div id="electricity">
             <div className="container">
@@ -13,10 +27,13 @@ const Electricity = () => {
                 <div class="card-body">
                     <form action="">
                         <label htmlFor="" className="form-label">New Electricity Bill :</label>
-                        <input type="text" className="form-control" placeholder = "Enter new electricity bill" />
+                        <input type="text" className="form-control" onChange = {handleChange} placeholder = "Enter new electricity bill" />
                         <button type="submit" class="btn btn-primary mt-2 py-1" onClick = {handleSave}>Save</button>
                     </form>
                 </div>
+            </div>
+            <div className = "container d-flex justify-content-center mb-3">
+                <p>Your previous bill is : Rs.{prevBill}</p>
             </div>
             <div className="container">
             <h4 style={{color: "green", fontFamily: "monospace"}}>Tips</h4>
