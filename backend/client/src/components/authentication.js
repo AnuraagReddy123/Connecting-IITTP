@@ -56,7 +56,7 @@ function Authentication() {
     }
     // registration
     try {
-      const response = await axios.post(`${url}/register`,user);
+      const response = await axios.post(`${url}/users/register`,user);
       console.log(response);
       try {
         // register the account on firebase
@@ -77,7 +77,7 @@ function Authentication() {
     e.preventDefault();
     const promise = await signOut(auth);
     // check if user with given username exists
-    const response = await axios.get(`${url}/findUsername`,{params: {username: userData.username}});
+    const response = await axios.get(`${url}/users/findUsername`,{params: {username: userData.username}});
     if(response.data) {
       const user = response.data;
       console.log(user);
