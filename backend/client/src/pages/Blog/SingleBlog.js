@@ -40,7 +40,7 @@ export default function SingleBlog({ match }) {
             Author: <b>{blog.username}</b>
           </p>
           <p className={classes.singlePostDate}>
-            Creted at: {blog.createdDate}
+            Creted at: {new Date(blog.createdDate).toDateString()}
           </p>
         </div>
         <p className={classes.singlePostText}>{blog.text}</p>

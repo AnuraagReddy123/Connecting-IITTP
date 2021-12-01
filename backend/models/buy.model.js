@@ -27,10 +27,19 @@ const buyProductSchema = new Schema({
     mobileNumber: {
         type: String,
         required: true,
-    }
-    // image: {
-
-    // },
+    },
+    name: {
+        type: String,
+        required: true,
+    },
+    username: {
+        type: String,
+        required: true,
+    },
+    image: {
+        type: Array,
+        required: true,
+    },
 });
 
 const BuyModel = mongoose.model('BuyModel', buyProductSchema, 'buy');

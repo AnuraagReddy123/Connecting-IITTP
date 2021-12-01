@@ -10,12 +10,18 @@
     padding-left: 7px;
     padding-top: 5px;
     font-family: monospace;
+    font-weight: bold;
 }
 
 .productdetails p {
     padding-left: 7px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
+
+/* .productImages {
+    height: max-content;
+    object-fit: contain;
+} */
 
 .line {
     margin-left: 5px;

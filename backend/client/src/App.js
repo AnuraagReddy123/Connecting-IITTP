@@ -11,7 +11,7 @@ import Electricity from './pages/Energy/Electricity';
 import Shopping from './pages/Shopping/shopping';
 import Travelling from './pages/Travel/travelling';
 import Pwdchange from './components/pwdchange';
-import Userprofile from './components/Userprofile';
+// import Userprofile from './components/Userprofile';
 import Home from './pages/Home/home';
 import Food from './pages/Food/food';
 import Buy from './pages/Buy/buy';
@@ -21,7 +21,10 @@ import SingleFood from './pages/Food/SingleFood/SingleFood';
 import SingleHome from './pages/Home/SingleHome/SingleHome';
 import ChatbotMain from './pages/Chatbot/ChatbotMain';
 import Sell from './pages/Sell/sell';
+import Profile from './pages/Profile/profile';
 import './App.css'
+import Chatbutton from './pages/Chatbot/Chatbutton';
+
 function App() {
   return (
    <AuthProvider>
@@ -69,13 +72,14 @@ function App() {
           <Pwdchange />
         </Route>
         <Route path='/userprofile'>
-          <Userprofile />
+          <Profile />
         </Route>
         <Route path='/chatbot'>
           <ChatbotMain />
         </Route>
       </Switch>
     </BrowserRouter>
+    <Chatbutton />
   </AuthProvider>
   );
 }

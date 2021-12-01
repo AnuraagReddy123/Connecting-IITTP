@@ -1,7 +1,8 @@
 import axios from 'axios';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { useHistory } from 'react-router';
 import './WriteBlog.css';
+import { AuthContext } from '../../components/firebase/context';
 
 const port = process.env.PORT || 4000;
 let url = 'http://localhost:';
@@ -10,11 +11,12 @@ if (process.env.NODE_ENV === 'production')
 else url = `http://localhost:${port}`;
 
 export default function WriteBlog() {
+  const { user } = useContext(AuthContext);
   const initialValues = {
     title: '',
     text: '',
     picture: '',
-    username: 'Anuraag',
+    username: '',
     createdDate: new Date(),
   };
 
@@ -47,7 +49,7 @@ export default function WriteBlog() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    blog.username = user.username
     // send the blog information to the backend for storage
     axios
       .post(`${url}/blogs/saveBlog`, blog)
@@ -65,41 +67,47 @@ export default function WriteBlog() {
 
   return (
     <div className='write'>
-      <img className='writeImg' src={imageUrl} alt='' />
-      <form className='writeForm' onSubmit={handleSubmit}>
-        <div className='writeFormGroup'>
-          <label for='fileInput'>
-            <i class='writeIcon fas fa-plus' />
-          </label>
-          <input
-            type='file'
-            id='fileInput'
-            style={{ display: 'none' }}
-            onChange={(e) => setFile(e.target.files[0])}
-          />
-          <input
-            type='text'
-            placeholder='Title'
-            className='writeInput'
-            autoFocus={true}
-            value={blog.title}
-            name='title'
-            onChange={handleChange}
-          />
-          <button className='writeSubmit' type='Submit'>
-            Publish
-          </button>
+      {!user ? (
+        <p>Loading...</p>
+      ) : (
+        <div>
+          <img className='writeImg' src={imageUrl} alt='' />
+          <form className='writeForm' onSubmit={handleSubmit}>
+            <div className='writeFormGroup'>
+              <label for='fileInput'>
+                <i class='writeIcon fas fa-plus' />
+              </label>
+              <input
+                type='file'
+                id='fileInput'
+                style={{ display: 'none' }}
+                onChange={(e) => setFile(e.target.files[0])}
+              />
+              <input
+                type='text'
+                placeholder='Title'
+                className='writeInput'
+                autoFocus={true}
+                value={blog.title}
+                name='title'
+                onChange={handleChange}
+              />
+              <button className='writeSubmit' type='Submit'>
+                Publish
+              </button>
+            </div>
+            <div className='writeFormGroup'>
+              <textarea
+                placeholder='Add your ideas!'
+                className='writeText'
+                name='text'
+                value={blog.text}
+                onChange={handleChange}
+              />
+            </div>
+          </form>
         </div>
-        <div className='writeFormGroup'>
-          <textarea
-            placeholder='Add your ideas!'
-            className='writeText'
-            name='text'
-            value={blog.text}
-            onChange={handleChange}
-          />
-        </div>
-      </form>
+      )}
     </div>
   );
 }
