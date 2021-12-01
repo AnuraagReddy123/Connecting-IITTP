@@ -56,7 +56,7 @@ function Authentication() {
         // register the account on firebase
         const response = await createUserWithEmailAndPassword(auth,userData.emailId,userData.password);
         console.log(response);
-        history.push("/home");
+        history.push("/");
       }
       catch(error){
         console.log(error);
@@ -79,7 +79,7 @@ function Authentication() {
       if(user.password === userData.password) {
         //credentials are valid, sign in the user
         const user_credential = await signInWithEmailAndPassword(auth,user.email,user.password);
-        history.push("/home");
+        history.push("/");
       }
       else{
         alert('Invalid password');
