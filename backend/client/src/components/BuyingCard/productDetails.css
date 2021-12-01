@@ -18,6 +18,11 @@
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
+/* .productImages {
+    height: max-content;
+    object-fit: contain;
+} */
+
 .line {
     margin-left: 5px;
     margin-right: 5px;

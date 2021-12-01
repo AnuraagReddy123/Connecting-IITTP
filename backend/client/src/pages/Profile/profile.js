@@ -1,25 +1,32 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Link, Switch, Route, BrowserRouter as Router } from 'react-router-dom';
 import Image from './default.jpg';
 import axios from 'axios';
 import './profile.css';
 import BuyingCard from '../../components/BuyingCard/buyingCard';
 import ProductDetails from '../../components/BuyingCard/productDetails';
+import { AuthContext } from '../../components/firebase/context';
 import BlogCard from '../../components/BlogCard/BlogCard';
 
 function Profile() {
+  let { user } = useContext(AuthContext);
+  console.log(user);
+  if (!user)
+    user = {
+      username: '',
+      firstName: '',
+      lastName: '',
+      email: '',
+      password: '',
+    };
+
   const [activeTab, setActiveTab] = useState([' active', '']);
   const [tabContent, setTabContent] = useState(['', 'none']);
-  const [username, setUsername] = useState('abc');
+  const [userDetails, setUserDetails] = useState(user);
   const [userAdds, setUserAdds] = useState([]);
-  const [userDetails, setUserDetails] = useState({
-    username: '',
-    firstName: '',
-    lastName: '',
-    email: '',
-  });
   const [add, setAdd] = useState({});
   const [blogs, setBlogs] = useState([]);
+  // const [file, setFile] = useState('');
 
   const port = process.env.PORT || 4000;
   let url = 'http://localhost:';
@@ -31,22 +38,16 @@ function Profile() {
     axios.get(`${url}/buyItems`).then((response) => {
       let arr = [];
       arr = response.data;
-      setUserAdds(arr.filter((i) => i.username === username));
+      setUserAdds(arr.filter((i) => i.username === userDetails.username));
     });
-    axios.get(`${url}/users`).then((response) => {
-      let arr = [];
-      arr = response.data;
-      const det = arr.filter((i) => i.username === 'cs19b031');
-      // console.log(det);
-      setUserDetails(det[0]);
-    });
+    setUserDetails(user);
     const fetchBlogs = () => {
       axios
         .get(`${url}/blogs`)
         .then((res) => {
           let arr = [];
           arr = res.data;
-          setBlogs(arr.filter((i) => i.username === username));
+          setBlogs(arr.filter((i) => i.username === userDetails.username));
         })
         .catch((err) => console.log(err));
     };
@@ -62,14 +63,6 @@ function Profile() {
     setTabContent(u);
   };
 
-  const handleClick = (a) => {
-    setAdd(a);
-  };
-
-  const handleDelClick = (a) => {
-    setAdd(a);
-  };
-
   const handleDelete = (id) => {
     axios
       .delete(`${url}/buyItems/${id}`)
@@ -83,6 +76,17 @@ function Profile() {
       });
   };
 
+  // const handleImage = (i) => {
+  //   setFile(i);
+  //   const data = new FormData();
+  //   data.append('name', file.name);
+  //   data.append('file', file);
+
+  //   const image = await axios.post(`${url}/files/uploadImage`, data); // upload the image to the database
+  //   console.log(image.data);
+  //   user.image = image.data;
+  // }
+
   return (
     <Router>
       <Switch>
@@ -94,9 +98,15 @@ function Profile() {
               <div className='row'>
                 <div className='col-md-2'>
                   <div className='card imageCard'>
-                    <img src={Image} className='card-img-top' alt='' />
+                    <img
+                      src={/*user.image*/ Image}
+                      className='card-img-top'
+                      alt=''
+                    />
                   </div>
-                  <div className='btn btn-primary changePhoto'>
+                  <div
+                    /*type='file'*/ className='btn btn-primary changePhoto' /*onClick={(e) => handleImage(e.target.files[0])}*/
+                  >
                     Change Photo
                   </div>
                 </div>
@@ -177,7 +187,7 @@ function Profile() {
                             <Link
                               to='/add'
                               className='buying_card'
-                              onClick={() => handleClick(add)}
+                              onClick={() => setAdd(add)}
                             >
                               <BuyingCard productDetails={add} />
                             </Link>
@@ -186,7 +196,7 @@ function Profile() {
                               className='col-6 btn btn-sm btn-danger del'
                               data-bs-toggle='modal'
                               data-bs-target='#exampleModal'
-                              onClick={() => handleDelClick(add)}
+                              onClick={() => setAdd(add)}
                             >
                               Delete
                             </div>
@@ -200,17 +210,17 @@ function Profile() {
                     >
                       <div className='row yourBlogs'>
                         {blogs.map((blog) => {
-                          <div>
-                              <Link
-                                to={`/singleBlog/${blog._id}`}
-                                style={{
-                                  textDecoration: 'none',
-                                  color: 'inherit',
-                                }}
-                              >
-                                <BlogCard blog={blog} />
-                              </Link>
-                          </div>
+                          return (
+                            <Link
+                              to={`/singleBlog/${blog._id}`}
+                              style={{
+                                textDecoration: 'none',
+                                color: 'inherit',
+                              }}
+                            >
+                              <BlogCard blog={blog} />
+                            </Link>
+                          );
                         })}
                       </div>
                     </div>

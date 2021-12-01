@@ -36,9 +36,10 @@ const buyProductSchema = new Schema({
         type: String,
         required: true,
     },
-    // image: {
-
-    // },
+    image: {
+        type: Array,
+        required: true,
+    },
 });
 
 const BuyModel = mongoose.model('BuyModel', buyProductSchema, 'buy');

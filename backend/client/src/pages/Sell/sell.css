@@ -20,6 +20,11 @@
     /* margin-bottom: 1vw; */
 }
 
+.inputImages {
+    max-height: 40vh;
+    object-fit: contain;
+}
+
 .postBtn {
     margin-top: 2vw;
     width: 7vw;
