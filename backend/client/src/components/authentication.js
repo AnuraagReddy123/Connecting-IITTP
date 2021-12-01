@@ -7,6 +7,12 @@ import { auth } from "./firebase/firebase";
 import { useHistory } from "react-router";
 import axios from "axios";
 
+const port = process.env.PORT || 4000;
+let url = 'http://localhost:';
+if (process.env.NODE_ENV === 'production')
+  url = 'https://save-environment-iittp.herokuapp.com';
+else url = `http://localhost:${port}`;
+
 function Authentication() {
 
   const history = useHistory();
@@ -50,13 +56,13 @@ function Authentication() {
     }
     // registration
     try {
-      const response = await axios.post("http://localhost:4000/users/register",user);
+      const response = await axios.post(`${url}/register`,user);
       console.log(response);
       try {
         // register the account on firebase
         const response = await createUserWithEmailAndPassword(auth,userData.emailId,userData.password);
         console.log(response);
-        history.push("/home");
+        history.push("/");
       }
       catch(error){
         console.log(error);
@@ -71,7 +77,7 @@ function Authentication() {
     e.preventDefault();
     const promise = await signOut(auth);
     // check if user with given username exists
-    const response = await axios.get("http://localhost:4000/users/findUsername",{params: {username: userData.username}});
+    const response = await axios.get(`${url}/findUsername`,{params: {username: userData.username}});
     if(response.data) {
       const user = response.data;
       console.log(user);
@@ -79,7 +85,7 @@ function Authentication() {
       if(user.password === userData.password) {
         //credentials are valid, sign in the user
         const user_credential = await signInWithEmailAndPassword(auth,user.email,user.password);
-        history.push("/home");
+        history.push("/");
       }
       else{
         alert('Invalid password');

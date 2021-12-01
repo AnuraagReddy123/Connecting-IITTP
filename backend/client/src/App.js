@@ -7,7 +7,7 @@ import BlogPage from './pages/Blog/BlogPage';
 import { BrowserRouter } from 'react-router-dom';
 import SingleBlog from './pages/Blog/SingleBlog';
 import WriteBlog from './pages/Blog/WriteBlog';
-import Electricity from './pages/Energy/Electricity/Electricity';
+import Electricity from './pages/Energy/Electricity';
 import Shopping from './pages/Shopping/shopping';
 import Travelling from './pages/Travel/travelling';
 import Pwdchange from './components/pwdchange';
@@ -23,6 +23,7 @@ import ChatbotMain from './pages/Chatbot/ChatbotMain';
 import Sell from './pages/Sell/sell';
 import Profile from './pages/Profile/profile';
 import './App.css'
+import Chatbutton from './pages/Chatbot/Chatbutton';
 
 function App() {
   return (
@@ -78,6 +79,7 @@ function App() {
         </Route>
       </Switch>
     </BrowserRouter>
+    <Chatbutton />
   </AuthProvider>
   );
 }
