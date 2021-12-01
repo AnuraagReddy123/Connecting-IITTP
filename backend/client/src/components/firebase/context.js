@@ -27,7 +27,7 @@ export const AuthProvider = ({ children }) => {
     useEffect(() => {
         onAuthStateChanged(auth, async (auth_user) => {
             if(auth_user) {
-                const result = await axios.get(`${url}/findEmail`,{params: {email: auth_user.email}});
+                const result = await axios.get(`${url}/users/findEmail`,{params: {email: auth_user.email}});
                 const user = result.data;
                 console.log("user changed");
                 console.log(user);
