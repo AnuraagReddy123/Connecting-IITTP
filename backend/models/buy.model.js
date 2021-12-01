@@ -27,7 +27,15 @@ const buyProductSchema = new Schema({
     mobileNumber: {
         type: String,
         required: true,
-    }
+    },
+    name: {
+        type: String,
+        required: true,
+    },
+    username: {
+        type: String,
+        required: true,
+    },
     // image: {
 
     // },

@@ -21,8 +21,10 @@ import SingleFood from './pages/Food/SingleFood/SingleFood';
 import SingleHome from './pages/Home/SingleHome/SingleHome';
 import ChatbotMain from './pages/Chatbot/ChatbotMain';
 import Sell from './pages/Sell/sell';
+import Profile from './pages/Profile/profile';
 import './App.css'
 import Chatbutton from './pages/Chatbot/Chatbutton';
+
 function App() {
   return (
    <AuthProvider>
@@ -70,7 +72,7 @@ function App() {
           <Pwdchange />
         </Route>
         <Route path='/userprofile'>
-          <Userprofile />
+          <Profile />
         </Route>
         <Route path='/chatbot'>
           <ChatbotMain />

@@ -13,16 +13,6 @@ import Sell from '../Sell/sell';
 */
 function Buy() {
 
-  // const items = [{title: "Shoes", category: "fashion", description: "abc def ghi jklm n op qrs st uvw xy z", price: 500, address: "mumbai, maharashtra", mobileNumber: "1234567890"},
-  // {title: "Mobile Phone", category: "electronics", description: "abc def ghi jklm n op qrs st uvw xy z", price: 5000, address: "mumbai, maharashtra", mobileNumber: "1234567890"},
-  // {title: "Dell Laptop", category: "electronics", description: "abc def ghi jklm n op qrs st uvw xy z", price: 50000, address: "mumbai, maharashtra", mobileNumber: "1234567890"},
-  // {title: "Car", category: "cars_bikes", description: "abc def ghi jklm n op qrs st uvw xy z", price: 500000, address: "mumbai, maharashtra", mobileNumber: "1234567890"},
-  // {title: "Class Notes", category: "books_sports_hobbies", description: "abc def ghi jklm n op qrs st uvw xy z", price: 500, address: "mumbai, maharashtra", mobileNumber: "1234567890"},
-  // {title: "Study Table", category: "furniture", description: "abc def ghi jklm n op qrs st uvw xy z", price: 500, address: "mumbai, maharashtra", mobileNumber: "1234567890"},
-  // {title: "Teddy Bear", category: "kids_toys", description: "abc def ghi jklm n op qrs st uvw xy z", price: 500, address: "mumbai, maharashtra", mobileNumber: "1234567890"},
-  // {title: "Dining Table", category: "furniture", description: "abc def ghi jklm n op qrs st uvw xy z", price: 500, address: "mumbai, maharashtra", mobileNumber: "1234567890"},
-  // {title: "Watch", category: "fashion", description: "abc def ghi jklm n op qrs st uvw xy z", price: 500, address: "mumbai, maharashtra", mobileNumber: "1234567890"}]
-
   const [buyingItems, setBuyingItems] = useState([]);
   const [buyingItem, setBuyingItem] = useState({ title: "", category: "", description: "", price: "", address: "", mobileNumber: ""});
   const history = useHistory();

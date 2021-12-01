@@ -1,0 +1,47 @@
+.imageCard {
+    margin-top: 10vh;
+    border-radius: 15px;
+}
+
+.changePhoto {
+    margin-top: 1vh;
+    margin-left: 3vw;
+}
+
+.details {
+    margin-top: 10vh;
+    padding: 2vw;
+    height: 30vh;
+    margin-bottom: 1vh;
+}
+
+.tabs {
+    padding: 2vw;
+    height: 59vh;
+}
+
+.yourAdds {
+    overflow-y: scroll;
+}
+
+.userAdd {
+    padding-top: 7vh;
+}
+
+.userDetailTitles {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 800;
+}
+
+.userDetail {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: lighter;
+}
+
+.userAddsList {
+    width: 15vw;
+}
+
+.del {
+    width: 13.5vw;
+}
