@@ -69,7 +69,8 @@
 }
 
 .footer-dark .item.social {
-    text-align: center
+    text-align: center;
+    margin-top: 1em;
 }
 
 @media (max-width:991px) {

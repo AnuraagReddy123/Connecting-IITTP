@@ -2,31 +2,35 @@ import React, { useContext } from 'react';
 import { AuthContext } from './firebase/context';
 import { auth } from "./firebase/firebase";
 import { signOut } from "@firebase/auth"
+// import { Redirect } from "react-router-dom";
+// import { createHashHistory } from "history";
+import { useHistory  } from 'react-router';
 import './navbar.css';
 const Navbar = () => {
 
     const { user } = useContext(AuthContext);
 
-    const checkLogin = () => {
+    const history = useHistory();
+
+    const checkLogin = (e) => {
         if(!user){
-            alert("Login to access");
+            alert("Sign In to access");
+            e.preventDefault();
         }
     }
 
     const logout = () =>{
         signOut(auth).then(() => {
             alert("logged out successfully");
-            window.location.reload ();
+            // return(
+            //     <Redirect to="/"/>
+            // )
+            history.push("/");
+            window.location.reload();
           }).catch((error) => {
             alert("Error in logout");
           });
     }
-
-    // signOut(auth).then(() => {
-    //     alert("logged out successfully");
-    //   }).catch((error) => {
-    //     alert("Error in logout");
-    //   });
 
     return (
         <nav id="mainNavbar" class="navbar navbar-dark bg-dark navbar-expand-md px-3 py-2 fixed-top">
@@ -40,13 +44,13 @@ const Navbar = () => {
                         <a className="nav-link active" aria-current="page" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a className="nav-link active" onClick={checkLogin} href="/blogspage">Blog</a>
+                        <a className="nav-link active" href="/blogspage">Blogs</a>
                     </li>
                     <li class="nav-item">
-                        <a className="nav-link active" href="/writeBlog">Add Blog</a>
+                        <a className="nav-link active" onClick={checkLogin} href="/writeBlog">Add Blog</a>
                     </li>
                     <li class="nav-item">
-                        <a className="nav-link active" href="/userprofile">Profile</a>
+                        <a className="nav-link active" onClick={checkLogin} href="/userprofile">Profile</a>
                     </li>
                     <li className="nav-item dropdown active">
                         <a className="nav-link active dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
