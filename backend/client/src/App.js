@@ -23,6 +23,7 @@ import ChatbotMain from './pages/Chatbot/ChatbotMain';
 import Sell from './pages/Sell/sell';
 import Profile from './pages/Profile/profile';
 import './App.css'
+import Chatbutton from './pages/Chatbot/Chatbutton';
 
 function App() {
   return (
@@ -78,6 +79,7 @@ function App() {
         </Route>
       </Switch>
     </BrowserRouter>
+    <Chatbutton />
   </AuthProvider>
   );
 }

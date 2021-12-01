@@ -1,9 +1,8 @@
 import { createChatBotMessage } from 'react-chatbot-kit';
-import DogPicture from './DogPicture';
-
 
 import BotAvatar from '../../components/BotAvatar/BotAvatar';
 import Options from '../../components/Options/Options';
+import YesNo from '../../components/Options/YesNo';
 const config = {
   initialMessages: [
     createChatBotMessage(`Hey I am EnvHelper Ask any questions you have!`, {
@@ -16,12 +15,12 @@ const config = {
   },
   widgets: [
     {
-      widgetName: 'dogPicture',
-      widgetFunc: (props) => <DogPicture {...props} />
-    },
-    {
       widgetName: 'options',
       widgetFunc: (props) => <Options {...props} />
+    },
+    {
+      widgetName: 'yesno',
+      widgetFunc: (props) => <YesNo {...props} />
     },
   ]
 };

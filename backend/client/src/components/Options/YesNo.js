@@ -1,20 +1,16 @@
 import React from 'react';
 import classes from './Options.module.css';
 
-const Options = (props) => {
+const YesNo = (props) => {
   const options = [
     {
-      text: 'Climate Change',
-      handler: props.actionProvider.handleClimateOption,
+      text: 'Yes',
+      handler: props.actionProvider.handleYes,
       id: 1,
     },
-    { text: 'About Us', 
-      handler: props.actionProvider.handleAboutUs, 
+    { text: 'No', 
+      handler: props.actionProvider.handleStartOver, 
       id: 2 
-    },
-    { text: 'What you can do', 
-      handler: props.actionProvider.handleWhatYouCanDo, 
-      id: 3 
     },
   ];
 
@@ -31,4 +27,4 @@ const Options = (props) => {
   return <div className={classes.optionsContainer}>{buttonsMarkup}</div>;
 };
 
-export default Options;
+export default YesNo;
