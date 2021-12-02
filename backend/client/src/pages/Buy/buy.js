@@ -12,10 +12,6 @@ import axios from 'axios';
 import "./buy.css";
 import { useHistory } from 'react-router';
 
-/*  TO-DO
-    change prodectName to title : Done
-    restrict title content size on card
-*/
 function Buy() {
 
   const [buyingItems, setBuyingItems] = useState([]);
