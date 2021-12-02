@@ -1,3 +1,8 @@
+
+/*
+This component shows the details of particular sub-category.
+*/
+
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import './singlehome.css';
