@@ -12,10 +12,6 @@ const Options = (props) => {
       handler: props.actionProvider.handleAboutUs, 
       id: 2 
     },
-    { text: 'What you can do', 
-      handler: props.actionProvider.handleWhatYouCanDo, 
-      id: 3 
-    },
   ];
 
   const buttonsMarkup = options.map((options) => (

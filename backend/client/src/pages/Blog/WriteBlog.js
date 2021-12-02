@@ -4,6 +4,8 @@ import { useHistory } from 'react-router';
 import './WriteBlog.css';
 import { AuthContext } from '../../components/firebase/context';
 
+// Page to write a blog
+
 const port = process.env.PORT || 4000;
 let url = 'http://localhost:';
 if (process.env.NODE_ENV === 'production')
@@ -31,7 +33,7 @@ export default function WriteBlog() {
   const history = useHistory();
 
   useEffect(() => {
-    const getImage = async () => {
+    const getImage =  async () => {
       if (file) {
         console.log(file);
         const data = new FormData();

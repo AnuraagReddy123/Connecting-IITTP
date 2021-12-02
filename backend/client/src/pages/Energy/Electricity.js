@@ -1,3 +1,5 @@
+// Keep track of the electricity bill of the user so that user can compare his/her previous bill
+// and has tips to reduce electricity use and impacts on environment
 import { AuthContext } from '../../components/firebase/context';
 import { useContext, useState } from "react";
 import axios from 'axios';

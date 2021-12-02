@@ -1,3 +1,4 @@
+// shows the profile of the user, blogs posted by user and ads of the products he/she wants sell
 import React, { useState, useEffect, useContext } from "react";
 import { Link, Switch, Route, BrowserRouter as Router } from "react-router-dom";
 import Image from "./default.jpg";
