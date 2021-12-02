@@ -83,100 +83,88 @@ function Profile() {
     {!user ? (
         <p>Loading...</p>
       ) : (
-    <Router>
-      <Switch>
-        <Route
-          exact
-          path="/userprofile"
-          render={() => (
-            <div className="container-fluid">
-              <div className="row">
-                <div className="col-md-2">
-                  <div className="card imageCard">
-                    <img src={Image} className="card-img-top" alt="" />
-                  </div>
-                  <div className="btn btn-primary changePhoto" >Change Photo</div>
+          <div className="container-fluid">
+            <div className="row">
+              <div className="col-md-2">
+                <div className="card imageCard">
+                  <img src={Image} className="card-img-top" alt="" />
                 </div>
-                <div className="col-md-10">
-                  <div className="card details">
-                      <div className="container">
-                        <div className="row"><div className="col-md-2"><p className="userDetailTitles">User Name</p></div><div className="col-md-8"><p className="userDetail">{user["username"]}</p></div></div>
-                        <div className="row"><div className="col-md-2"><p className="userDetailTitles">First Name</p></div><div className="col-md-8"><p className="userDetail">{user["firstName"]}</p></div></div>
-                        <div className="row"><div className="col-md-2"><p className="userDetailTitles">Last Name</p></div><div className="col-md-8"><p className="userDetail">{user["lastName"]}</p></div></div>
-                        <div className="row"><div className="col-md-2"><p className="userDetailTitles">Email</p></div><div className="col-md-8"><p className="userDetail">{user["email"]}</p></div></div>
-                      </div>
-                  </div>
-                  <div className="card shadow p-3 bg-white rounded tabs">
-                    <div className="card-header">
-                      <ul className="nav nav-tabs card-header-tabs">
-                        <li key="1" className="nav-item">
-                          <a
-                            className={"nav-link " + activeTab[0]}
-                            href="#"
-                            onClick={() => handleTab(0)}
-                          >
-                            Your Blogs
-                          </a>
-                        </li>
-
-                        <li key="2" className="nav-item">
-                          <a
-                            className={"nav-link " + activeTab[1]}
-                            href="#"
-                            onClick={() => handleTab(1)}
-                          >
-                            Your Adds
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                    <div className="container-fluid" style={{display: tabContent[1]}}>
-                      <div className="row yourAdds">
-                        {userAdds.map((add) => (
-                          <div className="userAddsList">
-                              <Link to="/add" className="buying_card" onClick={() => setAdd(add)}>
-                                <BuyingCard productDetails={add} />
-                              </Link>
-                              <div className="col-6 btn btn-sm btn-danger del" data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={() => setAdd(add)}>Delete</div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                    <div className="container-fluid yourBlogs" style={{display: tabContent[0]}}>
-                      <div className="row">
-                      {blogs.map((blog) => (
-                        <div className="userBlogList" onClick={() => handleBlogCardClick(blog)}>
-                            <BlogCard blog={blog} />
-                        </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <div className="btn btn-primary changePhoto" >Change Photo</div>
               </div>
-              <div className="row">
-                <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                  <div className="modal-dialog">
-                    <div className="modal-content">
-                      <div className="modal-header">
-                        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              <div className="col-md-10">
+                <div className="card details">
+                    <div className="container">
+                      <div className="row"><div className="col-md-2"><p className="userDetailTitles">User Name</p></div><div className="col-md-8"><p className="userDetail">{user["username"]}</p></div></div>
+                      <div className="row"><div className="col-md-2"><p className="userDetailTitles">First Name</p></div><div className="col-md-8"><p className="userDetail">{user["firstName"]}</p></div></div>
+                      <div className="row"><div className="col-md-2"><p className="userDetailTitles">Last Name</p></div><div className="col-md-8"><p className="userDetail">{user["lastName"]}</p></div></div>
+                      <div className="row"><div className="col-md-2"><p className="userDetailTitles">Email</p></div><div className="col-md-8"><p className="userDetail">{user["email"]}</p></div></div>
+                    </div>
+                </div>
+                <div className="card shadow p-3 bg-white rounded tabs">
+                  <div className="card-header">
+                    <ul className="nav nav-tabs card-header-tabs">
+                      <li key="1" className="nav-item">
+                        <a
+                          className={"nav-link " + activeTab[0]}
+                          href="#"
+                          onClick={() => handleTab(0)}
+                        >
+                          Your Blogs
+                        </a>
+                      </li>
+
+                      <li key="2" className="nav-item">
+                        <a
+                          className={"nav-link " + activeTab[1]}
+                          href="#"
+                          onClick={() => handleTab(1)}
+                        >
+                          Your Adds
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="container-fluid" style={{display: tabContent[1]}}>
+                    <div className="row yourAdds">
+                      {userAdds.map((add) => (
+                        <div className="userAddsList"  onClick={() => history.push(`/buyingItem/${add._id}`)}>
+                              <BuyingCard productDetails={add} />
+                            <div className="col-6 btn btn-sm btn-danger del" data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={() => setAdd(add)}>Delete</div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="container-fluid yourBlogs" style={{display: tabContent[0]}}>
+                    <div className="row">
+                    {blogs.map((blog) => (
+                      <div className="userBlogList" onClick={() => handleBlogCardClick(blog)}>
+                          <BlogCard blog={blog} />
                       </div>
-                      <div className="modal-body">
-                        Do you really want to delete your add...
-                      </div>
-                      <div className="modal-footer">
-                        <button type="button" className="btn btn-danger" data-bs-dismiss="modal" onClick={() => handleDelete(add._id)}>Yes</button>
-                      </div>
+                      ))}
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          )}
-        />
-        <Route exact path="/add" render={() => <div className="userAdd"><ProductDetails productDetails={add}/></div> } />
-      </Switch>
-    </Router> )}
+            <div className="row">
+              <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div className="modal-dialog">
+                  <div className="modal-content">
+                    <div className="modal-header">
+                      <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div className="modal-body">
+                      Do you really want to delete your add...
+                    </div>
+                    <div className="modal-footer">
+                      <button type="button" className="btn btn-danger" data-bs-dismiss="modal" onClick={() => handleDelete(add._id)}>Yes</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      )}
     </div>
   );
 }

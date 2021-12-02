@@ -24,6 +24,7 @@ import Sell from './pages/Sell/sell';
 import Profile from './pages/Profile/profile';
 import './App.css'
 import Chatbutton from './pages/Chatbot/Chatbutton';
+import ProductDetails from './components/BuyingCard/productDetails';
 
 function App() {
   return (
@@ -56,6 +57,7 @@ function App() {
         <Route path='/singleShopping/:id' component={SingleShopping} />
         <Route path='/singleFood/:id' component={SingleFood}/>
         <Route path='/singleHome/:id' component={SingleHome}/>
+        <Route path='/buyingItem/:id' component={ProductDetails}/>
         <Route path='/writeBlog'>
           <WriteBlog />
         </Route>

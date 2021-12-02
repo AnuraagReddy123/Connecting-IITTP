@@ -1,9 +1,18 @@
 .leftSection {
-    margin-top: 15px;
+    margin-top: 10vh;
 }
 
 .rightSection {
-    margin-top: 15px;
+    margin-top: 10vh;
+}
+
+.products {
+    background-color: white;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    padding-bottom: 5vw;
+    height: max-content;
+    object-fit: contain;
 }
 
 .productdetails h5 {
@@ -18,9 +27,17 @@
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
-.addImages {
+.addImage {
     height: 50vh;
     object-fit: contain;
+}
+
+.pls {
+    height: 70vh;
+}
+
+.ls {
+    width: 40vw;
 }
 
 .line {
