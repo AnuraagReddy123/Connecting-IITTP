@@ -27,6 +27,7 @@
 
 .yourBlogs {
     overflow-y: scroll;
+    padding: 1vw;
 }
 
 .userAdd {
@@ -45,6 +46,14 @@
 
 .userAddsList {
     width: 18vw;
+}
+
+.userBlogList {
+    width: 22vw;
+}
+
+.blog_card {
+    width: 15vw;
 }
 
 .del {

@@ -14,3 +14,9 @@
 .signInG {
     margin-left: 1vw;
 }
+
+.forgotPassword {
+    font-style: italic;
+    color: blue;
+    margin-top: 1vh;
+}

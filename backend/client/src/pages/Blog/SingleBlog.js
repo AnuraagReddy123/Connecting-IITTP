@@ -2,6 +2,8 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import classes from './SingleBlog.module.css';
 
+// Page to display a single blog
+
 const port = process.env.PORT || 4000;
 let url = 'http://localhost:';
 if (process.env.NODE_ENV === 'production')
@@ -40,7 +42,7 @@ export default function SingleBlog({ match }) {
             Author: <b>{blog.username}</b>
           </p>
           <p className={classes.singlePostDate}>
-            Creted at: {new Date(blog.createdDate).toDateString()}
+            Created at: {new Date(blog.createdDate).toDateString()}
           </p>
         </div>
         <p className={classes.singlePostText}>{blog.text}</p>

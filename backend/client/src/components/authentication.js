@@ -1,3 +1,8 @@
+
+/*
+  This file is used for sign in and sign up of the user, along with firebase authentication.
+*/
+
 import React, { useState } from "react";
 import SignIn from "./signIn";
 import SignUp from "./signUp";
@@ -132,7 +137,7 @@ function Authentication() {
       else newValidity["lastName"] = " is-valid";
     }
     if (name === "password") {
-      if (value === "") newValidity["password"] = " is-invalid";
+      if (value.length < 6) newValidity["password"] = " is-invalid";
       else newValidity["password"] = " is-valid";
     }
     if (name === "username") {
@@ -153,7 +158,7 @@ function Authentication() {
         (userData.emailId === "" ||
           userData.firstName === "" ||
           userData.lastName === "" ||
-          userData.password === "" ||
+          userData.password.length < 6 ||
           userData.username === "")) ||
       (otherData.tabs[1] === "active" &&
         (userData.username === "" || userData.password === ""))
@@ -170,7 +175,7 @@ function Authentication() {
     if (userData.lastName === "") newValidity["lastName"] = " is-invalid";
     else newValidity["lastName"] = " is-valid";
 
-    if (userData.password === "") newValidity["password"] = " is-invalid";
+    if (userData.password.length < 6) newValidity["password"] = " is-invalid";
     else newValidity["password"] = " is-valid";
 
     if (userData.username === "") newValidity["username"] = " is-invalid";

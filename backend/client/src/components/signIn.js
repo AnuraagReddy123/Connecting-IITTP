@@ -1,3 +1,8 @@
+
+/*
+  This component is used for user sign in by taking required inputs from the user along with google authentication.
+*/
+
 import React, { useState } from "react";
 import { useHistory } from "react-router";
 import "./signIn.css";
@@ -58,6 +63,7 @@ function SignIn(props) {
         Log In with Google
         </button>
       </div>
+      <div className="forgotPassword"><a href="#" className="link-primary" onClick={() => history.push("/pwdchange")}>Forgot Password</a></div>
     </div>
   );
 }

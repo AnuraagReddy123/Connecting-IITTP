@@ -12,6 +12,15 @@ router.route("/").get((request,response) => {
     });
 });
 
+// fetching a add through a unique id
+router.route('/:id').get((request, response) => {
+    let id = request.params.id;
+    BuyModel.findById(id, (error, buyItem) => {
+      console.log(buyItem);
+      response.json(buyItem);
+    });
+  });
+
 router.route("/").post((request,response) => {
     
     let sellItem = new BuyModel(request.body);

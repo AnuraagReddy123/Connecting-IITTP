@@ -1,3 +1,5 @@
+// Page to set the widgets of the chatbot
+
 import { createChatBotMessage } from 'react-chatbot-kit';
 
 import BotAvatar from '../../components/BotAvatar/BotAvatar';
