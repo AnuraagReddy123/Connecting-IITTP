@@ -19,7 +19,7 @@ if (process.env.NODE_ENV === 'production')
 else url = `http://localhost:${port}`;
 
 function Authentication() {
-
+  
   const history = useHistory();
 
   const initialStateOfUserData = {
@@ -81,26 +81,23 @@ function Authentication() {
 
   const logInWithUsername = async (e) => {
     e.preventDefault();
-    const promise = await signOut(auth);
-    // check if user with given username exists
-    const response = await axios.get(`${url}/users/findUsername`,{params: {username: userData.username}});
-    if(response.data) {
-      const user = response.data;
-      console.log(user);
-      // compare passwords
-      if(user.password === userData.password) {
-        //credentials are valid, sign in the user
-        const user_credential = await signInWithEmailAndPassword(auth,user.email,user.password);
-        history.push("/");
-      }
-      else{
-        alert('Invalid password');
-      }
+    const promise = await signOut(auth);// sign out of any previous user
+    const userDetails = await axios.get(`${url}/users/findUsername`,{params: {username: userData.username}});
+    console.log(userDetails);
+    if(userDetails.data === null){
+      alert('Username is invalid');
     }
     else{
-      alert('Invalid username');
+      signInWithEmailAndPassword(auth,userDetails.data.email,userData.password)
+      .then((_firebaseUser) => {
+        history.push("/");
+      })
+      .catch((_error) => {
+        alert("Password is incorrect");
+      })
     }
   };
+
 
   const handleTab = (tab) => {
     if (tab === 0) {

@@ -34,6 +34,11 @@ export const signInWithGoogle = async (history) => {
         // if user with given email exists
         if(response.data) {
             alert("Email exists with another username");
+            deleteUser(auth.currentUser)
+            .then(() => {
+                console.log("User deleted successfully");
+            })
+            .catch((error) => console.log(error));
         }
         else{
             // registration
