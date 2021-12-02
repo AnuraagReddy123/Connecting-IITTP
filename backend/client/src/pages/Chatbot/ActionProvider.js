@@ -1,3 +1,5 @@
+// Sets actions on what the chatbot does
+
 class ActionProvider {
   constructor(createChatbotMessage, setStateFunc, createClientMessage) {
     this.createChatbotMessage = createChatbotMessage;
