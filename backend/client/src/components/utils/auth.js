@@ -44,6 +44,7 @@ export const signInWithGoogle = async (history) => {
                     lastName: names[1],
                     email: email,
                     password: "",
+                    bill : 0,
                 });
                 console.log(response);
                 history.push("/");

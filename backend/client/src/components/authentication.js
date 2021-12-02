@@ -58,6 +58,7 @@ function Authentication() {
       lastName: userData.lastName,
       email: userData.emailId,
       password: userData.password,
+      bill : 0,
     }
     // registration
     try {
