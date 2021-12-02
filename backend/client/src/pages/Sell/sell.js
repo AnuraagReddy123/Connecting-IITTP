@@ -22,7 +22,7 @@ toast.configure();
 
 function Sell() {
   const { user } = useContext(AuthContext);
-  console.log(user);
+  // console.log(user);
 
   const initialSellItem = {
     title: "",
@@ -40,7 +40,6 @@ function Sell() {
 
   const [sellItem, setSellItem] = useState(initialSellItem);
   const [validity, setValidity] = useState(initialSellItem);
-  const [ithImage, setIthImage] = useState(0);
   const [file, setFile] = useState([]);
   const history = useHistory();
 
@@ -48,13 +47,13 @@ function Sell() {
     const getImage = async () => {
       const f = file[file.length-1];
       if (f) {
-        // console.log(f);
+        console.log(f);
         const data = new FormData();
         data.append('name', f.name);
         data.append('file', f);
 
         const image = await axios.post(`${url}/files/uploadImage`, data); // upload the image to the database
-        // console.log(image.data);
+        console.log(image.data);
         
         const newSellItem = JSON.parse(JSON.stringify(sellItem));
         newSellItem.image.push(image.data);

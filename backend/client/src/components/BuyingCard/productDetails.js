@@ -1,12 +1,11 @@
+
+// This file shows the contents of a particular add by fetching it from database using add's id.
+
 import React from "react";
 import "./productDetails.css";
 import buyImage from "./buyDefaultImage.jpg"
 import { useState, useEffect } from "react";
 import axios from 'axios';
-
-/* To-Do
-
-*/
 
 const port = process.env.PORT || 4000;
 let url = 'http://localhost:';
@@ -34,7 +33,7 @@ function ProductDetails({ match }) {
 
   return (
     <div>{Object.keys(add).length === 0 ? (
-      // <p>Loading...</p>
+      // placeholder if the contents are yet to load
       <div className="placeholder container-fluid products">
       <div className="placeholder row">
         <div className="placeholder col-md-6 pls">
@@ -62,6 +61,7 @@ function ProductDetails({ match }) {
       </div>
     </div>
     ) : (
+      // If the add is successfully fetched
     <div className="container-fluid products">
       <div className="row">
         <div className="col-md-6 leftSection">
@@ -77,11 +77,11 @@ function ProductDetails({ match }) {
                 </div>)}
               </div>
               <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span className="carousel-control-prev-icon" style={{backgroundColor: "black"}} aria-hidden="true"></span>
                 <span className="visually-hidden">Previous</span>
               </button>
               <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                <span className="carousel-control-next-icon" style={{backgroundColor: "black"}} aria-hidden="true"></span>
                 <span className="visually-hidden">Next</span>
               </button>
             </div>
