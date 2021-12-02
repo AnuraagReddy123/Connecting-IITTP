@@ -16,6 +16,9 @@ const userSchema = new Schema({
         required: true,
     },
     password: String,
+    bill: {
+        type: Number,
+    },
 });
 
 module.exports = userSchema;

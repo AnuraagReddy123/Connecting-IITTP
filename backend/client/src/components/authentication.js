@@ -1,3 +1,8 @@
+
+/*
+  This file is used for sign in and sign up of the user, along with firebase authentication.
+*/
+
 import React, { useState } from "react";
 import SignIn from "./signIn";
 import SignUp from "./signUp";
@@ -6,6 +11,12 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } f
 import { auth } from "./firebase/firebase";
 import { useHistory } from "react-router";
 import axios from "axios";
+
+const port = process.env.PORT || 4000;
+let url = 'http://localhost:';
+if (process.env.NODE_ENV === 'production')
+  url = 'https://save-environment-iittp.herokuapp.com';
+else url = `http://localhost:${port}`;
 
 function Authentication() {
 
@@ -47,16 +58,17 @@ function Authentication() {
       lastName: userData.lastName,
       email: userData.emailId,
       password: userData.password,
+      bill : 0,
     }
     // registration
     try {
-      const response = await axios.post("http://localhost:4000/users/register",user);
+      const response = await axios.post(`${url}/users/register`,user);
       console.log(response);
       try {
         // register the account on firebase
         const response = await createUserWithEmailAndPassword(auth,userData.emailId,userData.password);
         console.log(response);
-        history.push("/home");
+        history.push("/");
       }
       catch(error){
         console.log(error);
@@ -71,7 +83,7 @@ function Authentication() {
     e.preventDefault();
     const promise = await signOut(auth);
     // check if user with given username exists
-    const response = await axios.get("http://localhost:4000/users/findUsername",{params: {username: userData.username}});
+    const response = await axios.get(`${url}/users/findUsername`,{params: {username: userData.username}});
     if(response.data) {
       const user = response.data;
       console.log(user);
@@ -79,7 +91,7 @@ function Authentication() {
       if(user.password === userData.password) {
         //credentials are valid, sign in the user
         const user_credential = await signInWithEmailAndPassword(auth,user.email,user.password);
-        history.push("/home");
+        history.push("/");
       }
       else{
         alert('Invalid password');
@@ -125,7 +137,7 @@ function Authentication() {
       else newValidity["lastName"] = " is-valid";
     }
     if (name === "password") {
-      if (value === "") newValidity["password"] = " is-invalid";
+      if (value.length < 6) newValidity["password"] = " is-invalid";
       else newValidity["password"] = " is-valid";
     }
     if (name === "username") {
@@ -146,7 +158,7 @@ function Authentication() {
         (userData.emailId === "" ||
           userData.firstName === "" ||
           userData.lastName === "" ||
-          userData.password === "" ||
+          userData.password.length < 6 ||
           userData.username === "")) ||
       (otherData.tabs[1] === "active" &&
         (userData.username === "" || userData.password === ""))
@@ -163,7 +175,7 @@ function Authentication() {
     if (userData.lastName === "") newValidity["lastName"] = " is-invalid";
     else newValidity["lastName"] = " is-valid";
 
-    if (userData.password === "") newValidity["password"] = " is-invalid";
+    if (userData.password.length < 6) newValidity["password"] = " is-invalid";
     else newValidity["password"] = " is-valid";
 
     if (userData.username === "") newValidity["username"] = " is-invalid";

@@ -5,25 +5,27 @@ import Homepage from './pages/Homepage/Homepage';
 import { Route, Switch } from 'react-router';
 import BlogPage from './pages/Blog/BlogPage';
 import { BrowserRouter } from 'react-router-dom';
-import Buy from './components/Products/Buy';
-import Sell from './components/Products/Sell';
 import SingleBlog from './pages/Blog/SingleBlog';
 import WriteBlog from './pages/Blog/WriteBlog';
-import Electricity from './pages/Energy/Electricity/Electricity';
+import Electricity from './pages/Energy/Electricity';
 import Shopping from './pages/Shopping/shopping';
 import Travelling from './pages/Travel/travelling';
 import Pwdchange from './components/pwdchange';
-import Userprofile from './components/Userprofile';
+// import Userprofile from './components/Userprofile';
 import Home from './pages/Home/home';
 import Food from './pages/Food/food';
+import Buy from './pages/Buy/buy';
 import { AuthProvider } from './components/firebase/context';
 import SingleShopping from './pages/Shopping/SingleShopping/SingleShopping';
 import SingleFood from './pages/Food/SingleFood/SingleFood';
 import SingleHome from './pages/Home/SingleHome/SingleHome';
-import SingleTravel from './pages/Travel/SingleTravel/SingleTravel';
-
+import ChatbotMain from './pages/Chatbot/ChatbotMain';
+import Sell from './pages/Sell/sell';
+import Profile from './pages/Profile/profile';
+import './App.css'
+import Chatbutton from './pages/Chatbot/Chatbutton';
+import ProductDetails from './components/BuyingCard/productDetails';
 import Accodion from './pages/Accodion/Accodion';
-
 function App() {
   return (
    <AuthProvider>
@@ -39,9 +41,6 @@ function App() {
         <Route path='/authentication'>
           <Authentication />
         </Route>
-        {/* <Route path = '/travelling'>
-          <Travelling />
-        </Route> */}
         <Route path='/electricity'>
           <Electricity />
         </Route>
@@ -58,7 +57,7 @@ function App() {
         <Route path='/singleShopping/:id' component={SingleShopping} />
         <Route path='/singleFood/:id' component={SingleFood}/>
         <Route path='/singleHome/:id' component={SingleHome}/>
-        <Route path='/singleTravel/:id' component={SingleTravel}/>
+        <Route path='/buyingItem/:id' component={ProductDetails}/>
         <Route path='/writeBlog'>
           <WriteBlog />
         </Route>
@@ -75,13 +74,17 @@ function App() {
           <Pwdchange />
         </Route>
         <Route path='/userprofile'>
-          <Userprofile />
+          <Profile />
+        </Route>
+        <Route path='/chatbot'>
+          <ChatbotMain />
         </Route>
         <Route path='/Accodion'>
           <Accodion />
         </Route>
       </Switch>
     </BrowserRouter>
+    <Chatbutton />
   </AuthProvider>
   );
 }

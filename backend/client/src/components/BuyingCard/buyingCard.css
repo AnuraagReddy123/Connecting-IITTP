@@ -1,0 +1,18 @@
+.buyingcard {
+    /* margin-right: 9px; */
+    margin-top: 10px;
+}
+
+.cardImage {
+    height: 20vh;
+    object-fit: contain;
+}
+
+.buyingcard:hover {
+    color: black;
+    box-shadow: 0 4px 8px 0 rgba(32, 30, 30, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.pimg {
+    height: 20vh;
+}
