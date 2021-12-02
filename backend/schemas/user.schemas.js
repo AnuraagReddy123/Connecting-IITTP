@@ -15,7 +15,6 @@ const userSchema = new Schema({
         type: String,
         required: true,
     },
-    password: String,
     bill: {
         type: Number,
     },

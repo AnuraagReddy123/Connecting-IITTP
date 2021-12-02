@@ -19,7 +19,7 @@ if (process.env.NODE_ENV === 'production')
 else url = `http://localhost:${port}`;
 
 function Authentication() {
-  
+
   const history = useHistory();
 
   const initialStateOfUserData = {
@@ -57,7 +57,6 @@ function Authentication() {
       firstName: userData.firstName,
       lastName: userData.lastName,
       email: userData.emailId,
-      password: userData.password,
       bill : 0,
     }
     // registration
