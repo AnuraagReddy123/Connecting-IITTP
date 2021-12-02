@@ -63,6 +63,7 @@ function SignIn(props) {
         Log In with Google
         </button>
       </div>
+      <div className="forgotPassword"><a href="#" className="link-primary" onClick={() => history.push("/pwdchange")}>Forgot Password</a></div>
     </div>
   );
 }
