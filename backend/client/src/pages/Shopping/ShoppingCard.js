@@ -1,3 +1,8 @@
+
+/*
+This component shows details of a particular sub-category of shoping category.
+*/
+
 import React from 'react'
 import CategoryCard from '../../components/categoryCard'
 import shShoppingImage from "./SingleShopping/secondHandShoppingImage.jpg";

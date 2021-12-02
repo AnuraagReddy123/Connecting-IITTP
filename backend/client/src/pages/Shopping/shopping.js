@@ -1,3 +1,11 @@
+
+/*
+  Different ways will be provided to the users for saving the environment while
+  doing shopping along with saving money.
+  This page contains several cards(sub categories of shopping category). 
+  On clicking on any of the sub-category user will redirected to that particular sub-category page.
+*/
+
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import {Link} from "react-router-dom";
