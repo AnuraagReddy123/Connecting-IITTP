@@ -15,6 +15,7 @@ else url = `http://localhost:${port}`;
 function Pwdchange() {
 
     const [email, setEmail] = useState("");
+    const history = useHistory();
     const handleChange = (e) => {
         const { value } = e.target;
         setEmail(value);
@@ -27,6 +28,7 @@ function Pwdchange() {
             sendPasswordResetEmail(auth,userDetails.data.email)
             .then(() => {
                 console.log("email sent successfully");
+                history.push("/");
             })
             .catch((error) => {
                 console.log("An error occurred" + error);
