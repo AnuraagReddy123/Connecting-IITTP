@@ -1,3 +1,4 @@
+// user can see the ads of the products and can contact to the seller using mobile number and address.
 import React, { useState, useEffect } from "react";
 import { Link, BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import BuyingCard from "../../components/BuyingCard/buyingCard";

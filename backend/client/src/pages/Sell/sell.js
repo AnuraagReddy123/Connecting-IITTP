@@ -1,3 +1,5 @@
+//user can post an ad for selling his/her item and specifies its category, title and can add description,
+// photos and price of the item. User can provide his/her address and mobile number for contact
 import React, { useState, useEffect, useContext } from "react";
 import "./sell.css";
 import buyImage from "./defaultImage.PNG"

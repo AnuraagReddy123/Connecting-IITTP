@@ -1,3 +1,4 @@
+// Homepage of the website
 import { AuthContext } from '../../components/firebase/context';
 import React, { useContext } from 'react';
 import './homepage.css';

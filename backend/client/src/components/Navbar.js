@@ -1,3 +1,4 @@
+// Navbar that has all the important links to the pages
 import React, { useContext, useState } from 'react';
 import { AuthContext } from './firebase/context';
 import { auth } from "./firebase/firebase";
