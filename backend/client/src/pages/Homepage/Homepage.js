@@ -1,5 +1,3 @@
-// import {getAuth,onAuthStateChanged} from "firebase/auth";
-// import { useEffect, useState } from "react";
 import { AuthContext } from '../../components/firebase/context';
 import React, { useContext } from 'react';
 import './homepage.css';
@@ -11,7 +9,7 @@ const Homepage = () => {
     // to check wether the user has logged in
     const checkLogin = (e) => {
         if(!user){
-            alert("Login to access");
+            alert("Sign In to access");
             e.preventDefault();
         }
     }
@@ -37,12 +35,13 @@ const Homepage = () => {
                             <h3>Categories</h3>
                             <ul>
                                 <li><a href="/travelling">Travelling</a></li>
-                                <li><a href="/electricity">Electricity</a></li>
+                                <li><a href="/electricity" onClick={checkLogin}>Electricity</a></li>
                                 <li><a href="/food">Food</a></li>
+                                <li><a href="/home">Home</a></li>
                             </ul>
                         </div>
                         <div className="col-md-3 item">
-                            <h3>Categories</h3>
+                            <h3>Products</h3>
                             <ul>
                                 <li><a href="/shopping">Shopping</a></li>
                                 <li><a href="/buy" onClick={checkLogin}>Buy</a></li>
@@ -71,20 +70,16 @@ const Homepage = () => {
                                 </li>
                             </ul>
                         </div>
-                        {/* <div className="col-md-3 item text">
-                            <h3>*.com</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam itaque, distinctio error facilis aliquid ecusandae ipsam vitae omnis quo inventore?</p>
-                        </div> */}
                         <div className="col item social">
                             <a href="#"><i className="bi bi-facebook"></i></a>
                             <a href="#"><i className="bi bi-twitter"></i></a>
                             <a href="#"><i className="bi bi-youtube"></i></a>
                             <a href="#"><i className="bi bi-instagram"></i></a>
                             <a href="#"><i className="bi bi-google"></i></a>
-                            <a href="#"><i className="bi bi-github"></i></a>
+                            <a href="https://github.com/AnuraagReddy123/Save-Environment"><i className="bi bi-github"></i></a>
                         </div>
                     </div>
-                    <p className="copyright">*.com © 2021</p>
+                    <p className="copyright">save-environment-iittp.herokuapp.com © 2021</p>
                 </div>
             </footer>
         </div>

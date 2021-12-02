@@ -1,11 +1,16 @@
+
+/*
+  1. This file is used for showing adds of all the users.
+  2. Initially adds are collected from database and then they are 
+     seperated to different categories and shown on thier respective category.
+*/
+
 import React, { useState, useEffect } from "react";
 import { Link, BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import BuyingCard from "../../components/BuyingCard/buyingCard";
-import ProductDetails from "../../components/BuyingCard/productDetails";
 import axios from 'axios';
 import "./buy.css";
 import { useHistory } from 'react-router';
-import Sell from '../Sell/sell';
 
 /*  TO-DO
     change prodectName to title : Done
@@ -94,7 +99,7 @@ function Buy() {
                   <h4>All</h4>
                   {
                     buyingItems.map((add) => (
-                      <div className="col-md-3"><Link to="/buy/buyingItem" className="buying_card" onClick={() => handleClick(add)}><BuyingCard productDetails = {add}/></Link></div>
+                      <div className="col-md-3"><div className="buying_card" onClick={() => history.push(`/buyingItem/${add._id}`)}><BuyingCard productDetails = {add}/></div></div>
                       ))
                   }
                 </div>
@@ -108,7 +113,7 @@ function Buy() {
                     <h4>Electronics</h4>
                     {
                       buyingItems.filter((i) => i.category === "electronics").map((add) => (
-                        <div className="col-md-3"><Link to="/buy/buyingItem" className="buying_card" onClick={() => handleClick(add)}><BuyingCard productDetails = {add}/></Link></div>
+                        <div className="col-md-3"><div className="buying_card" onClick={() => history.push(`/buyingItem/${add._id}`)}><BuyingCard productDetails = {add}/></div></div>
                         ))
                     }
                   </div>
@@ -122,7 +127,7 @@ function Buy() {
                   <h4>Furniture</h4>
                   {
                     buyingItems.filter((i) => i.category === "furniture").map((add) => (
-                      <div className="col-md-3"><Link to="/buy/buyingItem" className="buying_card" onClick={() => handleClick(add)}><BuyingCard productDetails = {add}/></Link></div>
+                      <div className="col-md-3"><div className="buying_card" onClick={() => history.push(`/buyingItem/${add._id}`)}><BuyingCard productDetails = {add}/></div></div>
                       ))
                   }
                 </div>
@@ -136,7 +141,7 @@ function Buy() {
                   <h4>Books Sports Hobbies</h4>
                   {
                     buyingItems.filter((i) => i.category === "books_sports_hobbies").map((add) => (
-                      <div className="col-md-3"><Link to="/buy/buyingItem" className="buying_card" onClick={() => handleClick(add)}><BuyingCard productDetails = {add}/></Link></div>
+                      <div className="col-md-3"><div className="buying_card" onClick={() => history.push(`/buyingItem/${add._id}`)}><BuyingCard productDetails = {add}/></div></div>
                       ))
                   }
                 </div>
@@ -150,7 +155,7 @@ function Buy() {
                   <h4>Cars & Bikes</h4>
                   {
                     buyingItems.filter((i) => i.category === "cars_bikes").map((add) => (
-                      <div className="col-md-3"><Link to="/buy/buyingItem" className="buying_card" onClick={() => handleClick(add)}><BuyingCard productDetails = {add}/></Link></div>
+                      <div className="col-md-3"><div className="buying_card" onClick={() => history.push(`/buyingItem/${add._id}`)}><BuyingCard productDetails = {add}/></div></div>
                       ))
                   }
                 </div>
@@ -164,7 +169,7 @@ function Buy() {
                   <h4>Fashion</h4>
                   {
                     buyingItems.filter((i) => i.category === "fashion").map((add) => (
-                      <div className="col-md-3"><Link to="/buy/buyingItem" className="buying_card" onClick={() => handleClick(add)}><BuyingCard productDetails = {add}/></Link></div>
+                      <div className="col-md-3"><div className="buying_card" onClick={() => history.push(`/buyingItem/${add._id}`)}><BuyingCard productDetails = {add}/></div></div>
                       ))
                   }
                 </div>
@@ -178,16 +183,11 @@ function Buy() {
                   <h4>Kids & Toys</h4>
                   {
                     buyingItems.filter((i) => i.category === "kids_toys").map((add) => (
-                      <div className="col-md-3"><Link to="/buy/buyingItem" className="buying_card" onClick={() => handleClick(add)}><BuyingCard productDetails = {add}/></Link></div>
+                      <div className="col-md-3"><div className="buying_card" onClick={() => history.push(`/buyingItem/${add._id}`)}><BuyingCard productDetails = {add}/></div></div>
                       ))
                   }
                 </div>
               </div>}
-              />
-              <Route
-                exact
-                path="/buy/buyingItem"
-                render={() => <ProductDetails productDetails={buyingItem}/> }
               />
             </Switch>
           </div>

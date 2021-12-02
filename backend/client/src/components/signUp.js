@@ -1,3 +1,8 @@
+
+/*
+  This component is used for user sign up by taking required inputs from the user along with google authentication.
+*/
+
 import React from "react";
 import { useHistory } from "react-router";
 import "./signUp.css";
