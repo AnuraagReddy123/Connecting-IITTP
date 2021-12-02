@@ -21,7 +21,7 @@
 }
 
 .inputImages {
-    max-height: 40vh;
+    height: 40vh;
     object-fit: contain;
 }
 

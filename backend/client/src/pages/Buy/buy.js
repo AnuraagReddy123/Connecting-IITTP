@@ -1,3 +1,10 @@
+
+/*
+  1. This file is used for showing adds of all the users.
+  2. Initially adds are collected from database and then they are 
+     seperated to different categories and shown on thier respective category.
+*/
+
 import React, { useState, useEffect } from "react";
 import { Link, BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import BuyingCard from "../../components/BuyingCard/buyingCard";

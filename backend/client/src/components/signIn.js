@@ -1,3 +1,8 @@
+
+/*
+  This component is used for user sign in by taking required inputs from the user along with google authentication.
+*/
+
 import React, { useState } from "react";
 import { useHistory } from "react-router";
 import "./signIn.css";
