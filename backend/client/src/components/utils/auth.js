@@ -34,6 +34,11 @@ export const signInWithGoogle = async (history) => {
         // if user with given email exists
         if(response.data) {
             alert("Email exists with another username");
+            deleteUser(auth.currentUser)
+            .then(() => {
+                console.log("User deleted successfully");
+            })
+            .catch((error) => console.log(error));
         }
         else{
             // registration
@@ -43,7 +48,6 @@ export const signInWithGoogle = async (history) => {
                     firstName: names[0],
                     lastName: names[1],
                     email: email,
-                    password: "",
                     bill : 0,
                 });
                 console.log(response);
