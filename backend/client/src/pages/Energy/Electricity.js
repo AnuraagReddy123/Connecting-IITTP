@@ -1,5 +1,5 @@
 import { AuthContext } from '../../components/firebase/context';
-import { useContext, useState, useEffect } from "react";
+import { useContext, useState } from "react";
 import axios from 'axios';
 import "./electricity.css";
 const Electricity = () => {
@@ -8,31 +8,29 @@ const Electricity = () => {
 
     const [bill, setBill] = useState();
 
-    const [prevBill, setPrevBill] = useState();
-
-    const getBill = () =>{
-        setPrevBill(user.bill);
-        console.log(user.bill);
-    }
-
     const port = process.env.PORT || 4000;
     let url = 'http://localhost:';
     if (process.env.NODE_ENV === 'production')
         url = 'https://save-environment-iittp.herokuapp.com';
     else url = `http://localhost:${port}`;
 
-
+    // changing the state
     const handleChange = (e) => {
         setBill(e.target.value);
     }
 
+    //saving the new bill
     const handleSave = (e) => {
         e.preventDefault();
         axios
-            .post(`${url}/users/updateUser/${user._id}`, bill)
+            .post(`${url}/users/updateUser/${user._id}`, {
+                bill:bill
+            })
             .then((res) => console.log(res.data))
             .then(() => {
+                console.log(bill);
                 setBill(bill);
+                window.location.reload();
                 alert("bill saved successfully");
             })
             .catch((error) => console.log(error));
@@ -51,7 +49,7 @@ const Electricity = () => {
                         <div class="card-body">
                             <form action="">
                                 <label htmlFor="" className="form-label">New Electricity Bill : </label>
-                                <input type="text" className="form-control" onChange={handleChange} placeholder="Enter new electricity bill" />
+                                <input required type="text" className="form-control" onChange={handleChange} placeholder="Enter new electricity bill" />
                                 <button type="submit" class="btn btn-primary mt-2 py-1" onClick={handleSave}>Save</button>
                             </form>
                         </div>

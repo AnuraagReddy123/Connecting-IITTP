@@ -72,7 +72,7 @@ const Navbar = () => {
                 {!user ? (
                     <div className="d-flex justify-content-end /*invisible*/">
                         <a href="/authentication" class="btn btn-outline-primary btn-sm mx-2" role="button">Sign In</a>
-                        <span id="span1" className="text-white fs-5">/</span>
+                        <span id="span1">/</span>
                         <a href="/authentication" class="btn btn-outline-primary btn-sm mx-2 me-3" role="button">Sign Up</a>
                     </div>) : (<div>
                         <button type="button" class="btn btn-outline-primary btn-sm mx-2" onClick = {logout}>Logout</button>

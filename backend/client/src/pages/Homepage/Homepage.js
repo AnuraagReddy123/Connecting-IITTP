@@ -1,5 +1,3 @@
-// import {getAuth,onAuthStateChanged} from "firebase/auth";
-// import { useEffect, useState } from "react";
 import { AuthContext } from '../../components/firebase/context';
 import React, { useContext } from 'react';
 import './homepage.css';
@@ -39,10 +37,11 @@ const Homepage = () => {
                                 <li><a href="/travelling">Travelling</a></li>
                                 <li><a href="/electricity" onClick={checkLogin}>Electricity</a></li>
                                 <li><a href="/food">Food</a></li>
+                                <li><a href="/home">Home</a></li>
                             </ul>
                         </div>
                         <div className="col-md-3 item">
-                            <h3>Categories</h3>
+                            <h3>Products</h3>
                             <ul>
                                 <li><a href="/shopping">Shopping</a></li>
                                 <li><a href="/buy" onClick={checkLogin}>Buy</a></li>
