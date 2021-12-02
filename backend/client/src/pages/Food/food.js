@@ -1,9 +1,9 @@
+// component for displaying a single food category page
 import React, { useEffect, useState } from "react";
 import {Link} from "react-router-dom";
 import "./food.css"
 import axios from "axios";
 import FoodCard from "./FoodCard";
-// component for displaying a single food category page
 
 const port = process.env.PORT || 4000;
 let url = 'http://localhost:';

@@ -1,3 +1,5 @@
+// here we take the distance travelled by the user as input and 
+// show him/her how much he/she has saved using a particular vehicle
 import React from "react";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import CategoryCard from "../../components/categoryCard";
