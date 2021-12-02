@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const BuyModel = require('../models/buy.model');
+const BuyModel = require('../schemas/buy.model');
 
 router.route("/").get((request,response) => {
     BuyModel.find((error,buyItems) => {
