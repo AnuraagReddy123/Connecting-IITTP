@@ -25,7 +25,7 @@ import Profile from './pages/Profile/profile';
 import './App.css'
 import Chatbutton from './pages/Chatbot/Chatbutton';
 import ProductDetails from './components/BuyingCard/productDetails';
-
+import Accodion from './pages/Accodion/Accodion';
 function App() {
   return (
    <AuthProvider>
@@ -78,6 +78,9 @@ function App() {
         </Route>
         <Route path='/chatbot'>
           <ChatbotMain />
+        </Route>
+        <Route path='/Accodion'>
+          <Accodion />
         </Route>
       </Switch>
     </BrowserRouter>
