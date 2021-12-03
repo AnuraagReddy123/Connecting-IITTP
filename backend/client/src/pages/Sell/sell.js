@@ -134,9 +134,9 @@ function Sell() {
       console.log(newSellItem);
       axios.post(`${url}/buyItems`, newSellItem)
       .then(() => {
-        history.push("/sell");
-        setSellItem(initialSellItem);
         toast('Your Add is added to Buy page...');
+        setSellItem(initialSellItem);
+        
       })
       .catch(error => console.log(error));
     }
