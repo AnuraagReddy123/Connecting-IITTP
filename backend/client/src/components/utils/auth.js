@@ -2,6 +2,11 @@ import { deleteUser, GoogleAuthProvider, signInWithPopup, signOut } from "@fireb
 import axios from "axios";
 import { auth } from "../firebase/firebase";
 
+const port = process.env.PORT || 4000;
+let url = 'http://localhost:';
+if (process.env.NODE_ENV === 'production')
+  url = 'https://save-environment-iittp.herokuapp.com';
+else url = `http://localhost:${port}`;
 const provider = new GoogleAuthProvider();
 
 export const signInWithGoogle = async (history) => {
@@ -13,7 +18,7 @@ export const signInWithGoogle = async (history) => {
     const names = user.displayName.split(' ');
     const email = user.email;
     // check if user with given username exists
-    const response = await axios.get("http://localhost:4000/users/findUsername",{params: {username: username}});
+    const response = await axios.get(`${url}/users/findUsername`,{params: {username: username}});
     // if a user with given username exists
     if(response.data){
         const user_username = response.data;
@@ -30,7 +35,7 @@ export const signInWithGoogle = async (history) => {
         }
     }
     else{
-        const response = await axios.get("http://localhost:4000/users/findEmail",{params: {email: email}});
+        const response = await axios.get(`${url}/users/findEmail`,{params: {email: email}});
         // if user with given email exists
         if(response.data) {
             alert("Email exists with another username");
@@ -43,7 +48,7 @@ export const signInWithGoogle = async (history) => {
         else{
             // registration
             try {
-                const response = await axios.post("http://localhost:4000/users/register",{
+                const response = await axios.post(`${url}/users/register`,{
                     username: username,
                     firstName: names[0],
                     lastName: names[1],
