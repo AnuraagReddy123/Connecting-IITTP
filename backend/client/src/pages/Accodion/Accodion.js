@@ -6,8 +6,8 @@ import Myaccodion from './Myaccodion';
 const Accodion = () =>{
     const [data, setData] = useState(questions);  
     return (
-        <>
-            <section className = "main-block">
+        <div className="accordian">
+            <section className = "main-block accMainBlock">
                 <h1 classname="faqheading"> FAQ </h1>
             {
                 data.map((curElem) => {
@@ -16,7 +16,7 @@ const Accodion = () =>{
                 })
             }
             </section>
-        </>
+        </div>
     )
 }
 
