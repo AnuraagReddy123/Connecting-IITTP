@@ -32,7 +32,7 @@ export default function BlogPost() {
         return (
           <Link
             to={`/singleBlog/${blog._id}`}
-            className="singleB"
+            className={classes.singleB}
           >
             <BlogCard blog={blog} />
           </Link>
