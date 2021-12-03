@@ -3,3 +3,8 @@
   flex-wrap: wrap;
   margin-top: 20px;
 }
+
+.singleB {
+  text-decoration: 'none';
+  color: 'inherit';
+}

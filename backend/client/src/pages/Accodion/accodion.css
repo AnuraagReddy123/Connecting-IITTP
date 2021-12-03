@@ -1,16 +1,16 @@
-*{
+.accordian {
     margin: 0;
     padding: 0%;
     box-sizing: border-box;
 }
-body{
+/* body{
     width: 100%;
     height: 100vh;
     display:flex;
     justify-content:center;
-}
-.main-block{
-    margin-top: 0;
+} */
+.accMainBlock{
+    margin-left: 25vw;
      width: 46vw; 
     padding: 50px;
     background-color: rgb(255, 255, 255);
@@ -20,7 +20,7 @@ body{
       text-align: center;
       justify-content: center;
 }
-.main-block h1{
+.accMainBlock h1{
     font-size: 3rem;
     margin: 2rem 0rem;
 }

@@ -32,7 +32,7 @@ export default function BlogPost() {
         return (
           <Link
             to={`/singleBlog/${blog._id}`}
-            style={{ textDecoration: 'none', color: 'inherit' }}
+            className="singleB"
           >
             <BlogCard blog={blog} />
           </Link>
