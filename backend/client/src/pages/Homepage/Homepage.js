@@ -64,10 +64,10 @@ const Homepage = () => {
                                     <a href="/">Team</a>
                                 </li>
                                 <li>
-                                    <a href="/">FAQ</a>
+                                    <a href="/Accodion">FAQ</a>
                                 </li>
                                 <li>
-                                    <a href="/">Feedback</a>
+                                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSciAxBIuRdstl0GMGJ919t9HYif4Trn3hzBoe0nfFWEDeXvzg/viewform?usp=sf_link">Feedback</a>
                                 </li>
                             </ul>
                         </div>
