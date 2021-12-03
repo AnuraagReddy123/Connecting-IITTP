@@ -15,18 +15,6 @@ router.get('/',(req,res) => {
     });
 });
 
-// add the user to the database
-router.post('/saveUser',(req,res) => {
-    const user = new User(req.body);
-    user.save()
-    .then((_user) => {
-        res.status(200).json({'user': 'user added successfully'});
-    })
-    .catch((_error) => {
-        res.status(400).send('adding new user failed');
-    })
-});
-
 // find a user by username
 router.get('/findUsername',async (req,res) => {
     const user = await User.findOne({username: req.query.username}).exec();
