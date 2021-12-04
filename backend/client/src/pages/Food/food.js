@@ -39,8 +39,8 @@ function Food() {
                 </div>
               </nav>
               <Link
+                className="foodCardLink"
                 to={`/singleFood/${card._id}`}
-                style={{ textDecoration: 'none', color: 'inherit' }}
               >
                 <FoodCard card={card}/>
               </Link>

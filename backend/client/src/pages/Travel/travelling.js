@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import CategoryCard from "../../components/categoryCard";
 import "./travelling.css";
 import Vehicle from "./Vehicle/vehicles.js";
-import vehicleImage from "./Vehicle/travelling.jpg";
+import vehicleImage from "./Vehicle/travelling.png";
 
 
 function Travelling() {

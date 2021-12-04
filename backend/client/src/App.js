@@ -11,7 +11,6 @@ import Electricity from './pages/Energy/Electricity';
 import Shopping from './pages/Shopping/shopping';
 import Travelling from './pages/Travel/travelling';
 import Pwdchange from './components/pwdchange';
-// import Userprofile from './components/Userprofile';
 import Home from './pages/Home/home';
 import Food from './pages/Food/food';
 import Buy from './pages/Buy/buy';

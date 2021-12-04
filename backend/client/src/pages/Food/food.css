@@ -26,3 +26,8 @@
 .card1 {
     cursor: pointer;
 }
+
+.foodCardLink {
+    text-decoration: none; 
+    color: inherit;
+}

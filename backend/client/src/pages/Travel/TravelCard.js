@@ -1,6 +1,6 @@
 import React from 'react'
 import CategoryCard from '../../components/categoryCard'
-import travelImage from "./vechile/travelling.jpg"
+import travelImage from "./Vechile/travelling.png"
 
 const FoodCard = (props) => {
     return (

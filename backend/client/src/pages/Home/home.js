@@ -46,8 +46,8 @@ function Home() {
                 </div>
               </nav>
               <Link
+                className="homeCardLink"
                 to={`/singleHome/${card._id}`}
-                style={{ textDecoration: 'none', color: 'inherit' }}
               >
                 <HomeCard card={card}/>
               </Link>

@@ -24,7 +24,6 @@ toast.configure();
 
 function Sell() {
   const { user } = useContext(AuthContext);
-  // console.log(user);
 
   const initialSellItem = {
     title: "",
@@ -38,7 +37,6 @@ function Sell() {
     image: [],
   };
 
-  // console.log(initialSellItem);
 
   const [sellItem, setSellItem] = useState(initialSellItem);
   const [validity, setValidity] = useState(initialSellItem);
@@ -49,18 +47,15 @@ function Sell() {
     const getImage = async () => {
       const f = file[file.length-1];
       if (f) {
-        console.log(f);
         const data = new FormData();
         data.append('name', f.name);
         data.append('file', f);
 
         const image = await axios.post(`${url}/files/uploadImage`, data); // upload the image to the database
-        console.log(image.data);
         
         const newSellItem = JSON.parse(JSON.stringify(sellItem));
         newSellItem.image.push(image.data);
         setSellItem(newSellItem);
-        console.log(sellItem);
       }
   };
   getImage();
@@ -131,12 +126,11 @@ function Sell() {
       newSellItem.name = user.firstName + " " + user.lastName;
       newSellItem.username = user.username;
 
-      console.log(newSellItem);
       axios.post(`${url}/buyItems`, newSellItem)
       .then(() => {
         toast('Your Add is added to Buy page...');
         setSellItem(initialSellItem);
-        
+        history.push("/");
       })
       .catch(error => console.log(error));
     }
@@ -213,11 +207,11 @@ function Sell() {
                 </div>)}
               </div>
               <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                <span className="carousel-control-prev-icon" style={{backgroundColor: "black"}} aria-hidden="true"></span>
+                <span className="carousel-control-prev-icon carIcon" aria-hidden="true"></span>
                 <span className="visually-hidden">Previous</span>
               </button>
               <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                <span className="carousel-control-next-icon" style={{backgroundColor: "black"}} aria-hidden="true"></span>
+                <span className="carousel-control-next-icon carIcon" aria-hidden="true"></span>
                 <span className="visually-hidden">Next</span>
               </button>
             </div>

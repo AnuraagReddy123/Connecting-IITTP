@@ -46,7 +46,7 @@ const SingleHome = ({match}) => {
               <div className="col-md-7">
                 <div className="card shadow rounded compostingTips">
                   <div className="card-body">
-                    <h4 style={{color: "green", fontFamily: "monospace"}}>Tips</h4>
+                    <h4 className="homeTipsColor">Tips</h4>
                     <hr></hr>
                     <ul>
                         {card && card.tips.map((tip) => {
@@ -60,7 +60,7 @@ const SingleHome = ({match}) => {
               <div className="col-md-5">
                 <div className="card shadow rounded compostingImpacts">
                   <div className="card-body">
-                    <h4 style={{color: "blue", fontFamily: "monospace"}}>Benefits</h4>
+                    <h4 className="homeBenefitsColor">Benefits</h4>
                     <hr></hr>
                     <ul>
                         {card && card.impacts.map((impact) => {
