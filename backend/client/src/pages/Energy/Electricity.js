@@ -1,5 +1,6 @@
 // Keep track of the electricity bill of the user so that user can compare his/her previous bill
 // and has tips to reduce electricity use and impacts on environment
+
 import { AuthContext } from '../../components/firebase/context';
 import { useContext, useState } from "react";
 import axios from 'axios';
@@ -60,7 +61,7 @@ const Electricity = () => {
                         <p>{`Your previous bill is : Rs. ${user.bill}`}</p>
                     </div>
                     <div className="container">
-                        <h4 style={{ color: "green", fontFamily: "monospace" }}>Tips</h4>
+                        <h4 className="tipsColor">Tips</h4>
                         <hr></hr>
                         <ul>
                             <li><p className="electricityContent">Install solar panels : If you install solar panels at your home and remain connected to the electrical grid, you can be your own power plant and contribute to the grid. Any excess energy is exported from your home to the electric grid, reducing the need for electricity produced by your utility and cutting down on pollution from your local power plant.</p></li>
@@ -69,7 +70,7 @@ const Electricity = () => {
                             <li><p className="electricityContent">More use of ceiling fans : Air conditioner units are among the top energy consumers of any household. By installing ceiling fans, or using the ones you have can help circulate air throughout your home. This will ease the job of your air conditioner.</p></li>
                             <li><p className="electricityContent">Use LED Lights : LED lights can reduce your lighting energy consumption by 90 percent. This can save you quite a bit of money long-term! Traditional incandescent light bulbs consume an excessive amount of electricity and must be replaced more often than their energy-efficient alternatives.</p></li>
                         </ul>
-                        <h4 style={{ color: "red", fontFamily: "monospace" }}>Impacts</h4>
+                        <h4 className="impactsColor">Impacts</h4>
                         <hr></hr>
                         <ul>
                             <li><p className="electricityContent">Emissions of greenhouse gases and other air pollutants, especially when a fuel is burned.</p></li>

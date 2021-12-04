@@ -11,6 +11,16 @@
     
 }
 
+.homeTipsColor {
+    color: green;
+    font-family: monospace;
+}
+
+.homeBenefitsColor {
+    color: blue;
+    font-family: monospace;
+}
+
 .compostingTips{
     height: 81vh;
     overflow-y: auto;

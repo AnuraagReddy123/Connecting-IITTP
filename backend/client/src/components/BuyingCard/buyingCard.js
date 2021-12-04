@@ -3,7 +3,6 @@
  so that multiple such card can be shown on the buy page. */
 
 import React from "react";
-import buyImage from "./buyDefaultImage.jpg"
 import "./buyingCard.css";
 
 function BuyingCard(props) {

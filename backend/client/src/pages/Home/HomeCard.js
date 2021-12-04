@@ -1,6 +1,6 @@
 import React from 'react';
 import './home.css';
-import compostingImage from "./Composting/compostingImage.jpg";
+import compostingImage from "./compostingImage.jpg";
 import CategoryCard from '../../components/categoryCard';
 
 const HomeCard = (props) => {

@@ -1,11 +1,9 @@
 // shows the profile of the user, blogs posted by user and ads of the products he/she wants sell
 import React, { useState, useEffect, useContext } from "react";
-import { Link, Switch, Route, BrowserRouter as Router } from "react-router-dom";
 import Image from "./default.jpg";
 import axios from "axios";
 import "./profile.css";
 import BuyingCard from "../../components/BuyingCard/buyingCard";
-import ProductDetails from "../../components/BuyingCard/productDetails";
 import { AuthContext } from '../../components/firebase/context';
 import BlogCard from "../../components/BlogCard/BlogCard";
 import { useHistory } from 'react-router';
@@ -13,7 +11,6 @@ import { useHistory } from 'react-router';
 function Profile() {
 
   let { user } = useContext(AuthContext);
-  console.log(user);
   if(!user)
     user = {username: "", firstName: "", lastName: "", email: "", password: ""};
 
@@ -47,7 +44,6 @@ function Profile() {
           let arr = [];
           arr = res.data;
           setBlogs(arr.filter((i) => i.username === user.username));
-          console.log(blogs);
         })
         .catch((err) => console.log(err));
     };
@@ -128,9 +124,11 @@ function Profile() {
                   <div className="container-fluid" style={{display: tabContent[1]}}>
                     <div className="row yourAdds">
                       {userAdds.map((add) => (
-                        <div className="userAddsList"  onClick={() => history.push(`/buyingItem/${add._id}`)}>
+                        <div className="userAddsList">
+                        <div onClick={() => history.push(`/buyingItem/${add._id}`)}>
                               <BuyingCard productDetails={add} />
-                            <div className="col-6 btn btn-sm btn-danger del" data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={() => setAdd(add)}>Delete</div>
+                        </div>
+                        <div className="col-6 btn btn-sm btn-danger del" data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={() => setAdd(add)}>Delete</div>
                         </div>
                       ))}
                     </div>

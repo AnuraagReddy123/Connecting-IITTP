@@ -15,7 +15,6 @@ import { useHistory } from 'react-router';
 function Buy() {
 
   const [buyingItems, setBuyingItems] = useState([]);
-  const [buyingItem, setBuyingItem] = useState({ title: "", category: "", description: "", price: "", address: "", mobileNumber: "", image: "", name: "", username: ""});
   const history = useHistory();
 
   const port = process.env.PORT || 4000;
@@ -33,10 +32,6 @@ function Buy() {
         
       })
   });
-
-  const handleClick = (e) => {
-    setBuyingItem(e);
-  }
 
   const handleSell = (e) => {
     history.push("/sell");

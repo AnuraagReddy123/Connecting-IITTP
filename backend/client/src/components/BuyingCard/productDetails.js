@@ -15,24 +15,22 @@ else url = `http://localhost:${port}`;
  
 function ProductDetails({ match }) {
   const [add, setAdd] = useState({});
-  console.log("param", match);
   useEffect(() => {
     const fetchBlog = () => {
       axios
         .get(`${url}/buyItems/${match.params.id}`)
         .then((res) => {
           setAdd(res.data);
-          console.log("hi", add);
         })
         .catch((err) => {
-          console.log("hello",err);
+          console.log(err);
         });
     };
     fetchBlog();
-  }, []);
+  });
 
   return (
-    <div>{Object.keys(add).length === 0 ? (
+    <div>{(!add || Object.keys(add).length === 0) ? (
       // placeholder if the contents are yet to load
       <div className="placeholder container-fluid products">
       <div className="placeholder row">
@@ -73,15 +71,15 @@ function ProductDetails({ match }) {
               </div>
                 {
                   add.image.filter((i) => add.image.indexOf(i) !== 0).map((imageUrl) => <div className="carousel-item">
-                  <img src={imageUrl} className="d-block w-100 addImage" alt={buyImage}/>
+                  <img src={imageUrl} key={imageUrl} className="d-block w-100 addImage" alt={buyImage}/>
                 </div>)}
               </div>
               <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                <span className="carousel-control-prev-icon" style={{backgroundColor: "black"}} aria-hidden="true"></span>
+                <span className="carousel-control-prev-icon carIcon" aria-hidden="true"></span>
                 <span className="visually-hidden">Previous</span>
               </button>
               <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                <span className="carousel-control-next-icon" style={{backgroundColor: "black"}} aria-hidden="true"></span>
+                <span className="carousel-control-next-icon carIcon" aria-hidden="true"></span>
                 <span className="visually-hidden">Next</span>
               </button>
             </div>

@@ -1,6 +1,6 @@
 import React from 'react'
 import CategoryCard from '../../components/categoryCard'
-import foodWasteImage from "./ReduceFoodWasteAtHome/foodWasteImage.jpg"
+import foodWasteImage from "./foodWaste.jpg"
 
 const FoodCard = (props) => {
     return (
